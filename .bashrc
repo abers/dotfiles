@@ -170,3 +170,6 @@ tt
 alias nethack="gnome-terminal --full-screen"
 
 export XDG_CURRENT_DESKTOP=KDE
+
+# Automatically fix directory name types when changing directory
+shopt -s cdspell 
