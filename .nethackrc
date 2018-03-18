@@ -1,0 +1,55 @@
+OPTIONS=boulder:0
+OPTIONS=catname:Tibbles, dogname:Jaws, name:Abers, fruit:piece of stilton
+#OPTIONS=DECgraphics:TRUE
+OPTIONS=IBMgraphics
+ 
+OPTIONS=hilite_pet
+OPTIONS=!autopickup
+OPTIONS=autoquiver
+OPTIONS=lit_corridor
+OPTIONS=time
+OPTIONS=color
+OPTIONS=autodig
+OPTIONS=hilite_pile
+OPTIONS=statushilites
+OPTIONS=altmeta
+
+OPTIONS=menucolors
+
+MENUCOLOR=" gold piece"=yellow
+
+MENUCOLOR=" blessed"=green
+MENUCOLOR=" uncursed"=cyan
+MENUCOLOR=" cursed"=red
+
+MENUCOLOR=" holy"=green
+MENUCOLOR=" unholy"=red
+
+MENUCOLOR=" worn"=magenta&bold
+MENUCOLOR=" blessed .* worn"=green&bold
+MENUCOLOR=" cursed .* worn"=red&bold
+
+MENUCOLOR=" quiver"=magenta&bold
+MENUCOLOR=" blessed .* quiver"=green&bold
+MENUCOLOR=" cursed .* quiver"=red&bold
+
+MENUCOLOR=" hand"=magenta&bold   
+MENUCOLOR=" blessed .* hand"=green&bold
+MENUCOLOR=" cursed .* hand"=red&bold
+
+MENUCOLOR=" \(wielded\)"=magenta&bold
+MENUCOLOR=" blessed .* \(wielded\)"=green&bold
+MENUCOLOR=" cursed .* \(wielded\)"=red&bold
+
+MENUCOLOR=" named B .* worn"=green&bold    
+MENUCOLOR=" named B .* hand"=green&bold
+
+MENUCOLOR=" wand .* cancellation"=orange&bold
+MENUCOLOR=" bag .* tricks"=orange&bold
+
+MENUCOLOR="unpaid"=white&bold
+
+#MENUCOLOR="wand .* wishing.*"=magenta
+#MENUCOLOR="wand .* polymorph.*"=magenta
+MENUCOLOR=" worthless "=blue
+
