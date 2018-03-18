@@ -1,7 +1,14 @@
+# Tab completion
 TAB: menu-complete
 "\e[Z": menu-complete-backward
+# Tab to match
 set menu-complete-display-prefix on
+# Single tab to show all available choices
 set show-all-if-ambiguous on
+# Enable colors for filenames and directories
 set colored-stats on
+# Display matching prefix when displaying completion choices
+set colored-completion-prefix on
+# Ignore case when tab completing
 set completion-ignore-case on
 
