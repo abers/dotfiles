@@ -59,7 +59,7 @@ nnoremap <space> za
 
 "}}}
 
-"Pencil {{{
+"Pencil & Markdown {{{
 let g:pandoc#folding#fdc = 0
 
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
@@ -106,6 +106,29 @@ let g:pymode_rope_rename_bind = '<leader>pr'
 let g:pymode_rope_organize_imports_bind ='<leader>pi'
 
 let g:pymode_syntax_print_as_function = 0
+
+" }}} 
+
+" VimWiki {{{
+" default vimwiki is <leader>ww
+
+" Set VimWiki to use pandoc highlighting
+" & set pandoc to recognise python code blocks
+au FileType vimwiki set syntax=markdown.pandoc
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+
+let g:vimwiki_list = [
+                        \{'path': '~/vimwiki/',
+                        \ 'syntax': 'markdown', 'ext': '.md',
+                        \ 'python': 'python'},
+                        \{'path': '~/zettel/',
+                        \ 'syntax': 'markdown', 'ext': '.md'},
+                    \]
+
+"Hotkey for zettel
+nmap <leader>z 2<leader>ww
+
+let g:vimwiki_use_mouse =1
 
 " }}}
 

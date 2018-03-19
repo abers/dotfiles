@@ -281,14 +281,24 @@ bindsym XF86AudioPrev exec $prev
 # }}}}
 
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
+# Applications to workspaces
 assign [class="Thunderbird"] $ws10
 assign [class="vlc"] $ws7
 assign [class="Totem"] $ws7
 assign [class="Rambox"] $ws10
-for_window [class="Thunderbird"] layout tabbed
 assign [class="Skype"] $ws10
 assign [title=".*ncmpcpp.*"] $ws8
+assign [class="Firefox"] $ws3
+
+# Layouts
+for_window [class="Rambox"] layout tabbed
+
+# Float
+for_window [class="Artha"] floating enable
+
+# Workspaces to monitors
 workspace $ws10 output DVI-1
+workspace $ws3 output DVI-0
 # }}}}
 
 ###--- STARTUP ---### {{{{
@@ -302,6 +312,8 @@ exec --no-startup-id mpd
 exec --no-startup-id mpdscribble
 exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-cli
+exec --no-startup-id "setxkbmap -option 'grp:win_space_toggle'"
+exec --no-startup-id artha 
 
 exec --no-startup-id /home/alasdair/Applications/Rambox-0.5.14/rambox
 exec --no-startup-id thunderbird
