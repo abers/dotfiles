@@ -152,7 +152,7 @@ alias tu='task +Urgent'
 
 alias tt='ts;clear;ti;tu;t due.before:monday'
 
-alias shutd='sudo shutdown -h now'
+alias shutd='shutdown -h now'
 
 # PS1
 
@@ -171,3 +171,5 @@ alias nethack="gnome-terminal --full-screen"
 
 # Automatically fix directory name types when changing directory
 shopt -s cdspell 
+
+export XDG_CURRENT_DESKTOP=KDE

@@ -8,6 +8,7 @@ set modelines=1
 
 "Theme {{{
 set termguicolors
+" need to get gray relative numbers to work with gruvbox
 colorscheme 256-grayvim
 set background=dark
 let g:gruvbox_italics=1
@@ -60,8 +61,6 @@ nnoremap <space> za
 "}}}
 
 "Pencil & Markdown {{{
-let g:pandoc#folding#fdc = 0
-
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
 augroup pencil
@@ -74,40 +73,17 @@ augroup END
 map <leader>f :Goyo 120<CR>
 " }}}
 
+" Pandoc {{{
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown = 1
+au FileType markdown call pandoc#folding#Init()
+let g:pandoc#folding#fold_yaml=1
+" }}}
+
+
 "Tagbar {{{
 nmap <F8> :TagbarToggle<CR>
 " }}}
-
-"Python {{{
-let g:pymode = 1
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options = 1
-let g:pymode_options_max_line_length = 79
-let g:pymode_options_colorcolumn = 1
-
-let g:pymode_quickfix_minheight = 3
-let g:pymode_quickfix_maxheight = 6
-
-let g:pymode_python = 'python3'
-
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-
-let g:pymode_lint_todo_symbol = 'WW'                                        
-let g:pymode_lint_comment_symbol = 'CC'                                     
-let g:pymode_lint_visual_symbol = 'RR'                                      
-let g:pymode_lint_error_symbol = 'EE'                                       
-let g:pymode_lint_info_symbol = 'II'                                        
-let g:pymode_lint_pyflakes_symbol = 'FF'
-
-let g:pymode_rope = 1
-
-let g:pymode_rope_goto_definition_bind = '<leader>pg'
-let g:pymode_rope_rename_bind = '<leader>pr'
-let g:pymode_rope_organize_imports_bind ='<leader>pi'
-
-let g:pymode_syntax_print_as_function = 0
-
-" }}} 
 
 " VimWiki {{{
 " default vimwiki is <leader>ww
@@ -115,8 +91,9 @@ let g:pymode_syntax_print_as_function = 0
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
 au FileType vimwiki set syntax=markdown.pandoc
+let g:vimwiki_global_ext= 0
+let g:vimwiki_folding='expr'
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
-
 let g:vimwiki_list = [
                         \{'path': '~/vimwiki/',
                         \ 'syntax': 'markdown', 'ext': '.md',

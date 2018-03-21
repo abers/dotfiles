@@ -1,0 +1,10 @@
+ncmpcpp_directory = ~/.config/ncmpcpp
+user_interface = alternative
+display_bitrate = yes
+external_editor = vim
+use_console_editor = yes
+browser_display_mode = columns
+#below not available in current Ubuntu version (17.10)
+#media_library_albums_split_by_date = no
+ignore_leading_the = yes
+
