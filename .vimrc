@@ -19,6 +19,7 @@ let g:airline_theme='gruvbox'
 " }}}
 
 "Basic settings {{{
+"set cursorline
 set ruler
 set ignorecase
 set smartcase
