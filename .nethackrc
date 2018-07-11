@@ -1,14 +1,17 @@
+OPTIONS=windowtype:tty,toptenwin,hilite_pet,!number_pad
+OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
+OPTIONS=verbose,news
+OPTIONS=pickup_types:$
+OPTIONS=nomail
+OPTIONS=DECgraphics
+
 OPTIONS=boulder:0
 OPTIONS=catname:Tibbles, dogname:Jaws, name:Abers, fruit:piece of stilton
-#OPTIONS=DECgraphics:TRUE
-OPTIONS=IBMgraphics
  
 OPTIONS=hilite_pet
-OPTIONS=!autopickup
 OPTIONS=autoquiver
 OPTIONS=lit_corridor
 OPTIONS=time
-OPTIONS=color
 OPTIONS=autodig
 OPTIONS=hilite_pile
 OPTIONS=statushilites

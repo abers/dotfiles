@@ -167,7 +167,8 @@ alias python=python3
 alias pip=pip3
 tt
 
-alias nethack="gnome-terminal --full-screen"
+#alias nethack="gnome-terminal --full-screen"
+alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 
 # Automatically fix directory name types when changing directory
 shopt -s cdspell 

@@ -1,9 +1,50 @@
 "Standard {{{
-execute pathogen#infect()
 set nocompatible
 syntax on
-filetype plugin indent on
 set modelines=1
+set encoding=utf-8
+" }}}
+
+"Vundle {{{
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'flazz/vim-colorschemes'
+" https://github.com/flazz/vim-colorschemes
+Plugin 'junegunn/fzf.vim'
+"  https://github.com/junegunn/fzf.vim
+Plugin 'junegunn/goyo.vim'
+" https://github.com/junegunn/goyo.vim
+Plugin 'morhetz/gruvbox'
+" https://github.com/morhetz/gruvbox
+Plugin 'davidhalter/jedi-vim'
+" https://github.com/davidhalter/jedi-vim
+Plugin 'junegunn/limelight.vim'
+" https://github.com/junegunn/limelight.vim
+Plugin 'python-mode/python-mode'
+" https://github.com/python-mode/python-mode
+Plugin 'ervandew/supertab'
+" https://github.com/ervandew/supertab
+Plugin 'majutsushi/tagbar'
+" https://github.com/majutsushi/tagbar
+Plugin 'vim-airline/vim-airline'
+" https://github.com/vim-airline/vim-airline
+Plugin 'vim-pandoc/vim-pandoc'
+" https://github.com/vim-pandoc/vim-pandoc
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+" https://github.com/vim-pandoc/vim-pandoc-syntax
+Plugin 'reedes/vim-pencil'
+" https://github.com/reedes/vim-pencil
+Plugin 'vimwiki/vimwiki'
+" https://github.com/vimwiki/vimwiki
+Plugin 'michal-h21/vim-zettel'
+" https://github.com/michal-h21/vim-zettel
+
+call vundle#end()
+filetype plugin indent on
+
 " }}}
 
 "Theme {{{
@@ -41,6 +82,7 @@ set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
 
+
 " save session
 nnoremap <leader>s :mksession<CR>
 " }}}
@@ -53,11 +95,75 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"Buffer switching
+nmap <F9> :bprev<CR>
+nmap <F10> :bnext<CR>
+
+"Toggle relative numbering
+nnoremap <F4> :set relativenumber!<CR>
+
 " Quicker command by removing need for shift
 nnoremap ; :
  
 " Enable folding with the spacebar
 nnoremap <space> za
+nnoremap <S-Space> zR
+
+"}}}
+
+"Python {{{
+au BufNewFile,BufRead *.py
+   \ set autoindent fileformat=unix foldmethod=indent foldlevel=99
+
+"Jedi
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#show_call_signatures = "1"
+
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>R"
+
+"Python-mode
+
+"turn-off rope to prevent jedi conflicts
+let g:pymode_rope = 0
+
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options_max_line_length = 79
+let g:pymode_options_color_column = 1
+
+let g:pymode_python = 'python3'
+
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+
+let g:pymode_motion = 1
+
+let g:pymode_virtualenv = 1
+
+let g:pymode_run = 1
+let g:pymode_run_bind = '<F5>'
+imap <F5> <Esc>:w<CR>!clear;python %<CR>
+
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_breakpoint_cmd = ''
+
+let g:pymode_lint = 1
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_ignore = ["E501"]
+let g:pymode_lint_cwindow = 1
+
+let g:pymode_syntax = 1
+let g:pymode_syntax_slow_sync = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_space_errors = 0
 
 "}}}
 
@@ -80,7 +186,6 @@ let g:pandoc#filetypes#pandoc_markdown = 1
 au FileType markdown call pandoc#folding#Init()
 let g:pandoc#folding#fold_yaml=1
 " }}}
-
 
 "Tagbar {{{
 nmap <F8> :TagbarToggle<CR>
