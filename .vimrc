@@ -12,35 +12,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'flazz/vim-colorschemes'
-" https://github.com/flazz/vim-colorschemes
 Plugin 'junegunn/fzf.vim'
-"  https://github.com/junegunn/fzf.vim
 Plugin 'junegunn/goyo.vim'
-" https://github.com/junegunn/goyo.vim
 Plugin 'morhetz/gruvbox'
-" https://github.com/morhetz/gruvbox
 Plugin 'davidhalter/jedi-vim'
-" https://github.com/davidhalter/jedi-vim
 Plugin 'junegunn/limelight.vim'
-" https://github.com/junegunn/limelight.vim
 Plugin 'python-mode/python-mode'
-" https://github.com/python-mode/python-mode
 Plugin 'ervandew/supertab'
-" https://github.com/ervandew/supertab
 Plugin 'majutsushi/tagbar'
-" https://github.com/majutsushi/tagbar
 Plugin 'vim-airline/vim-airline'
-" https://github.com/vim-airline/vim-airline
 Plugin 'vim-pandoc/vim-pandoc'
-" https://github.com/vim-pandoc/vim-pandoc
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-" https://github.com/vim-pandoc/vim-pandoc-syntax
 Plugin 'reedes/vim-pencil'
-" https://github.com/reedes/vim-pencil
 Plugin 'vimwiki/vimwiki'
-" https://github.com/vimwiki/vimwiki
 Plugin 'michal-h21/vim-zettel'
-" https://github.com/michal-h21/vim-zettel
 
 call vundle#end()
 filetype plugin indent on
@@ -82,7 +67,6 @@ set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
 
-
 " save session
 nnoremap <leader>s :mksession<CR>
 " }}}
@@ -113,7 +97,7 @@ nnoremap <S-Space> zR
 
 "Python {{{
 au BufNewFile,BufRead *.py
-   \ set autoindent fileformat=unix foldmethod=indent foldlevel=99
+   \ set autoindent fileformat=unix foldlevel=99
 
 "Jedi
 let g:jedi#use_splits_not_buffers = "left"
@@ -215,4 +199,8 @@ let g:vimwiki_use_mouse =1
 
 " }}}
 
+"Jedi {{{
+let g:jedi#popup_on_dot = 0
+
+" }}}
 " vim:foldmethod=marker:foldlevel=0
