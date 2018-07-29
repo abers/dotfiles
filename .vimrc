@@ -197,6 +197,9 @@ nmap <leader>z 2<leader>ww
 
 let g:vimwiki_use_mouse =1
 
+let g:zettel_options = [
+                         \{},
+                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"}]
 " }}}
 
 "Jedi {{{
