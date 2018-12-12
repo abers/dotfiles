@@ -38,9 +38,11 @@ set termguicolors
 colorscheme 256-grayvim
 set background=dark
 let g:gruvbox_italics=1
+let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 highlight Comment cterm=italic
 highlight Folded cterm=italic
+highlight SpellBad cterm=underline,bold ctermbg=red
 let g:airline_theme='gruvbox'
 " }}}
 
@@ -153,7 +155,7 @@ let g:pymode_syntax_space_errors = 0
 
 "Pencil & Markdown {{{
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-
+ 
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -187,23 +189,33 @@ let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
 let g:vimwiki_list = [
                         \{'path': '~/vimwiki/',
                         \ 'syntax': 'markdown', 'ext': '.md',
-                        \ 'python': 'python'},
+                        \ 'python': 'python', 'markdown': 'markdown'},
                         \{'path': '~/zettel/',
+                        \ 'syntax': 'markdown', 'ext': '.md'},
+                        \{'path': '~/.disintegration/',
                         \ 'syntax': 'markdown', 'ext': '.md'},
                     \]
 
 "Hotkey for zettel
 nmap <leader>z 2<leader>ww
+nmap <leader>d 3<leader>ww
 
 let g:vimwiki_use_mouse =1
 
 let g:zettel_options = [
                          \{},
-                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"}]
+                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
+                         \{}]
 " }}}
 
 "Jedi {{{
 let g:jedi#popup_on_dot = 0
 
 " }}}
+
+" Spelling & Grammar {{{
+map <F5> :setlocal spell! spelllang=en_gb<CR>
+
+" }}}
+
 " vim:foldmethod=marker:foldlevel=0
