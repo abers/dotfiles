@@ -3,17 +3,16 @@ OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
 OPTIONS=verbose,news
 OPTIONS=pickup_types:$
 OPTIONS=nomail
-OPTIONS=DECgraphics
+#OPTIONS=DECgraphics
+OPTIONS=IBMgraphics
 
 OPTIONS=boulder:0
 OPTIONS=catname:Tibbles, dogname:Jaws, name:Abers, fruit:piece of stilton
  
-OPTIONS=hilite_pet
 OPTIONS=autoquiver
 OPTIONS=lit_corridor
 OPTIONS=time
 OPTIONS=autodig
-OPTIONS=hilite_pile
 OPTIONS=statushilites
 OPTIONS=altmeta
 

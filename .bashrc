@@ -150,7 +150,7 @@ alias tn='task sync;clear;td'
 
 alias tu='task +Urgent'
 
-alias tt='ts;clear;ti;tu;t due.before:monday'
+alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
 
 alias shutd='shutdown -h now'
 
@@ -174,3 +174,5 @@ alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.
 shopt -s cdspell 
 
 export XDG_CURRENT_DESKTOP=KDE
+
+export PATH="~/.local/bin:$PATH"
