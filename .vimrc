@@ -95,6 +95,9 @@ nnoremap ; :
 nnoremap <space> za
 nnoremap <S-Space> zR
 
+" Journal
+nnoremap <leader>j :edit ~/Dropbox/Journal/2019.md<CR>
+
 "}}}
 
 "Python {{{
