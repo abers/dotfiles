@@ -68,6 +68,7 @@ set number relativenumber
 set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
+set clipboard=unnamedplus
 
 " save session
 nnoremap <leader>s :mksession<CR>

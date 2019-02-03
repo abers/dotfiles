@@ -165,7 +165,6 @@ export LS_COLORS
 #export PATH="/home/alasdair/anaconda3/bin:$PATH"
 alias python=python3
 alias pip=pip3
-tt
 
 #alias nethack="gnome-terminal --full-screen"
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
