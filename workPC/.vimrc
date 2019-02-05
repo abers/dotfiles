@@ -33,7 +33,7 @@ filetype plugin indent on
 " }}}
 
 "Theme {{{
-set termguicolors
+"set termguicolors
 " need to get gray relative numbers to work with gruvbox
 colorscheme 256-grayvim
 set background=dark
@@ -42,7 +42,7 @@ let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 highlight Comment cterm=italic
 highlight Folded cterm=italic
-highlight SpellBad cterm=underline,bold ctermbg=red
+"highlight SpellBad cterm=underline,bold ctermbg=red
 let g:airline_theme='gruvbox'
 " }}}
 

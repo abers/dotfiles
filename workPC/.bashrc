@@ -150,9 +150,9 @@ alias tn='task sync;clear;td'
 
 alias tu='task +Urgent'
 
-alias tt='ts;clear;ti;tu;t due.before:monday'
+alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
 
-alias shutd='sudo shutdown -h now'
+alias shutd='shutdown -h now'
 
 # PS1
 
@@ -161,13 +161,15 @@ export PS1="\[\e]0;\w\a\]\n\[$(tput bold)\]\[\e[36m\]\u\[\e[32m\]@\[\e[35m\]\h\[
 LS_COLORS="ow=01;90:di=01;42"
 
 export LS_COLORS
-#. /home/alasdair/anaconda3/etc/profile.d/conda.sh
-#export PATH="/home/alasdair/anaconda3/bin:$PATH"
 alias python=python3
 alias pip=pip3
+
+#alias nethack="gnome-terminal --full-screen"
+alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 
 # Automatically fix directory name types when changing directory
 shopt -s cdspell 
 
+export PATH="~/.local/bin:$PATH"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
