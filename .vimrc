@@ -26,6 +26,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'reedes/vim-pencil'
 Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
+Plugin 'tbabej/taskwiki'
 
 call vundle#end()
 filetype plugin indent on

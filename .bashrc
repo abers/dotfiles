@@ -177,3 +177,4 @@ export XDG_CURRENT_DESKTOP=KDE
 export PATH="~/.local/bin:$PATH"
 
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+clear
