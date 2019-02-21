@@ -72,6 +72,7 @@ setlocal cm=blowfish2
 set clipboard=unnamedplus
 setlocal spell!
 setlocal spell!
+set foldenable
 
 " save session
 nnoremap <leader>s :mksession<CR>
@@ -175,8 +176,10 @@ map <leader>f :Goyo 120<CR>
 
 " Pandoc {{{
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 1
-au FileType markdown call pandoc#folding#Init()
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#folding#mode = ['syntax']
+let g:pandoc#modules#enabled = ["formatting", "folding"]
+let g:pandoc#formatting#mode = "h"
 let g:pandoc#folding#fold_yaml=1
 " }}}
 
@@ -192,6 +195,7 @@ nmap <F8> :TagbarToggle<CR>
 " & set pandoc to recognise python code blocks
 au FileType vimwiki set syntax=vimwiki.markdown
 au FileType vimwiki set nospell
+au FileType vimwiki set foldlevelstart=20
 let g:vimwiki_global_ext= 0
 let g:vimwiki_folding='expr'
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
