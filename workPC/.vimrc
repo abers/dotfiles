@@ -26,6 +26,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'reedes/vim-pencil'
 Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
+Plugin 'tbabej/taskwiki'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +70,9 @@ set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
+setlocal spell!
+setlocal spell!
+set foldenable
 
 " save session
 nnoremap <leader>s :mksession<CR>
@@ -97,7 +101,7 @@ nnoremap <space> za
 nnoremap <S-Space> zR
 
 " Journal
-nnoremap <leader>j :edit ~/Dropbox/Journal/2019.md<CR>
+nnoremap <leader>j :edit ~/Dropbox/personal/journal/2019.md<CR>
 
 "}}}
 
@@ -172,13 +176,16 @@ map <leader>f :Goyo 120<CR>
 
 " Pandoc {{{
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 1
-au FileType markdown call pandoc#folding#Init()
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#folding#mode = ['syntax']
+let g:pandoc#modules#enabled = ["formatting", "folding"]
+let g:pandoc#formatting#mode = "h"
 let g:pandoc#folding#fold_yaml=1
 " }}}
 
 "Tagbar {{{
 nmap <F8> :TagbarToggle<CR>
+
 " }}}
 
 " VimWiki {{{
@@ -186,7 +193,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
-au FileType vimwiki set syntax=markdown.pandoc
+au FileType vimwiki set syntax=vimwiki.markdown
+au FileType vimwiki set nospell
+au FileType vimwiki set foldlevelstart=20
 let g:vimwiki_global_ext= 0
 let g:vimwiki_folding='expr'
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
@@ -210,6 +219,11 @@ let g:zettel_options = [
                          \{},
                          \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
                          \{}]
+" }}}
+
+" TaskWiki {{{
+let g:taskwiki_markup_syntax = 'markdown'
+
 " }}}
 
 "Jedi {{{
