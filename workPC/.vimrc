@@ -182,6 +182,7 @@ let g:pandoc#folding#fold_yaml=1
 
 "Tagbar {{{
 nmap <F8> :TagbarToggle<CR>
+
 " }}}
 
 " VimWiki {{{
@@ -190,6 +191,7 @@ nmap <F8> :TagbarToggle<CR>
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
 au FileType vimwiki set syntax=markdown.pandoc
+au FileType vimwiki set nospell
 let g:vimwiki_global_ext= 0
 let g:vimwiki_folding='expr'
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
