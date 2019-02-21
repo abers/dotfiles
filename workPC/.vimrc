@@ -70,6 +70,8 @@ set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
+setlocal spell!
+setlocal spell!
 
 " save session
 nnoremap <leader>s :mksession<CR>
@@ -98,7 +100,7 @@ nnoremap <space> za
 nnoremap <S-Space> zR
 
 " Journal
-nnoremap <leader>j :edit ~/Dropbox/Journal/2019.md<CR>
+nnoremap <leader>j :edit ~/Dropbox/personal/journal/2019.md<CR>
 
 "}}}
 
@@ -211,6 +213,11 @@ let g:zettel_options = [
                          \{},
                          \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
                          \{}]
+" }}}
+
+" TaskWiki {{{
+let g:taskwiki_markup_syntax = 'markdown'
+
 " }}}
 
 "Jedi {{{
