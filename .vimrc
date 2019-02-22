@@ -122,7 +122,7 @@ let g:ycm_filetype_blacklist = {
         \ 'unite': 1,
         \ 'infolog': 1,
         \ 'mail': 1,
-        \ 'gitcommit': 1
+        \ 'gitcommit': 1,
         \}
 
 " }}}
