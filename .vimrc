@@ -15,7 +15,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'ervandew/supertab'
@@ -27,6 +27,7 @@ Plugin 'reedes/vim-pencil'
 Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
 Plugin 'tbabej/taskwiki'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -105,23 +106,44 @@ nnoremap <leader>j :edit ~/Dropbox/personal/journal/2019.md<CR>
 
 "}}}
 
+" YouCompleteMe {{{
+
+" Pandoc citekeys
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.pandoc = ['@']
+let g:ycm_semantic_triggers.vimwiki = ['@']
+
+let g:ycm_filetype_blacklist = {
+        \ 'tagbar': 1,
+        \ 'qf': 1,
+        \ 'notes': 1,
+        \ 'unite': 1,
+        \ 'infolog': 1,
+        \ 'mail': 1,
+        \ 'gitcommit': 1
+        \}
+
+" }}}
+
 "Python {{{
 au BufNewFile,BufRead *.py
    \ set autoindent fileformat=unix foldlevel=99
 
 "Jedi
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#show_call_signatures = "1"
+"let g:jedi#use_splits_not_buffers = "left"
+"let g:jedi#show_call_signatures = "1"
 
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>R"
+"let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = ""
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>R"
 
-let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_on_dot = 0
 
 "Python-mode
 
@@ -178,12 +200,13 @@ map <leader>f :Goyo 120<CR>
 
 " Pandoc {{{
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 0
+" Disabled below as it disables pandoc syntax used for markdown filetypes
+" let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#folding#mode = ['syntax']
-let g:pandoc#modules#enabled = ["formatting", "folding"]
-let g:pandoc#formatting#mode = "h"
+let g:pandoc#modules#enabled = ["formatting", "folding", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
+" let g:pandoc#biblio#sources = "bcg"
 " }}}
 
 "Tagbar {{{
@@ -195,7 +218,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
-au FileType vimwiki set syntax=vimwiki.markdown
+"au FileType vimwiki set syntax=vimwiki.markdown
+au FileType vimwiki call pandoc#completion#Init()
+au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
 let g:vimwiki_global_ext= 0
@@ -221,6 +246,10 @@ let g:zettel_options = [
                          \{},
                          \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
                          \{}]
+" }}}
+
+" TaskWiki {{{
+let g:taskwiki_markup_syntax = "markdown"
 " }}}
 
 " Spelling & Grammar {{{
