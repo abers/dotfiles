@@ -116,7 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 ## OWN
 # MyFunctions
 
@@ -124,35 +123,34 @@ sp () { echo "$1" | aspell -a; }
 
 tc () { task "$1" done; }
 
-
-
 # MyAliases
 
 # TaskWarrior
 
 alias ts='task sync'
-
 alias tw='task work'
-
 alias tp='task personal'
-
 alias td='task due'
-
 alias tl='task projects'
-
 alias ti='task inbox'
-
 alias ta='task add'
-
 alias t='task'
-
 alias tn='task sync;clear;td'
-
 alias tu='task +Urgent'
-
 alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
-
 alias shutd='shutdown -h now'
+
+# Vim
+
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bashrc'
+
+# Movement aliases
+alias dot='cd ~/Git/dotfiles/'
+
+# Other aliases
+
+alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 
 # PS1
 
@@ -161,13 +159,13 @@ export PS1="\[\e]0;\w\a\]\n\[$(tput bold)\]\[\e[36m\]\u\[\e[32m\]@\[\e[35m\]\h\[
 LS_COLORS="ow=01;90:di=01;42"
 
 export LS_COLORS
+
+# Anaconda
 . /home/alasdair/anaconda3/etc/profile.d/conda.sh
 #export PATH="/home/alasdair/anaconda3/bin:$PATH"
 alias python=python3
 alias pip=pip3
 
-#alias nethack="gnome-terminal --full-screen"
-alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 
 # Automatically fix directory name types when changing directory
 shopt -s cdspell 
