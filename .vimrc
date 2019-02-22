@@ -12,22 +12,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'flazz/vim-colorschemes'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/goyo.vim'
 Plugin 'morhetz/gruvbox'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'python-mode/python-mode'
-Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'python-mode/python-mode'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'reedes/vim-pencil'
 Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
 Plugin 'tbabej/taskwiki'
-Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
