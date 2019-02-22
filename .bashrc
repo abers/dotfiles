@@ -148,6 +148,11 @@ alias bashrc='vim ~/.bashrc'
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
 
+# Phobetor MPD
+
+alias mp='mpc add http://192.168.0.28:8000; mpc play'
+alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
+
 # Other aliases
 
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
