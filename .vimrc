@@ -26,6 +26,7 @@ Plugin 'reedes/vim-pencil'
 Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
 Plugin 'tbabej/taskwiki'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
