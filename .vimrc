@@ -103,6 +103,9 @@ nnoremap <S-Space> zR
 " Journal
 nnoremap <leader>j :edit ~/Dropbox/personal/journal/2019.md<CR>
 
+" Fix syntax in vimwiki
+nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
+
 "}}}
 
 " YouCompleteMe {{{
