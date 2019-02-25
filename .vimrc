@@ -125,6 +125,9 @@ let g:ycm_filetype_blacklist = {
         \ 'infolog': 1,
         \ 'mail': 1,
         \ 'gitcommit': 1,
+        \ 'pandoc': 1,
+        \ 'markdown': 1,
+        \ 'vimwiki': 1
         \}
 
 " }}}
