@@ -221,7 +221,7 @@ nmap <F8> :TagbarToggle<CR>
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
 "au FileType vimwiki set syntax=vimwiki.markdown
-au FileType vimwiki call pandoc#completion#Init()
+" au FileType vimwiki call pandoc#completion#Init()
 au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
