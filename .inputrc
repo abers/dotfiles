@@ -11,4 +11,5 @@ set colored-stats on
 set colored-completion-prefix on
 # Ignore case when tab completing
 set completion-ignore-case on
-
+# Set vim mode
+set editing-mode vi
