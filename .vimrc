@@ -205,12 +205,13 @@ map <leader>f :Goyo 120<CR>
 
 " Pandoc {{{
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-" Disabled below as it disables pandoc syntax used for markdown filetypes
-" let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#folding#mode = 'syntax'
-let g:pandoc#modules#enabled = ["formatting", "folding", "command", "menu", "bibliographies", "completion"]
+let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
+let g:pandoc#folding#fold_fenced_codeblocks = 1
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+let g:pandoc#formatting#mode = "h"
 " }}}
 
 "Tagbar {{{
@@ -222,14 +223,13 @@ nmap <F8> :TagbarToggle<CR>
 
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
-"au FileType vimwiki set syntax=vimwiki.markdown
+" au FileType vimwiki set syntax=vimwiki.markdown
 " au FileType vimwiki call pandoc#completion#Init()
+let g:vimwiki_folding='custom'
 au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
 let g:vimwiki_global_ext= 0
-" let g:vimwiki_folding='expr'
-let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
 let g:vimwiki_list = [
                         \{'path': '~/vimwiki/',
                         \ 'syntax': 'markdown', 'ext': '.md',
