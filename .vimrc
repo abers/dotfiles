@@ -225,7 +225,7 @@ nmap <F8> :TagbarToggle<CR>
 " & set pandoc to recognise python code blocks
 " au FileType vimwiki set syntax=vimwiki.markdown
 " au FileType vimwiki call pandoc#completion#Init()
-let g:vimwiki_folding='custom'
+let g:vimwiki_folding='expr'
 au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
@@ -248,7 +248,7 @@ let g:vimwiki_use_mouse =1
 
 let g:zettel_options = [
                          \{},
-                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
+                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/.zettel.tpl"},
                          \{}]
 " }}}
 
