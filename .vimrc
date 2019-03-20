@@ -153,40 +153,40 @@ au BufNewFile,BufRead *.py
 "Python-mode
 
 "turn-off rope to prevent jedi conflicts
-let g:pymode_rope = 0
+"let g:pymode_rope = 0
 
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options_max_line_length = 79
-let g:pymode_options_color_column = 1
+"let g:pymode_trim_whitespaces = 1
+"let g:pymode_options_max_line_length = 79
+"let g:pymode_options_color_column = 1
 
-let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
 
-let g:pymode_indent = 1
-let g:pymode_folding = 1
+"let g:pymode_indent = 1
+"let g:pymode_folding = 1
 
-let g:pymode_motion = 1
+"let g:pymode_motion = 1
 
-let g:pymode_virtualenv = 1
+"let g:pymode_virtualenv = 1
 
-let g:pymode_run = 1
-let g:pymode_run_bind = '<F5>'
-imap <F5> <Esc>:w<CR>!clear;python %<CR>
+"let g:pymode_run = 1
+"let g:pymode_run_bind = '<F5>'
+"imap <F5> <Esc>:w<CR>!clear;python %<CR>
 
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-let g:pymode_breakpoint_cmd = ''
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_breakpoint_cmd = ''
 
-let g:pymode_lint = 1
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_ignore = ["E501"]
-let g:pymode_lint_cwindow = 1
+"let g:pymode_lint = 1
+"let g:pymode_lint_unmodified = 1
+"let g:pymode_lint_message = 1
+"let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+"let g:pymode_lint_ignore = ["E501"]
+"let g:pymode_lint_cwindow = 1
 
-let g:pymode_syntax = 1
-let g:pymode_syntax_slow_sync = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_space_errors = 0
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_slow_sync = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_space_errors = 0
 
 "}}}
 
@@ -199,8 +199,14 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
-"Leader keys
+" Goyo
 map <leader>f :Goyo 120<CR>
+
+" Limelight
+let g:limelight_conceal_ctermfg = 239
+let g:limelight_conceal_guifg = '#3c3836'
+let g:limelight_default_coefficient = 0.7
+
 " }}}
 
 " Pandoc {{{
@@ -209,9 +215,14 @@ map <leader>f :Goyo 120<CR>
 " let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#modules#enabled = ["formatting", "folding", "command", "menu", "bibliographies", "completion"]
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#folding#mode = 'syntax'
+let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
-" let g:pandoc#biblio#sources = "bcg"
+let g:pandoc#folding#fold_fenced_codeblocks = 1
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+let g:pandoc#formatting#mode = "h"
 " }}}
 
 "Tagbar {{{
@@ -226,11 +237,11 @@ nmap <F8> :TagbarToggle<CR>
 " au FileType vimwiki set syntax=vimwiki.markdown
 " au FileType vimwiki call pandoc#completion#Init()
 au FileType vimwiki set syntax=markdown.pandoc | set foldexpr=pandoc#folding#FoldExpr()
+let g:vimwiki_folding='expr'
+au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
 let g:vimwiki_global_ext= 0
-let g:vimwiki_folding='expr'
-let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
 let g:vimwiki_list = [
                         \{'path': '~/vimwiki/',
                         \ 'syntax': 'markdown', 'ext': '.md',
@@ -248,7 +259,7 @@ nmap <leader>d 3<leader>ww
 
 let g:zettel_options = [
                          \{},
-                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/zettel/.zettel.tpl"},
+                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/.zettel.tpl"},
                          \{}]
 " }}}
 
@@ -258,6 +269,12 @@ let g:taskwiki_markup_syntax = "markdown"
 
 " Spelling & Grammar {{{
 map <F5> :setlocal spell! spelllang=en_gb<CR>
+
+" }}}
+
+" Airline {{{
+let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'mail', 'markdown', 'org', 'rst', 'tex', 'text',
+                                           \ 'pandoc', 'vimwiki']
 
 " }}}
 
