@@ -144,6 +144,8 @@ alias shutd='shutdown -h now'
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
+alias wiki='vim ~/vimwiki/index.md'
+alias zettel='vim ~/zettel/index.md'
 
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
