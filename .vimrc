@@ -27,6 +27,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'michal-h21/vim-zettel'
 Plugin 'tbabej/taskwiki'
 Plugin 'ervandew/supertab'
+Plugin 'mbbill/undotree'
 
 call vundle#end()
 filetype plugin indent on
@@ -87,8 +88,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "Buffer switching
-nmap <F9> :bprev<CR>
-nmap <F10> :bnext<CR>
+nmap <F8> :bprev<CR>
+nmap <F9> :bnext<CR>
 
 "Toggle relative numbering
 nnoremap <F4> :set relativenumber!<CR>
@@ -105,6 +106,12 @@ nnoremap <leader>j :edit ~/Dropbox/personal/journal/2019.md<CR>
 
 " Fix syntax in vimwiki
 nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
+
+" Undo
+nnoremap <F10> :UndotreeToggle<cr>
+" Below don't work as conflict with fullscreen and yuquake
+nnoremap <F11> :earlier<cr>
+nnoremap <F12> :later<cr>
 
 "}}}
 
@@ -226,7 +233,7 @@ let g:pandoc#formatting#mode = "h"
 " }}}
 
 "Tagbar {{{
-nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 " }}}
 
 " VimWiki {{{
