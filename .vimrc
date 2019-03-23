@@ -285,4 +285,7 @@ let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'mail', 'mar
 
 " }}}
 
+" Supertab {{{
+let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+
 " vim:foldmethod=marker:foldlevel=0
