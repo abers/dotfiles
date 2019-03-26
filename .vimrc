@@ -28,6 +28,7 @@ Plugin 'michal-h21/vim-zettel'
 Plugin 'tbabej/taskwiki'
 Plugin 'ervandew/supertab'
 Plugin 'mbbill/undotree'
+Plugin 'chrisbra/Colorizer'
 
 call vundle#end()
 filetype plugin indent on
