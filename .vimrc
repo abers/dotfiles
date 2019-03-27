@@ -73,8 +73,9 @@ set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
 setlocal spell!
-setlocal spell!
 set foldenable
+
+set mouse=a
 
 " save session
 nnoremap <leader>s :mksession<CR>
