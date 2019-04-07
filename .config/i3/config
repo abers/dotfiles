@@ -236,6 +236,9 @@ exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
 exec --no-startup-id artha 
 exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
+exec --no-startup-id syncthing-gtk
+exec --no-startup-id konsole --title=scratchterm
+exec --no-startup-id yakuake
 # }}}}
 
 ###--- THEME ---#### {{{{
@@ -292,4 +295,6 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
+for_window [instance="yakuake"] move scratchpad 
+bindsym Control+grave [instance="yakuake"] scratchpad show, fullscreen
 # vim:foldmethod=marker:foldlevel=0 
