@@ -29,6 +29,7 @@ Plugin 'tbabej/taskwiki'
 Plugin 'ervandew/supertab'
 Plugin 'mbbill/undotree'
 Plugin 'chrisbra/Colorizer'
+Plugin 'mboughaba/i3config.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -72,10 +73,11 @@ set wildmenu
 set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
-setlocal spell!
 set foldenable
 
 set mouse=a
+
+set fillchars+=vert:│
 
 " save session
 nnoremap <leader>s :mksession<CR>

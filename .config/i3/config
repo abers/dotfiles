@@ -22,6 +22,7 @@ bindsym $mod+Shift+q kill
 # }}}} 
 
 ###--- ROFI ---### {{{{
+bindsym $mod+Shift+d exec dmenu_run
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+Tab exec rofi -show window 
 # }}}}
@@ -78,121 +79,33 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 # }}}}
 
 ###--- WORKSPACES ---### {{{{
-# Upper comment = paired workspaces
-# Lower comment = individual workspaces
 
-# WORK
-# Terminal
-set $ws1 "1 "
-# Reading
-set $ws2 "2 "
-
-# INTERNET
-# Web 
-set $ws3 "3 "
-# Download
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
 set $ws4 "4"
-
-# MISC
-# Misc 1 
 set $ws5 "5"
-# Misc 2 
 set $ws6 "6"
-
-# MEDIA
-# Video 
-set $ws7 "7 "
-# Music
-set $ws8 "8 "  
-
-# TASK & COMMS
-# Task 
-set $ws9 "9 "
-# Social & Cal
-set $ws10 "10 "
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1 move workspace to output DVI-0
-bindsym $mod+2 workspace $ws2 move workspace to output DVI-1
-bindsym $mod+3 workspace $ws3 move workspace to output DVI-0
-bindsym $mod+4 workspace $ws4 move workspace to output DVI-1
-bindsym $mod+5 workspace $ws5 move workspace to output DVI-0
-bindsym $mod+6 workspace $ws6 move workspace to output DVI-1
-bindsym $mod+7 workspace $ws7 move workspace to output DVI-0
-bindsym $mod+8 workspace $ws8 move workspace to output DVI-1
-bindsym $mod+9 workspace $ws9 move workspace to output DVI-0
-bindsym $mod+0 workspace $ws10 move workspace to output DVI-1
-
-# inverse switch to workspace
-bindsym $mod+Mod1+1 workspace $ws1 move workspace to output DVI-1
-bindsym $mod+Mod1+2 workspace $ws2 move workspace to output DVI-0
-bindsym $mod+Mod1+3 workspace $ws3 move workspace to output DVI-1
-bindsym $mod+Mod1+4 workspace $ws4 move workspace to output DVI-0
-bindsym $mod+Mod1+5 workspace $ws5 move workspace to output DVI-1
-bindsym $mod+Mod1+6 workspace $ws6 move workspace to output DVI-0
-bindsym $mod+Mod1+7 workspace $ws7 move workspace to output DVI-1
-bindsym $mod+Mod1+8 workspace $ws8 move workspace to output DVI-0
-bindsym $mod+Mod1+9 workspace $ws9 move workspace to output DVI-1
-bindsym $mod+Mod1+0 workspace $ws10 move workspace to output DVI-0
-
-# switch to pair
-bindsym $mod+Control+1 \
-workspace $ws1; move workspace to output DVI-0; \
-workspace $ws2; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws1
-
-bindsym $mod+Control+2 \
-workspace $ws1; move workspace to output DVI-0; \
-workspace $ws2; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws1
-
-bindsym $mod+Control+3 \
-workspace $ws3; move workspace to output DVI-0; \
-workspace $ws4; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws3
-
-bindsym $mod+Control+4 \
-workspace $ws3; move workspace to output DVI-0; \
-workspace $ws4; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws3
-
-bindsym $mod+Control+5 \
-workspace $ws5; move workspace to output DVI-0; \
-workspace $ws6; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws5
-
-bindsym $mod+Control+6 \
-workspace $ws5; move workspace to output DVI-0; \
-workspace $ws6; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws5
-
-bindsym $mod+Control+7 \
-workspace $ws7; move workspace to output DVI-0; \
-workspace $ws8; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws7
-
-bindsym $mod+Control+8 \
-workspace $ws7; move workspace to output DVI-0; \
-workspace $ws8; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws7
-
-bindsym $mod+Control+9 \
-workspace $ws9; move workspace to output DVI-0; \
-workspace $ws10; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws9
-
-bindsym $mod+Control+0 \
-workspace $ws9; move workspace to output DVI-0; \
-workspace $ws10; move workspace to output DVI-1; \
-focus output DVI-0; workspace $ws9
-
-# Move workspace
-bindsym $mod+Mod1+Left move workspace to output DVI-0
-bindsym $mod+Mod1+Right move workspace to output DVI-1
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -240,10 +153,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -284,8 +197,6 @@ bindsym XF86AudioPrev exec $prev
 # Applications to workspaces
 assign [class="Thunderbird"] $ws10
 assign [class="vlc"] $ws7
-assign [class="Totem"] $ws7
-assign [class="Rambox"] $ws10
 assign [class="Skype"] $ws10
 assign [title=".*ncmpcpp.*"] $ws8
 assign [class="Firefox"] $ws3
@@ -296,9 +207,6 @@ for_window [class="Rambox"] layout tabbed
 # Float
 for_window [class="Artha"] floating enable
 
-# Workspaces to monitors
-workspace $ws10 output DVI-1
-workspace $ws3 output DVI-0
 # }}}}
 
 ###--- STARTUP ---### {{{{
@@ -308,15 +216,13 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id compton -f
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
-exec --no-startup-id mpd
-exec --no-startup-id mpdscribble
+#exec --no-startup-id mpd
+#exec --no-startup-id mpdscribble
 exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-cli
 exec --no-startup-id "setxkbmap -option 'grp:win_space_toggle'"
 exec --no-startup-id artha 
 
-exec --no-startup-id /home/alasdair/Applications/Rambox-0.5.14/rambox
-exec --no-startup-id thunderbird
 # }}}}
 
 ###--- THEME ---#### {{{{
