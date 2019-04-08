@@ -146,6 +146,7 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias wiki='vim ~/vimwiki/index.md'
 alias zettel='vim ~/zettel/index.md'
+alias i3vm='vim ~/.config/i3/config'
 
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
@@ -172,7 +173,7 @@ export LS_COLORS
 #export PATH="/home/alasdair/anaconda3/bin:$PATH"
 alias python=python3
 alias pip=pip3
-
+alias bpython=bpython3
 
 # Automatically fix directory name types when changing directory
 shopt -s cdspell 
