@@ -37,7 +37,7 @@ smart_gaps on
 bindsym $Mod+G gaps inner current toggle 25
 
 # Polybar
-#bindsym $mod+z exec polybar-msg cmd toggle
+bindsym $mod+p exec polybar-msg cmd toggle
 # }}}} 
 
 ###--- ROFI ---### {{{{
@@ -277,7 +277,7 @@ set $inactive-bg-color   #1d2021
 set $text-color          #ebdbb2
 set $inactive-text-color #a89984
 set $urgent-bg-color     #fb4934
-set $active-border       #458588
+set $active-border       #83a598
 set $inactive-border     #076678
 set $edge-border         #8ec07c
 
@@ -292,7 +292,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 ###--- BAR ---### {{{{
 bar {
-       position top
+       position bottom
        output DVI-0
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/time.conf
@@ -310,7 +310,7 @@ bar {
 }
 
 bar {
-       position top
+       position bottom
        output DVI-1
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/music.conf
