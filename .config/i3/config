@@ -3,10 +3,12 @@
 ###--- BASICS ---### {{{{ 
 set $mod Mod4
 set $terminal konsole --stylesheet ~/.config/konsole_margins.css
-font pango:Ubuntu 11
+font pango:Noto Sans 11
 bindsym $mod+b bar mode toggle
 hide_edge_borders smart
-new_window pixel 4
+new_window pixel 2
+
+bindsym $mod+z bar mode toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -20,6 +22,22 @@ bindsym XF86Tools exec $terminal -e ncmpcpp
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# Gaps
+for_window [class="^.*"] border pixel 1
+
+for_window [class="albert"] border pixel 0
+for_window [class="albert"] floating enable
+
+gaps inner 25
+gaps outer 0
+
+smart_gaps on
+
+bindsym $Mod+G gaps inner current toggle 25
+
+# Polybar
+#bindsym $mod+z exec polybar-msg cmd toggle
 # }}}} 
 
 ###--- ROFI ---### {{{{
@@ -249,52 +267,62 @@ exec --no-startup-id rescuetime
 exec --no-startup-id syncthing-gtk
 exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
+exec --no-startup-id albert
+#exec --no-startup-id ~/.config/polybar/launch.sh
 # }}}}
 
 ###--- THEME ---#### {{{{
-set $bg-color            #545864
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $bg-color            #282828
+set $inactive-bg-color   #1d2021
+set $text-color          #ebdbb2
+set $inactive-text-color #a89984
+set $urgent-bg-color     #fb4934
+set $active-border       #458588
+set $inactive-border     #076678
+set $edge-border         #8ec07c
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #79740e
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #79740e
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #79740e
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #79740e
+client.focused          $active-border           $active-border          $text-color          $edge-border
+client.unfocused        $inactive-border  $inactive-border $inactive-text-color $inactive-border
+client.focused_inactive $inactive-border  $inactive-border $inactive-text-color $inactive-border
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+
 # }}}}
 
 ###--- BAR ---### {{{{
 bar {
+       position top
        output DVI-0
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/time.conf
        mode hide
-       font pango:Ubuntu 10, FontAwesome 11
+       font pango:Noto Sans 10, FontAwesome 11
        colors {
-               background $inactive-bg-color
-               separator #757575
+               background $bg-color
+               separator #282827
                #                  border             background         text
-               focused_workspace  $inactive-bg-color $inactive-bg-color $text-color
-               inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+               focused_workspace  $bg-color $bg-color $text-color
+               active_workspace  $bg-color $bg-color $text-color
+               inactive_workspace $bg-color $bg-color $inactive-text-color
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
        }
 }
 
 bar {
+       position top
        output DVI-1
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/music.conf
        mode hide
-       font pango:Ubuntu 10, FontAwesome 11
+       font pango:Noto Sans 10, FontAwesome 11
        colors {
-               background $inactive-bg-color
-               separator #757575
+               background $bg-color
+               separator #282828
                #                  border             background         text
-               focused_workspace  $inactive-bg-color $inactive-bg-color $text-color
-               inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+               focused_workspace  $bg-color $bg-color $text-color
+               active_workspace  $bg-color $bg-color $text-color
+               inactive_workspace $bg-color $bg-color $inactive-text-color
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
        }       
 }
