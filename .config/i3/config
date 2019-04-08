@@ -292,7 +292,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 ###--- BAR ---### {{{{
 bar {
-       position bottom
+       position top
        output DVI-0
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/time.conf
@@ -310,7 +310,7 @@ bar {
 }
 
 bar {
-       position bottom
+       position top
        output DVI-1
        tray_output DVI-1
        status_command i3blocks -c ~/.config/i3/music.conf
