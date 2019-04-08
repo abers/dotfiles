@@ -149,10 +149,10 @@ alias zettel='vim ~/zettel/index.md'
 alias i3wm='vim ~/.config/i3/config'
 
 # Git
-alias dotup='cd ~/Git/dotfiles/; git stage -A; git commit; git push;cd -'
+alias dotup='cd ~/Git/dotfiles/; git add -A; git stage -A; git commit; git push;cd -'
 alias dotdown='cd ~/Git/dotfiles/; git pull'
-alias gitup='git stage -A; git commit; git push'
-alias gitall='git stage -A; git commit'
+alias gitup='git add -A; git stage -A; git commit; git push'
+alias gitall='git add -A; git stage -A; git commit'
 
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
