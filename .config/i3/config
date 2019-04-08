@@ -6,7 +6,7 @@ set $terminal konsole --stylesheet ~/.config/konsole_margins.css
 font pango:Ubuntu 11
 bindsym $mod+b bar mode toggle
 hide_edge_borders smart
-new_window pixel 1
+new_window pixel 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
