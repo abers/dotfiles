@@ -146,7 +146,7 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias wiki='vim ~/vimwiki/index.md'
 alias zettel='vim ~/zettel/index.md'
-alias i3vm='vim ~/.config/i3/config'
+alias i3wm='vim ~/.config/i3/config'
 
 # Git
 alias dotup='cd ~/Git/dotfiles/; git stage -A; git commit; git push;cd -'
