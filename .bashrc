@@ -150,6 +150,7 @@ alias i3wm='vim ~/.config/i3/config'
 
 # Git
 alias dotup='cd ~/Git/dotfiles/; git stage -A; git commit; git push;cd -'
+alias dotdown='cd ~/Git/dotfiles/; git pull'
 alias gitup='git stage -A; git commit; git push'
 alias gitall='git stage -A; git commit'
 
