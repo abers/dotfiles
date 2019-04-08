@@ -37,7 +37,8 @@ smart_gaps on
 bindsym $Mod+G gaps inner current toggle 25
 
 # Polybar
-# bindsym $mod+p exec polybar-msg cmd toggle
+bindsym $mod+p exec polybar-msg cmd hide
+bindsym $mod+Shift+p exec polybar-msg cmd restart
 # }}}} 
 
 ###--- ROFI ---### {{{{
@@ -268,7 +269,7 @@ exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
 exec --no-startup-id albert
 exec --no-startup-id pulseaudio --start
-#exec --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 # }}}}
 
 ###--- THEME ---#### {{{{
@@ -291,41 +292,41 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # }}}}
 
 ###--- BAR ---### {{{{
-bar {
-       position top
-       output DVI-0
-       tray_output DVI-1
-       status_command i3blocks -c ~/.config/i3/time.conf
-       mode hide
-       font pango:Noto Sans 10, FontAwesome 11
-       colors {
-               background $bg-color
-               separator #282827
-               #                  border             background         text
-               focused_workspace  $bg-color $bg-color $text-color
-               active_workspace  $bg-color $bg-color $text-color
-               inactive_workspace $bg-color $bg-color $inactive-text-color
-               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-       }
-}
-
-bar {
-       position top
-       output DVI-1
-       tray_output DVI-1
-       status_command i3blocks -c ~/.config/i3/music.conf
-       mode hide
-       font pango:Noto Sans 10, FontAwesome 11
-       colors {
-               background $bg-color
-               separator #282828
-               #                  border             background         text
-               focused_workspace  $bg-color $bg-color $text-color
-               active_workspace  $bg-color $bg-color $text-color
-               inactive_workspace $bg-color $bg-color $inactive-text-color
-               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-       }       
-}
+#bar {
+#       position top
+#       output DVI-0
+#       tray_output DVI-1
+#       status_command i3blocks -c ~/.config/i3/time.conf
+#       mode hide
+#       font pango:Noto Sans 10, FontAwesome 11
+#       colors {
+#               background $bg-color
+#               separator #282827
+#               #                  border             background         text
+#               focused_workspace  $bg-color $bg-color $text-color
+#               active_workspace  $bg-color $bg-color $text-color
+#               inactive_workspace $bg-color $bg-color $inactive-text-color
+#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#       }
+#}
+#
+#bar {
+#       position top
+#       output DVI-1
+#       tray_output DVI-1
+#       status_command i3blocks -c ~/.config/i3/music.conf
+#       mode hide
+#       font pango:Noto Sans 10, FontAwesome 11
+#       colors {
+#               background $bg-color
+#               separator #282828
+#               #                  border             background         text
+#               focused_workspace  $bg-color $bg-color $text-color
+#               active_workspace  $bg-color $bg-color $text-color
+#               inactive_workspace $bg-color $bg-color $inactive-text-color
+#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#       }       
+#}
 # }}}}
 
 # vim:foldmethod=marker:foldlevel=0 
