@@ -39,6 +39,7 @@ bindsym $Mod+G gaps inner current toggle 25
 
 # Polybar
 #bindsym $mod+p exec polybar-msg cmd hide; gaps top all toggle 50
+#can do same for s,a
 bindsym $mod+p exec polybar-msg cmd hide
 bindsym $mod+Shift+p exec polybar-msg cmd restart
 # }}}} 
