@@ -39,7 +39,7 @@ filetype plugin indent on
 "Theme {{{
 set termguicolors
 " need to get gray relative numbers to work with gruvbox
-colorscheme 256-grayvim
+" colorscheme 256-grayvim
 set background=dark
 let g:gruvbox_italics=1
 let g:gruvbox_guisp_fallback = "bg"
