@@ -281,10 +281,14 @@ let g:taskwiki_markup_syntax = "markdown"
 
 " Spelling & Grammar {{{
 map <F5> :setlocal spell! spelllang=en_gb<CR>
+map <F6> :GrammarousCheck --lang=en-GB<CR>
 
 let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
 let g:languagetool_lang='en-GB'
+"let g:languagetool_enable_categories = ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'MISUSED_TERMS_EU_PUBLICATIONS', 'NONSTANDARD_PHRASES', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE']
 
+let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'MISUSED_TERMS_EU_PUBLICATIONS', 'NONSTANDARD_PHRASES', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE']}
+"let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'STYLE']}
 let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
 
 " }}}
