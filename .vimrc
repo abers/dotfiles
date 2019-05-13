@@ -287,9 +287,13 @@ let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline
 let g:languagetool_lang='en-GB'
 "let g:languagetool_enable_categories = ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'MISUSED_TERMS_EU_PUBLICATIONS', 'NONSTANDARD_PHRASES', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE']
 
-let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'MISUSED_TERMS_EU_PUBLICATIONS', 'NONSTANDARD_PHRASES', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE']}
+"let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE']}
 "let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'STYLE']}
 let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
+"let g:grammarous#disabled_categories = {
+            \ '*' : ['MISUSED_TERMS_EU_PUBLICATIONS'],
+            \ 'help' : ['PUNCTUATION', 'TYPOGRAPHY'],
+            \ }
 
 " }}}
 
