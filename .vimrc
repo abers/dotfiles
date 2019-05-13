@@ -30,7 +30,7 @@ Plugin 'ervandew/supertab'
 Plugin 'mbbill/undotree'
 Plugin 'chrisbra/Colorizer'
 Plugin 'mboughaba/i3config.vim'
-"Plugin 'rhysd/vim-grammarous'
+Plugin 'rhysd/vim-grammarous'
 Plugin 'dpelle/vim-LanguageTool'
 
 call vundle#end()
@@ -285,6 +285,7 @@ map <F5> :setlocal spell! spelllang=en_gb<CR>
 let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
 let g:languagetool_lang='en-GB'
 
+let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
 
 " }}}
 
