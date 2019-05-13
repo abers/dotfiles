@@ -30,6 +30,7 @@ Plugin 'ervandew/supertab'
 Plugin 'mbbill/undotree'
 Plugin 'chrisbra/Colorizer'
 Plugin 'mboughaba/i3config.vim'
+Plugin 'rhysd/vim-grammarous'
 
 call vundle#end()
 filetype plugin indent on
