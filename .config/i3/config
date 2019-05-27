@@ -36,6 +36,7 @@ gaps outer 0
 smart_gaps on
 
 bindsym $Mod+G gaps inner current toggle 10
+bindsym $Mod+Shift+G gaps inner current set 0
 
 # Polybar
 #bindsym $mod+p exec polybar-msg cmd hide; gaps top all toggle 50
@@ -269,7 +270,7 @@ exec --no-startup-id artha
 exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
 exec --no-startup-id syncthing-gtk
-exec --no-startup-id yakuake
+#exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
 exec --no-startup-id albert
 exec --no-startup-id start-pulseaudio-x11
