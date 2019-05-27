@@ -99,7 +99,7 @@ scroll-down = i3wm-wsprev
 
 modules-left = workspaces 
 modules-right = date
-modules-center = mpd
+modules-center = 
  
 [bar/main2]
 monitor = DVI-1
@@ -146,6 +146,6 @@ scroll-down = i3wm-wsprev
 
 modules-left = workspaces 
 modules-right = 
-modules-center = 
+modules-center = mpd
  
 ;== EOF ========================================================
