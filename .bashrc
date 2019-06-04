@@ -164,6 +164,7 @@ alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 
 # Other aliases
 
+alias hardfought="ssh nethack@eu.hardfought.org"
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 
 # PS1
