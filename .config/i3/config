@@ -260,8 +260,6 @@ exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/ba
 exec --no-startup-id xbindkeys
 exec --no-startup-id compton -f
 exec --no-startup-id dropbox start
-exec --no-startup-id flameshot
-exec --no-startup-id rescuetime
 exec --no-startup-id nm-applet
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
@@ -270,12 +268,14 @@ exec --no-startup-id kdeconnect-cli
 exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
 exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
 exec --no-startup-id artha 
+exec --no-startup-id flameshot
+exec --no-startup-id rescuetime
 exec --no-startup-id syncthing-gtk
 #exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
 exec --no-startup-id albert
-#exec --no-startup-id start-pulseaudio-x11
-#exec --no-startup-id pulseaudio --start
+exec --no-startup-id pkill pulseaudio
+exec --no-startup-id pulseaudio
 exec --no-startup-id ~/.config/polybar/launch.sh
 # }}}}
 
