@@ -47,7 +47,7 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 
 ###--- ROFI ---### {{{{
 bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+backslash exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window 
 # }}}}
 
@@ -273,7 +273,6 @@ exec --no-startup-id rescuetime
 exec --no-startup-id syncthing-gtk
 #exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
-exec --no-startup-id albert
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
 exec --no-startup-id ~/.config/polybar/launch.sh
