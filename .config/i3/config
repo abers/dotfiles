@@ -47,7 +47,7 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 
 ###--- ROFI ---### {{{{
 bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+backslash exec rofi -show drun -show-icons
+bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window 
 # }}}}
 
@@ -265,6 +265,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
 exec --no-startup-id dunst
+exec --no-startup-id albert
 exec --no-startup-id kdeconnect-cli
 exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
 exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
