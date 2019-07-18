@@ -8,7 +8,7 @@ bindsym $mod+b bar mode toggle
 hide_edge_borders smart
 new_window pixel 2
 
-bindsym $mod+z bar mode toggle
+# bindsym $mod+z bar mode toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
