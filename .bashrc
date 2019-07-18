@@ -196,5 +196,4 @@ clear
 # Startup commands
 # t +ACTIVE;t +OVERDUE -ACTIVE; t +Urgent -OVERDUE -ACTIVE
 
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
