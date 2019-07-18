@@ -206,7 +206,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Mod1+r mode "resize"
+bindsym $mod+z mode "resize"
 # }}}}
 
 ###--- MPD --### {{{{
