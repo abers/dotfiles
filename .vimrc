@@ -32,6 +32,7 @@ Plugin 'chrisbra/Colorizer'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'dpelle/vim-LanguageTool'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -301,9 +302,25 @@ let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
 let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'mail', 'markdown', 'org', 'rst', 'tex', 'text',
                                            \ 'pandoc', 'vimwiki']
 
+let g:airline#extensions#ale#enabled = 1
+
+" }}}
+
+" ALE {{{
+
+" Disable lint whilst typing
+let g:ale_lint_on_text_changed = 'never'
+
+let g:ale_python_auto_pipenv = '1'
+let g:ale_fix_on_save = 1
+let g:ale_linter_aliases = {'pandoc': ['markdown']}
+
 " }}}
 
 " Supertab {{{
 let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 
+" }}}
+
 " vim:foldmethod=marker:foldlevel=0
+

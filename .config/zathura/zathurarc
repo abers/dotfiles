@@ -53,6 +53,8 @@ set recolor-darkcolor "#ebdbb2" #06
 set recolor-reverse-video "true"
 set recolor-keephue "false"
 
+map <C-i> set recolor-reverse-video "true"
+
 set render-loading "false"
 set render-loading-bg "#1d2021"
 set render-loading-fg "#ebdbb2"
