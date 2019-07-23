@@ -230,6 +230,12 @@ bindsym XF86AudioNext exec $next
 bindsym XF86AudioPrev exec $prev
 # }}}}
 
+###--- Hotkeys ---### {{{{
+
+bindsym Print exec flameshot gui
+
+# }}}}
+
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 assign [class="Thunderbird"] $ws10
