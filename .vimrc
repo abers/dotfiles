@@ -227,13 +227,11 @@ let g:limelight_default_coefficient = 0.7
 " Pandoc {{{
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
 let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
-let g:pandoc#completion#bib#mode = 'citeproc'
 " }}}
 
 "Tagbar {{{
@@ -311,7 +309,8 @@ let g:ale_linter_aliases = {'pandoc': ['markdown']}
 " }}}
 
 " Supertab {{{
-let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+" disabled as conflicts with vim-pandoc citations
+"let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 
 " }}}
 
