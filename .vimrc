@@ -224,11 +224,7 @@ let g:limelight_default_coefficient = 0.7
 " }}}
 
 " Pandoc {{{
-" let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-" Disabled below as it disables pandoc syntax used for markdown filetypes
-" let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#folding#mode = 'syntax'
-let g:pandoc#modules#enabled = ["formatting", "folding", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
@@ -236,6 +232,7 @@ let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
 let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+let g:pandoc#completion#bib#mode = 'citeproc'
 " }}}
 
 "Tagbar {{{
@@ -248,10 +245,9 @@ nmap <F7> :TagbarToggle<CR>
 " Set VimWiki to use pandoc highlighting
 " & set pandoc to recognise python code blocks
 " au FileType vimwiki set syntax=vimwiki.markdown
-" au FileType vimwiki call pandoc#completion#Init()
+au FileType vimwiki call pandoc#completion#Init()
 au FileType vimwiki set syntax=markdown.pandoc | set foldexpr=pandoc#folding#FoldExpr()
 let g:vimwiki_folding='expr'
-au FileType vimwiki set syntax=markdown.pandoc
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
 let g:vimwiki_global_ext= 0
@@ -319,4 +315,3 @@ let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
-
