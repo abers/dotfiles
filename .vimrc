@@ -131,6 +131,7 @@ if !exists('g:ycm_semantic_triggers')
 endif
 let g:ycm_semantic_triggers.pandoc = ['@']
 let g:ycm_semantic_triggers.vimwiki = ['@']
+let g:ycm_semantic_triggers.tex = ['@']
 
 let g:ycm_filetype_blacklist = {
         \ 'tagbar': 1,
@@ -232,6 +233,7 @@ let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
 let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 " }}}
 
 "Tagbar {{{
