@@ -34,6 +34,7 @@ Plugin 'mboughaba/i3config.vim'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'dpelle/vim-LanguageTool'
 Plugin 'w0rp/ale'
+Plugin 'jalvesaq/Nvim-R'
 
 call vundle#end()
 filetype plugin indent on
@@ -205,6 +206,10 @@ au BufNewFile,BufRead *.py
 "let g:pymode_syntax_space_errors = 0
 
 "}}}
+
+"R {{{
+
+" }}}
 
 "Pencil & Markdown {{{
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
