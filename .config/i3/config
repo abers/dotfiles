@@ -35,8 +35,7 @@ gaps outer 0
 
 smart_gaps on
 
-bindsym $Mod+G gaps inner current toggle 10
-bindsym $Mod+Shift+G gaps inner current set 0
+bindsym $Mod+G gaps inner current toggle 25
 
 # Polybar
 #bindsym $mod+p exec polybar-msg cmd hide; gaps top all toggle 50
