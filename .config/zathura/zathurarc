@@ -54,6 +54,7 @@ set recolor-reverse-video "true"
 set recolor-keephue "false"
 
 map <C-i> set recolor-reverse-video "true"
+map <C-k> set recolor-keephue "true"
 
 set render-loading "false"
 set render-loading-bg "#1d2021"
