@@ -106,6 +106,7 @@ nnoremap <F4> :set relativenumber!<CR>
 
 " Quicker command by removing need for shift
 nnoremap ; :
+nnoremap : ;
  
 " Enable folding with the spacebar
 nnoremap <space> za
