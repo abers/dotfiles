@@ -80,6 +80,7 @@ set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
 set foldenable
+set nrformats= " All numbers treated as decimal
 
 set mouse=a
 
