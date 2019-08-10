@@ -258,9 +258,12 @@ let g:airline#extensions#ale#enabled = 1
 
 " ALE {{{
 
-" Disable lint whilst typing
-let g:ale_python_auto_pipenv = '1'
+let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
+let g:ale_python_flake8_executable = 'python3' 
+let g:ale_python_flake8_auto_pipenv = 1
+let g:ale_python_pylint_executable = 'python3'
+let g:ale_python_pylint_auto_pipenv = 1
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
 
