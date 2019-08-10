@@ -80,6 +80,7 @@ set lazyredraw
 setlocal cm=blowfish2
 set clipboard=unnamedplus
 set foldenable
+set nrformats= " All numbers treated as decimal
 
 set mouse=a
 
@@ -106,6 +107,7 @@ nnoremap <F4> :set relativenumber!<CR>
 
 " Quicker command by removing need for shift
 nnoremap ; :
+nnoremap : ;
  
 " Enable folding with the spacebar
 nnoremap <space> za
