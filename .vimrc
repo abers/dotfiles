@@ -154,58 +154,6 @@ let g:ycm_filetype_blacklist = {
 au BufNewFile,BufRead *.py
    \ set autoindent fileformat=unix foldlevel=99
 
-"Jedi
-"let g:jedi#use_splits_not_buffers = "left"
-"let g:jedi#show_call_signatures = "1"
-
-"let g:jedi#goto_command = "<leader>d"
-"let g:jedi#goto_assignments_command = "<leader>g"
-"let g:jedi#goto_definitions_command = ""
-"let g:jedi#documentation_command = "K"
-"let g:jedi#usages_command = "<leader>n"
-"let g:jedi#completions_command = "<C-Space>"
-"let g:jedi#rename_command = "<leader>R"
-
-"let g:jedi#popup_on_dot = 0
-
-"Python-mode
-
-"turn-off rope to prevent jedi conflicts
-"let g:pymode_rope = 0
-
-"let g:pymode_trim_whitespaces = 1
-"let g:pymode_options_max_line_length = 79
-"let g:pymode_options_color_column = 1
-
-"let g:pymode_python = 'python3'
-
-"let g:pymode_indent = 1
-"let g:pymode_folding = 1
-
-"let g:pymode_motion = 1
-
-"let g:pymode_virtualenv = 1
-
-"let g:pymode_run = 1
-"let g:pymode_run_bind = '<F5>'
-"imap <F5> <Esc>:w<CR>!clear;python %<CR>
-
-"let g:pymode_breakpoint = 1
-"let g:pymode_breakpoint_bind = '<leader>b'
-"let g:pymode_breakpoint_cmd = ''
-
-"let g:pymode_lint = 1
-"let g:pymode_lint_unmodified = 1
-"let g:pymode_lint_message = 1
-"let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-"let g:pymode_lint_ignore = ["E501"]
-"let g:pymode_lint_cwindow = 1
-
-"let g:pymode_syntax = 1
-"let g:pymode_syntax_slow_sync = 1
-"let g:pymode_syntax_all = 1
-"let g:pymode_syntax_space_errors = 0
-
 "}}}
 
 "R {{{
@@ -233,7 +181,7 @@ let g:limelight_default_coefficient = 0.7
 
 " Pandoc {{{
 let g:pandoc#folding#mode = 'syntax'
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#handled = ["pandoc", "markdown", "rst"]
 let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
