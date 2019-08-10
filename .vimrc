@@ -13,6 +13,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
@@ -147,7 +149,7 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
-nnoremap <leader>gt :tab YcmCompleter GoTo<cr>
+nnoremap <leader>g :tab YcmCompleter GoTo<cr>
 
 " }}}
 
