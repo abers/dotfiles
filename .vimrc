@@ -92,12 +92,6 @@ nnoremap <leader>s :mksession<CR>
 
 "Global key mappings {{{
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 "Buffer switching
 nmap <F8> :bprev<CR>
 nmap <F9> :bnext<CR>
@@ -269,6 +263,9 @@ let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_pylint_executable = 'pylint3'
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " }}}
 
