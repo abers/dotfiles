@@ -150,6 +150,11 @@ let g:ycm_filetype_blacklist = {
         \ 'vimwiki': 1
         \}
 
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
+nnoremap <leader>gt :tab YcmCompleter GoTo<cr>
+
 " }}}
 
 "Python {{{
@@ -261,9 +266,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
 let g:ale_python_flake8_executable = 'python3' 
-let g:ale_python_flake8_auto_pipenv = 1
-let g:ale_python_pylint_executable = 'python3'
-let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_pylint_executable = 'pylint3'
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
 
