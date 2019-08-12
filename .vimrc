@@ -174,7 +174,7 @@ augroup pencil
 augroup END
 
 " Goyo
-map <leader>f :Goyo 120<CR>
+nnoremap <leader>f :Goyo 120<CR>
 
 " Limelight
 let g:limelight_conceal_ctermfg = 239
