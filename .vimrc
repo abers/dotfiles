@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'flazz/vim-colorschemes'
+Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
