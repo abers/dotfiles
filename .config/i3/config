@@ -244,6 +244,7 @@ assign [class="vlc"] $ws7
 assign [class="Skype"] $ws9
 assign [title=".*ncmpcpp.*"] $ws8
 assign [class="Firefox"] $ws3
+assign [class="ktorrent"] $ws6
 
 # Layouts
 for_window [class="Rambox"] layout tabbed
