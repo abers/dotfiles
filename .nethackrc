@@ -3,8 +3,10 @@ OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
 OPTIONS=verbose,news
 OPTIONS=pickup_types:$
 OPTIONS=nomail
-#OPTIONS=DECgraphics
-OPTIONS=IBMgraphics
+OPTIONS=DECgraphics
+#OPTIONS=IBMgraphics
+
+OPTIONS=hitpointbar
 
 OPTIONS=boulder:0
 OPTIONS=catname:Tibbles, dogname:Jaws, name:Abers, fruit:piece of stilton
@@ -13,8 +15,8 @@ OPTIONS=autoquiver
 OPTIONS=lit_corridor
 OPTIONS=time
 OPTIONS=autodig
-OPTIONS=statushilites
 OPTIONS=altmeta
+OPTIONS=hilite_pile
 
 OPTIONS=menucolors
 
@@ -55,3 +57,20 @@ MENUCOLOR="unpaid"=white&bold
 #MENUCOLOR="wand .* polymorph.*"=magenta
 MENUCOLOR=" worthless "=blue
 
+OPTIONS=statushilites:10
+OPTIONS=hilite_status:gold/always/yellow
+OPTIONS=hilite_status:experience-level/changed/white/cyan
+#OPTIONS=hilite_status:characteristics/<5/red
+#OPTIONS=hilite_status:characteristics/>6/orange
+#OPTIONS=hilite_status:characteristics/>8/brown
+#OPTIONS=hilite_status:characteristics/>11/yellow
+#OPTIONS=hilite_status:characteristics/>13/green
+#OPTIONS=hilite_status:characteristics/>16/cyan
+#OPTIONS=hilite_status:characteristics/>18/lightblue
+
+OPTIONS=hilite_status:carrying-capacity/burdened/yellow/stressed/orange
+
+OPTIONS=hilite_status:hitpoints/100%/brightgreen
+OPTIONS=hilite_status:hitpoints/<100%/green
+OPTIONS=hilite_status:hitpoints/<60%/yellow
+OPTIONS=hilite_status:hitpoints/<40%/red
