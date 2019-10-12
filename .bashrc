@@ -166,7 +166,7 @@ alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 
 alias hardfought="ssh nethack@eu.hardfought.org"
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
-alias fitbit="sudo /home/alasdair/.tmp/galileo/run --bluetooth PyDBUS --database RemoteRESTDatabase --force"
+alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 
 # PS1
 
