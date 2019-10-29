@@ -247,9 +247,11 @@ assign [class="Skype"] $ws9
 assign [title=".*ncmpcpp.*"] $ws8
 assign [class="Firefox"] $ws3
 assign [class="ktorrent"] $ws6
+assign [class="Rambox"] $ws9
 
 # Layouts
 for_window [class="Rambox"] layout tabbed
+for_window [class="Firefox"] layout tabbed
 
 # Float
 for_window [class="Artha"] floating enable
