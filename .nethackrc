@@ -45,7 +45,7 @@ OPTIONS=hilite_status: condition/conf/yellow/hallu/bright-magenta
 
 # Gold, Exp, Characteristics
 OPTIONS=hilite_status:gold/always/yellow
-OPTIONS=hilite_status:experience-level/changed/white/cyan
+OPTIONS=hilite_status:experience-level/up/white/down/cyan
 OPTIONS=hilite_status:characteristics/up/green/down/red
 
 # HP / PW
