@@ -3,8 +3,16 @@ OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
 OPTIONS=verbose,news
 OPTIONS=pickup_types:$
 OPTIONS=nomail
-OPTIONS=DECgraphics
+#OPTIONS=DECgraphics
 #OPTIONS=IBMgraphics
+
+OPTIONS=windowtype:curses
+OPTIONS=cursesgraphics
+OPTIONS=symset:curses
+OPTIONS=popup_dialog
+OPTIONS=splash_screen
+OPTIONS=mouse_support:True
+OPTIONS=perm_invent
 
 OPTIONS=hitpointbar
 
