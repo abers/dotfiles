@@ -3,6 +3,7 @@ OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
 OPTIONS=verbose,news
 OPTIONS=pickup_types:$
 OPTIONS=nomail
+OPTIONS=!use_darkgray
 
 OPTIONS=windowtype:curses
 OPTIONS=popup_dialog
