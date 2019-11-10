@@ -31,6 +31,7 @@ alias gitall='git add -A; git stage -A; git commit'
 alias python=python3
 alias pip=pip3
 alias bpython=bpython3
+alias prun="pipenv run python"
 
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
@@ -42,3 +43,4 @@ alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 # Other aliases
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
+
