@@ -1,3 +1,6 @@
+# Apt
+alias upgrade='sudo apt update; sudo apt upgrade -y'
+
 # Vim
 alias zshrc='vim ~/.zshrc'
 alias bashrc='vim ~/.bashrc'
@@ -40,7 +43,7 @@ alias dot='cd ~/Git/dotfiles/'
 alias mp='mpc add http://192.168.0.28:8000; mpc play'
 alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 
-# Other aliases
+# Other
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 
