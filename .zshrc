@@ -62,6 +62,12 @@ COMPLETION_WAITING_DOTS="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd/mm/yyyy"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
+setopt share_history
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -79,12 +85,10 @@ source $ZSH/oh-my-zsh.sh
 # add newline before prompt
 precmd() { print "" }
 
-# History in cache directory
-HISTSIZE=10000
-SAVEHIST=10000
-
 # Tab complete hidden files
 _comp_options+=(globdots)
+
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 
 # vim in tab complete
 bindkey -M menuselect 'h' vi-backward-char
@@ -95,6 +99,10 @@ bindkey -v '^?' backward-delete-char
 
 # Expand taskwarrior completion for ta alias
 compdef _task ta=task add
+
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt always_to_end # move cursor to end if word had one match
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
