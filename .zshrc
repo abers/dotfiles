@@ -130,5 +130,6 @@ setopt always_to_end # move cursor to end if word had one match
 
 # Source
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+. /home/alasdair/anaconda3/etc/profile.d/conda.sh
 source /home/alasdair/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 clear
