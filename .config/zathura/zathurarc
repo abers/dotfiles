@@ -55,6 +55,7 @@ set recolor-keephue "false"
 
 map <C-i> set recolor-reverse-video "true"
 map <C-k> set recolor-keephue "true"
+map <C-s> feedkeys ":set guioptions s<Return>"
 
 set render-loading "false"
 set render-loading-bg "#1d2021"
