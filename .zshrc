@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PATH="~/.local/bin:$PATH"
+export PATH="/snap/bin:$PATH"
 export FZF_BASE=~/Git/.fzf
 export XDG_CURRENT_DESKTOP=KDE
 
