@@ -37,7 +37,7 @@ for_window [class="^.*"] border pixel 2
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
 
-gaps inner 0
+gaps inner 20
 gaps outer 0
 #gaps top 50
 
