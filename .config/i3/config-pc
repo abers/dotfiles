@@ -1,6 +1,11 @@
 #  vim: filetype=i3config
 
+###--- LOCAL ---### {{{{ 
+
+# }}}}
+
 ###--- BASICS ---### {{{{ 
+
 set $mod Mod4
 set $terminal konsole --stylesheet ~/.config/konsole_margins.css
 font pango:Noto Sans 11
