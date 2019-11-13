@@ -9,6 +9,7 @@ alias wiki='vim ~/vimwiki/index.md'
 alias zettel='vim ~/zettel/index.md'
 alias i3wm='vim ~/.config/i3/config'
 alias aliasrc='vim ~/.oh-my-zsh/custom/alias.zsh'
+alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 
 # TaskWarrior
 alias ts='task sync'
