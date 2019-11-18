@@ -7,6 +7,7 @@ export PATH="~/.local/bin:$PATH"
 export PATH="/snap/bin:$PATH"
 export FZF_BASE=~/Git/.fzf
 export XDG_CURRENT_DESKTOP=KDE
+#export GPG_TTY='tty'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
