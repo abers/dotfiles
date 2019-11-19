@@ -2,13 +2,13 @@
 alias upgrade='sudo apt update; sudo apt upgrade -y'
 
 # Vim
-alias zshrc='vim ~/.zshrc'
-alias bashrc='vim ~/.bashrc'
-alias vimrc='vim ~/.vimrc'
-alias wiki='vim ~/vimwiki/index.md'
-alias zettel='vim ~/zettel/index.md'
-alias i3wm='vim ~/.config/i3/config'
-alias aliasrc='vim ~/.oh-my-zsh/custom/alias.zsh'
+alias zshrc='nvim ~/.zshrc'
+alias bashrc='nvim ~/.bashrc'
+alias vimrc='nvim ~/.vimrc'
+alias wiki='nvim ~/vimwiki/index.md'
+alias zettel='nvim ~/zettel/index.md'
+alias i3wm='nvim ~/.config/i3/config'
+alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
 alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 
 # TaskWarrior
