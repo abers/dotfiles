@@ -8,6 +8,7 @@ export PATH="/snap/bin:$PATH"
 export FZF_BASE=~/Git/.fzf
 export XDG_CURRENT_DESKTOP=KDE
 export EDITOR='nvim'
+export PATH="$(yarn global bin):$PATH"
 #export GPG_TTY='tty'
 
 # Set name of the theme to load --- if set to "random", it will
