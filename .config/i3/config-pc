@@ -26,7 +26,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+r exec $terminal -e ranger
 bindsym Control+Escape exec $terminal -e htop
 bindsym XF86Calculator exec kcalc
-bindsym XF86Tools exec $terminal -e ncmpcpp; gaps outer current set 30; gaps inner current set 30
+bindsym XF86Tools exec $terminal -e ncmpcpp
 
 # kill focused window
 bindsym $mod+Shift+q kill
