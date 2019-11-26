@@ -100,8 +100,8 @@ nnoremap <leader>s :mksession<CR>
 "Global key mappings {{{
 
 "Buffer switching
-nmap <F8> :bprev<CR>
-nmap <F9> :bnext<CR>
+nnoremap <F8> :bprev<CR>
+nnoremap <F9> :bnext<CR>
 
 "Toggle relative numbering
 nnoremap <F2> :set relativenumber!<CR>
@@ -199,13 +199,13 @@ let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 " }}}
 
 "Tagbar {{{
-nmap <F4> :TagbarToggle<CR>
+nnoremap <F4> :TagbarToggle<CR>
 " }}}
 
 "NERDTree {{{
-map <F3> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
 "open nerdtree with the current file selected
-nmap <leader>t :NERDTreeFind<CR>
+nnoremap <leader>t :NERDTreeFind<CR>
 " don't show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
