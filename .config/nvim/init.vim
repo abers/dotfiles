@@ -6,7 +6,7 @@ set modelines=1
 set encoding=utf-8
 " }}}
 
-"Vundle {{{
+"Vim-Plug {{{
 call plug#begin()
 
 Plug 'flazz/vim-colorschemes'
@@ -18,7 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/Git/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -31,13 +31,17 @@ Plug 'michal-h21/vim-zettel'
 Plug 'tbabej/taskwiki'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
-Plug 'chrisbra/Colorizer'
+Plug 'lilydjwg/colorizer'
 Plug 'mboughaba/i3config.vim'
 Plug 'rhysd/vim-grammarous'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'w0rp/ale'
 Plug 'jalvesaq/Nvim-R'
-Plug 'jamessan/vim-gnupg'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'fisadev/FixedTaskList.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'alok/notational-fzf-vim'
 
 call plug#end()
 filetype plugin indent on
@@ -83,6 +87,8 @@ set clipboard=unnamedplus
 set foldenable
 set nrformats= " All numbers treated as decimal
 
+set scrolloff=3
+
 set mouse=a
 
 set fillchars+=vert:│
@@ -98,7 +104,7 @@ nmap <F8> :bprev<CR>
 nmap <F9> :bnext<CR>
 
 "Toggle relative numbering
-nnoremap <F4> :set relativenumber!<CR>
+nnoremap <F2> :set relativenumber!<CR>
 
 " Quicker command by removing need for shift
 nnoremap ; :
@@ -172,7 +178,7 @@ augroup pencil
 augroup END
 
 " Goyo
-nnoremap <leader>f :Goyo 120<CR>
+nnoremap <leader>q :Goyo 120<CR>
 
 " Limelight
 let g:limelight_conceal_ctermfg = 239
@@ -193,7 +199,28 @@ let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 " }}}
 
 "Tagbar {{{
-nmap <F7> :TagbarToggle<CR>
+nmap <F4> :TagbarToggle<CR>
+" }}}
+
+"NERDTree {{{
+map <F3> :NERDTreeToggle<CR>
+"open nerdtree with the current file selected
+nmap <leader>t :NERDTreeFind<CR>
+" don't show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+" }}}
+
+"Tasklist {{{
+map <F5> :TaskList<CR>
+" }}}
+
+"FZF {{{
+
+" }}}
+
+"Notational-FZF {{{
+let g:nv_search_paths = ['~/Dropbox/notes/zettel']
 " }}}
 
 " VimWiki {{{
@@ -263,6 +290,7 @@ let g:ale_fix_on_save = 1
 let g:ale_python_flake8_executable = 'pipenv'
 let g:ale_python_pylama_executable = 'pipenv'
 let g:ale_python_pydoctstyle_executable = 'pipenv'
+let g:ale_python_black_options = '-l 80'
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
 

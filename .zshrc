@@ -6,6 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/snap/bin:$PATH"
 export FZF_BASE=~/Git/.fzf
+export FZF_DEFAULT_OPTS="--preview 'head -100 {}'"
 export XDG_CURRENT_DESKTOP=KDE
 export EDITOR='nvim'
 export PATH="$(yarn global bin):$PATH"
@@ -137,3 +138,5 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 . /home/alasdair/anaconda3/etc/profile.d/conda.sh
 source /home/alasdair/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 clear
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

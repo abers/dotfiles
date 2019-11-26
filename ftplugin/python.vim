@@ -1,2 +1,4 @@
-let b:ale_fixers = ['autopep8', 'isort', 'yapf']
+let b:ale_fixers = ['isort', 'black']
 let b:ale_linters = ['pylama']
+
+set colorcolumn=80
