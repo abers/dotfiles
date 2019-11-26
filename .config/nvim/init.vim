@@ -97,6 +97,8 @@ set fillchars+=vert:│
 nnoremap <leader>s :mksession<CR>
 " }}}
 
+let g:polyglot_disabled = ['markdown']
+
 "Global key mappings {{{
 
 "Buffer switching
@@ -200,6 +202,25 @@ let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 
 "Tagbar {{{
 nnoremap <F4> :TagbarToggle<CR>
+
+"markdown support 
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+    \ }
+
+let g:tagbar_type_pandoc = {
+    \ 'ctagstype' : 'pandoc',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+    \ }
 " }}}
 
 "NERDTree {{{
@@ -220,7 +241,8 @@ map <F5> :TaskList<CR>
 " }}}
 
 "Notational-FZF {{{
-let g:nv_search_paths = ['~/Dropbox/notes/zettel']
+let g:nv_search_paths = ['~/Dropbox/notes/zettel', './docs']
+let g:nv_ignore_pattern = ['_build', '_static', '_templates']
 " }}}
 
 " VimWiki {{{
