@@ -4,7 +4,7 @@ alias upgrade='sudo apt update; sudo apt upgrade -y'
 # Vim
 alias zshrc='nvim ~/.zshrc'
 alias bashrc='nvim ~/.bashrc'
-alias vimrc='nvim ~/.vimrc'
+alias vimrc='nvim ~/.config/nvim/init.vim'
 alias wiki='nvim ~/vimwiki/index.md'
 alias zettel='nvim ~/zettel/index.md'
 alias i3wm='nvim ~/.config/i3/config'
