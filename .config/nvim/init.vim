@@ -22,7 +22,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'python-mode/python-mode'
+"Plug 'python-mode/python-mode'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'reedes/vim-pencil'
@@ -260,8 +260,9 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
-let g:ale_python_flake8_executable = 'python3' 
-let g:ale_python_pylint_executable = 'pylint3'
+let g:ale_python_flake8_executable = 'pipenv'
+let g:ale_python_pylama_executable = 'pipenv'
+let g:ale_python_pydoctstyle_executable = 'pipenv'
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
 
