@@ -233,7 +233,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " }}}
 
 "Tasklist {{{
-map <F5> :TaskList<CR>
+nnoremap <F5> :TaskList<CR>
 " }}}
 
 "FZF {{{
