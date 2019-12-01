@@ -344,7 +344,7 @@ augroup CPT
   au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
   au BufWritePost *.cpt silent! u
   au BufWritePost *.cpt set nobin
-  au BufRead,BufNewFile *.cpt set filetype=markdown.pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh 
+  au BufRead,BufNewFile *.cpt set filetype=markdown.pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0
 augroup END
 
 " vim:foldmethod=marker:foldlevel=0
