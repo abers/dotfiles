@@ -340,10 +340,11 @@ augroup CPT
   au BufReadPost *.cpt let $CPT_PASS = inputsecret("Password: ")
   au BufReadPost *.cpt silent 1,$!ccrypt -cb -E CPT_PASS
   au BufReadPost *.cpt set nobin
-  au BufWritePre *.cpt set bin
+  au BufWritePre *.cpt set bin 
   au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
   au BufWritePost *.cpt silent! u
   au BufWritePost *.cpt set nobin
+  au BufRead,BufNewFile *.cpt set filetype=markdown.pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh 
 augroup END
 
 " vim:foldmethod=marker:foldlevel=0
