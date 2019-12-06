@@ -98,7 +98,7 @@ set fillchars+=vert:│
 nnoremap <leader>s :mksession<CR>
 " }}}
 
-let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown', 'latex']
 
 "Global key mappings {{{
 
