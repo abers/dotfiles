@@ -42,6 +42,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'fisadev/FixedTaskList.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'alok/notational-fzf-vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 filetype plugin indent on
