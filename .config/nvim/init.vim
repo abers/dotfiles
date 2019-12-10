@@ -22,7 +22,6 @@ Plug 'junegunn/fzf', { 'dir': '~/Git/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-"Plug 'python-mode/python-mode'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'reedes/vim-pencil'
@@ -31,7 +30,6 @@ Plug 'michal-h21/vim-zettel'
 Plug 'tbabej/taskwiki'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
-"Plug 'lilydjwg/colorizer'
 Plug 'mboughaba/i3config.vim'
 Plug 'rhysd/vim-grammarous'
 Plug 'dpelle/vim-LanguageTool'
@@ -97,7 +95,23 @@ set fillchars+=vert:│
 nnoremap <leader>s :mksession<CR>
 " }}}
 
+" Markdown {{{
+
 let g:polyglot_disabled = ['markdown']
+"let g:vim_markdown_conceal = 2
+"let g:vim_markdown_conceal_code_blocks = 0
+"let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'c++=cpp', 'ini=dosini']
+"let g:vim_markdown_follow_anchor = 1
+"let g:vim_markdown_anchorexpr = "'<<'.v:anchor.'>>'"
+"let g:vim_markdown_math = 1
+"let g:vim_markdown_frontmatter = 1
+"let g:vim_markdown_toml_frontmatter =1
+"let g:vim_markdown_json_frontmatter = 1
+"let g:vim_markdown_strikethrough = 1
+"let g:vim_markdown_new_list_item_ident = 2
+"let g:vim_markdown_no_extensions_in_markdown = 1
+
+" }}}
 
 "Global key mappings {{{
 
