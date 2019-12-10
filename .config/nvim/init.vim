@@ -96,7 +96,6 @@ set fillchars+=vert:│
 nnoremap <leader>s :mksession<CR>
 " }}}
 
-<<<<<<< HEAD
 " Markdown {{{
 
 let g:polyglot_disabled = ['markdown']
@@ -114,9 +113,6 @@ let g:polyglot_disabled = ['markdown']
 "let g:vim_markdown_no_extensions_in_markdown = 1
 
 " }}}
-=======
-let g:polyglot_disabled = ['markdown', 'latex']
->>>>>>> 927b2855bda5837b713de3bd10233b3cf9caf834
 
 "Global key mappings {{{
 
