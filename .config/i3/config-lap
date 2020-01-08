@@ -261,7 +261,7 @@ assign [class="teams"] $ws9
 
 # Layouts
 for_window [class="Rambox"] layout tabbed
-for_window [class="teams-for-linux"] layout tabbed
+for_window [class="teams"] layout tabbed
 for_window [class="Firefox"] layout tabbed
 
 # Float
