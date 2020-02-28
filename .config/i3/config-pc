@@ -297,7 +297,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
 exec --no-startup-id syncthing-gtk
 exec --no-startup-id insync
-exec --no-startup-id sleep 10; joplin sync
+exec --no-startup-id sleep 10; joplin sync; task sync
 exec --no-startup-id thunderbird
 #exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
