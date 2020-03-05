@@ -11,6 +11,7 @@ alias i3wm='nvim ~/.config/i3/config'
 alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
 alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 alias vim='nvim'
+alias v='nvim'
 
 # TaskWarrior
 alias ts='task sync'
