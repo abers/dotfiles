@@ -289,8 +289,7 @@ nmap <leader>d 3<leader>ww
 
 let g:zettel_options = [
                          \{},
-                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/.zettel.tpl"},
-                         \{}]
+                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/template.tpl"}]
 " }}}
 
 " TaskWiki {{{
