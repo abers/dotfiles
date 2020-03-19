@@ -37,6 +37,9 @@ for_window [class="^.*"] border pixel 2
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
 
+for_window [title="Microsoft Teams Notification"] border pixel 0
+for_window [title="Microsoft Teams Notification"] floating enable
+
 gaps inner 0
 gaps outer 0
 #gaps top 50
