@@ -11,7 +11,7 @@ set $m2 DVI-1
 
 set $mod Mod4
 set $terminal konsole
-font pango:Noto Sans 11
+font pango:Ubuntu 10
 bindsym $mod+b bar mode toggle
 hide_edge_borders smart
 new_window pixel 2
@@ -311,60 +311,26 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 # }}}}
 
 ###--- THEME ---#### {{{{
-set $bg-color            #282828
-set $inactive-bg-color   #1d2021
-set $text-color          #ebdbb2
-set $inactive-text-color #a89984
+set $bg-color            #383C4A
+#set $bg-color            #5294E2
+set $inactive-bg-color #323541
+#set $inactive-bg-color   #404552
+#set $inactive-bg-color   #383C4A
+set $text-color          #FFFFFF
+set $inactive-text-color #B3BDCB
 set $urgent-bg-color     #fb4934
-set $active-border       #83a598
+set $active-border       #5294E2
 set $inactive-border     #076678
-set $edge-border         #8ec07c
+#set $edge-border         #A3BE8C
+set $edge-border         #5294E2
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $active-border           $active-border          $text-color          $edge-border
-client.unfocused        $inactive-border  $inactive-border $inactive-text-color $inactive-border
-client.focused_inactive $inactive-border  $inactive-border $inactive-text-color $inactive-border
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+client.focused          $bg-color    $bg-color          $text-color          $edge-border
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $edge-border    $edge-border   $text-color          $edge-border
 
-# }}}}
-
-###--- BAR ---### {{{{
-#bar {
-#       position top
-#       output DVI-0
-#       tray_output DVI-1
-#       status_command i3blocks -c ~/.config/i3/time.conf
-#       mode hide
-#       font pango:Noto Sans 10, FontAwesome 11
-#       colors {
-#               background $bg-color
-#               separator #282827
-#               #                  border             background         text
-#               focused_workspace  $bg-color $bg-color $text-color
-#               active_workspace  $bg-color $bg-color $text-color
-#               inactive_workspace $bg-color $bg-color $inactive-text-color
-#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#       }
-#}
-#
-#bar {
-#       position top
-#       output DVI-1
-#       tray_output DVI-1
-#       status_command i3blocks -c ~/.config/i3/music.conf
-#       mode hide
-#       font pango:Noto Sans 10, FontAwesome 11
-#       colors {
-#               background $bg-color
-#               separator #282828
-#               #                  border             background         text
-#               focused_workspace  $bg-color $bg-color $text-color
-#               active_workspace  $bg-color $bg-color $text-color
-#               inactive_workspace $bg-color $bg-color $inactive-text-color
-#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#       }       
-#}
 # }}}}
 
 # vim:foldmethod=marker:foldlevel=0 
