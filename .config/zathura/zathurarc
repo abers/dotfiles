@@ -23,43 +23,47 @@ set font "Source Code Pro 14"
 set default-bg "#2E3440" #00
 set default-fg "#D8DEE9" #01
 
-set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#202020" #01
+set statusbar-fg "#D8DEE9" #04
+set statusbar-bg "#2E3440" #01
 
-set inputbar-bg "#282828" #00 currently not used
-set inputbar-fg "#ebdbb2" #02
+set inputbar-bg "#2E3440" #00 currently not used
+set inputbar-fg "#D8DEE9" #02
 
-set notification-error-bg "#fb4934" #08
-set notification-error-fg "#282828" #00
+set notification-error-bg "#BF616A" #08
+set notification-error-fg "#2E3440" #00
 
-set notification-warning-bg "#fb4934" #08
-set notification-warning-fg "#282828" #00
+set notification-warning-bg "#D8DEE9" #08
+set notification-warning-fg "#2E3440" #00
 
-set highlight-color "#b57614" #0A
-set highlight-active-color "#076678" #0D
+set highlight-color "#8FBCBB" #0A
+set highlight-active-color "#8FBCBB" #0D
 
-set completion-highlight-bg "#8ec07" #02
-set completion-highlight-fg "#1d2021" #0C
+set completion-highlight-bg "#D8DEE9" #02
+set completion-highlight-fg "#2E3440" #0C
 
-set completion-bg "#83a598" #02
-set completion-fg "#3c3836" #0C
+set completion-bg "#3B4252" #02
+set completion-fg "#D8DEE9" #0C
 
-set notification-bg "#b8bb26" #0B
-set notification-fg "#3c3836" #00
+set notification-bg "#A3BE8C" #0B
+set notification-fg "#2E3440" #00
+
+set scrollbar-bg "#2E440"
+set scrollbar-fg "#4C566A"
 
 set recolor "true"
-set recolor-lightcolor "#282828" #00
-set recolor-darkcolor "#ebdbb2" #06
+set recolor-lightcolor "#2E3440" #00
+set recolor-darkcolor "#D8DEE9" #06
 set recolor-reverse-video "true"
 set recolor-keephue "false"
 
 map <C-i> set recolor-reverse-video "true"
 map <C-k> set recolor-keephue "true"
-map <C-s> feedkeys ":set guioptions s<Return>"
+map <C-g> feedkeys ":set guioptions s<Return>"
+map <C-s> set show-scrollbars "true"
 
 set render-loading "false"
-set render-loading-bg "#1d2021"
-set render-loading-fg "#ebdbb2"
+set render-loading-bg "#BF616A"
+set render-loading-fg "#D8DEE9"
 set scroll-step 50
 unmap f
 map f toggle_fullscreen
