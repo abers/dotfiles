@@ -56,9 +56,9 @@ filetype plugin indent on
 set termguicolors
 " need to get gray relative numbers to work with gruvbox
 " colorscheme 256-grayvim
-set background=dark
-let g:gruvbox_italics=1
-let g:gruvbox_guisp_fallback = "bg"
+"set background=dark
+"let g:gruvbox_italics=1
+"let g:gruvbox_guisp_fallback = "bg"
 colorscheme nord
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
@@ -66,6 +66,15 @@ highlight Comment cterm=italic
 highlight Folded cterm=italic
 " highlight SpellBad cterm=underline,bold ctermbg=red
 let g:airline_theme='nord'
+
+augroup nord-theme-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight Conceal ctermbg=None guibg=None
+  "need to add fg colour to above so know what is concealed
+  "autocmd Syntax pandoc highlight Visual ctermbg=None guibg=None
+  "Note - highlight is applied globally so for sytnax avoid Visual etc and use
+  "pandocTitle etc
+augroup END
 " }}}
 
 "Basic settings {{{
