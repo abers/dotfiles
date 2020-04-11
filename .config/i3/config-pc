@@ -11,7 +11,7 @@ set $m2 DVI-1
 
 set $mod Mod4
 set $terminal konsole
-font pango:Ubuntu 10
+font pango:Roboto 10
 bindsym $mod+b bar mode toggle
 hide_edge_borders smart
 new_window pixel 2
