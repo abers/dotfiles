@@ -318,7 +318,7 @@ set $inactive-bg-color #353945
 #set $inactive-bg-color   #404552
 #set $inactive-bg-color   #383C4A
 set $text-color          #DFDFDF
-set $inactive-text-color #C2D0DF
+set $inactive-text-color #898D99
 set $urgent-bg-color     #fb4934
 set $active-border       #5294E2
 set $inactive-border     #076678
