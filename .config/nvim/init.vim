@@ -9,7 +9,10 @@ set encoding=utf-8
 "Vim-Plug {{{
 call plug#begin()
 
-Plug 'flazz/vim-colorschemes'
+" Test:
+
+
+"Plug 'flazz/vim-colorschemes'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-fugitive'
@@ -42,6 +45,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'alok/notational-fzf-vim'
 Plug 'lervag/vimtex'
 
+Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 filetype plugin indent on
 
@@ -54,11 +59,13 @@ set termguicolors
 set background=dark
 let g:gruvbox_italics=1
 let g:gruvbox_guisp_fallback = "bg"
-colorscheme gruvbox
+colorscheme nord
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
 highlight Comment cterm=italic
 highlight Folded cterm=italic
 " highlight SpellBad cterm=underline,bold ctermbg=red
-let g:airline_theme='gruvbox'
+let g:airline_theme='nord'
 " }}}
 
 "Basic settings {{{
@@ -126,7 +133,7 @@ nnoremap <F2> :set relativenumber!<CR>
 " Quicker command by removing need for shift
 nnoremap ; :
 nnoremap : ;
- 
+
 " Enable folding with the spacebar
 nnoremap <space> za
 nnoremap <S-Space> zR
@@ -187,7 +194,7 @@ au BufNewFile,BufRead *.py
 
 "Pencil & Markdown {{{
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
- 
+
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -218,7 +225,7 @@ let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 "Tagbar {{{
 nnoremap <F4> :TagbarToggle<CR>
 
-"markdown support 
+"markdown support
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',
     \ 'kinds' : [
@@ -354,7 +361,7 @@ augroup CPT
   au BufReadPost *.cpt let $CPT_PASS = inputsecret("Password: ")
   au BufReadPost *.cpt silent 1,$!ccrypt -cb -E CPT_PASS
   au BufReadPost *.cpt set nobin
-  au BufWritePre *.cpt set bin 
+  au BufWritePre *.cpt set bin
   au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
   au BufWritePost *.cpt silent! u
   au BufWritePost *.cpt set nobin

@@ -10,7 +10,7 @@ set $m2 DVI-1
 ###--- BASICS ---### {{{{ 
 
 set $mod Mod4
-set $terminal konsole --stylesheet ~/.config/konsole_margins.css
+set $terminal konsole
 font pango:Noto Sans 11
 bindsym $mod+b bar mode toggle
 hide_edge_borders smart
