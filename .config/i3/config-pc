@@ -32,7 +32,7 @@ bindsym XF86Tools exec $terminal -e ncmpcpp
 bindsym $mod+Shift+q kill
 
 # Gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 
 
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable

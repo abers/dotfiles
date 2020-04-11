@@ -22,11 +22,12 @@ trans = #00000000
 white = #ebdbb2
 black = #282828
 
-bg = #282828
-fg = #ebdbb2
-fg-alt = #fbf1c7
+bg = #323541
+fg = #FFFFFF
+fg-alt = #FFFFFF
+accent = #5294E2
 
-acolor = #8f3f71
+acolor = #5294E2
 curgent = #e53935
 coccupied = #1e88e5
 
