@@ -283,6 +283,7 @@ bindsym Control+grave [instance="yakuake"] scratchpad show, fullscreen
 
 ###--- STARTUP ---### {{{{
 exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/purple.png
+exec_always --no-startup-id flashfocus
 exec --no-startup-id xbindkeys
 exec --no-startup-id compton -f
 exec --no-startup-id sleep 10; dropbox start
@@ -311,13 +312,13 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 # }}}}
 
 ###--- THEME ---#### {{{{
-set $bg-color            #383C4A
+set $bg-color            #2F343F
 #set $bg-color            #5294E2
-set $inactive-bg-color #323541
+set $inactive-bg-color #353945
 #set $inactive-bg-color   #404552
 #set $inactive-bg-color   #383C4A
-set $text-color          #FFFFFF
-set $inactive-text-color #B3BDCB
+set $text-color          #DFDFDF
+set $inactive-text-color #C2D0DF
 set $urgent-bg-color     #fb4934
 set $active-border       #5294E2
 set $inactive-border     #076678

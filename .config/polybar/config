@@ -22,9 +22,9 @@ trans = #00000000
 white = #ebdbb2
 black = #282828
 
-bg = #323541
-fg = #FFFFFF
-fg-alt = #FFFFFF
+bg = #2F343F
+fg = #DFDFDF
+fg-alt = #DFDFDF
 accent = #5294E2
 
 acolor = #5294E2
