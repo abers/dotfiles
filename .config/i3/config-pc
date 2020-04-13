@@ -282,7 +282,7 @@ bindsym Control+grave [instance="yakuake"] scratchpad show, fullscreen
 # }}}}
 
 ###--- STARTUP ---### {{{{
-exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/purple.png
+exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/nord.jpg
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id xbindkeys
 exec --no-startup-id compton -f

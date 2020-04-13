@@ -69,7 +69,9 @@ let g:airline_theme='nord'
 
 augroup nord-theme-overrides
   autocmd!
-  autocmd ColorScheme nord highlight Conceal ctermbg=None guibg=None
+  "autocmd ColorScheme nord highlight Conceal ctermbg=None guibg=None
+  "operates on Syntax as nord does not implement Conceal
+  autocmd Syntax pandoc highlight Conceal ctermbg=None guibg=None
   "need to add fg colour to above so know what is concealed
   "autocmd Syntax pandoc highlight Visual ctermbg=None guibg=None
   "Note - highlight is applied globally so for sytnax avoid Visual etc and use
