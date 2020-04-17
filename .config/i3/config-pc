@@ -277,13 +277,13 @@ assign [class="deluge"] $ws6
 assign [class="JDownloader"] $ws6
 assign [class=".*Soulseek.*"] $ws6
 
-## Unassigned 5
+## Reference 5
+assign [class="zeal"] $ws5
+assign [class="anki"] $ws5
+assign [class="Zotero"] $ws5
+assign [class="calibre"] $ws5
 
-## Reference 4
-assign [class="zeal"] $ws4
-assign [class="anki"] $ws4
-assign [class="Zotero"] $ws4
-assign [class="calibre"] $ws4
+# Web 4
 
 ## Web 3
 assign [class="Firefox"] $ws3
@@ -298,6 +298,10 @@ for_window [class="Firefox"] layout tabbed
 for_window [class="Chat | Microsoft Teams"] layout tabbed
 for_window [class="discord"] layout tabbed
 for_window [class="zoom"] layout tabbed
+for_window [class="ktorrent"] layout tabbed
+for_window [class="deluge"] layout tabbed
+for_window [class="JDownloader"] layout tabbed
+for_window [class=".*Soulseek.*"] layout tabbed
 
 # Float
 for_window [class="Artha"] floating enable
