@@ -253,31 +253,58 @@ bindsym $mod+n exec konsole --profile nethack
 
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
+
+## Comms 10
 assign [class="Thunderbird"] $ws10
-assign [class="vlc"] $ws7
-assign [class="Skype"] $ws9
+assign [class="Skype"] $ws10
+assign [class="Chat | Microsoft Teams"] $ws10
+assign [class="discord"] $ws10
+assign [class="zoom"] $ws10
+
+## Organisation 9
+
+## Music 8
+assign [class="cantata"] $ws8
 assign [title=".*ncmpcpp.*"] $ws8
-assign [class="Firefox"] $ws3
+
+## Video 7
+assign [class="vlc"] $ws7
+assign [class="mpv"] $ws7
+
+## Download 6
 assign [class="ktorrent"] $ws6
-assign [class="Rambox"] $ws9
-assign [class="teams"] $ws9
+assign [class="deluge"] $ws6
+assign [class="JDownloader"] $ws6
+assign [class=".*Soulseek.*"] $ws6
+
+## Unassigned 5
+
+## Reference 4
+assign [class="zeal"] $ws4
+assign [class="anki"] $ws4
+assign [class="Zotero"] $ws4
+assign [class="calibre"] $ws4
+
+## Web 3
+assign [class="Firefox"] $ws3
+
+## Work 1&2
 
 # Layouts
+for_window [class="Thunderbird"] layout tabbed
 for_window [class="Rambox"] layout tabbed
 for_window [class="teams"] layout tabbed
 for_window [class="Firefox"] layout tabbed
+for_window [class="Chat | Microsoft Teams"] layout tabbed
+for_window [class="discord"] layout tabbed
+for_window [class="zoom"] layout tabbed
 
 # Float
 for_window [class="Artha"] floating enable
-
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-
-# Scratch
-for_window [instance="yakuake"] move scratchpad 
-bindsym Control+grave [instance="yakuake"] scratchpad show, fullscreen
 
 # }}}}
 
