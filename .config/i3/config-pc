@@ -217,6 +217,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+bindsym $mod+Mod1+h resize shrink width 50 px or 5 ppt
+bindsym $mod+Mod1+j resize grow height 50 px or 5 ppt
+bindsym $mod+Mod1+k resize shrink height 50 px or 5 ppt
+bindsym $mod+Mod1+l resize grow width 50 px or 5 ppt
+
 bindsym $mod+z mode "resize"
 # }}}}
 
