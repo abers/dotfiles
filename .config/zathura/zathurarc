@@ -36,9 +36,9 @@ set notification-warning-bg "#D8DEE9" #08
 set notification-warning-fg "#2E3440" #00
 
 set highlight-color "#8FBCBB" #0A
-set highlight-active-color "#8FBCBB" #0D
+set highlight-active-color "#B48EAD" #0D
 
-set completion-highlight-bg "#D8DEE9" #02
+set completion-highlight-bg "#88c0d0" #02
 set completion-highlight-fg "#2E3440" #0C
 
 set completion-bg "#3B4252" #02
@@ -49,6 +49,11 @@ set notification-fg "#2E3440" #00
 
 set scrollbar-bg "#2E440"
 set scrollbar-fg "#4C566A"
+
+set index-bg "#2E3440"
+set index-fg "#D8DEE9"
+set index-active-bg "#88c0d0"
+set index-active-fg "#2E3440"
 
 set recolor "true"
 set recolor-lightcolor "#2E3440" #00
