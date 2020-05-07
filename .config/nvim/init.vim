@@ -138,6 +138,10 @@ let g:polyglot_disabled = ['markdown']
 nnoremap <F8> :bprev<CR>
 nnoremap <F9> :bnext<CR>
 
+"Tab switching
+nnoremap <F5> :tabprevious<CR>
+nnoremap <F6> :tabnext<CR>
+
 "Toggle relative numbering
 nnoremap <F2> :set relativenumber!<CR>
 
@@ -158,8 +162,6 @@ nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
 " Undo
 nnoremap <F10> :UndotreeToggle<cr>
 " Below don't work as conflict with fullscreen and yuquake
-nnoremap <F11> :earlier<cr>
-nnoremap <F12> :later<cr>
 
 "}}}
 
@@ -213,7 +215,7 @@ augroup pencil
 augroup END
 
 " Goyo
-nnoremap <leader>q :Goyo 120<CR>
+nnoremap <leader>q :Goyo<CR>
 
 " Limelight
 let g:limelight_conceal_ctermfg = 239
@@ -266,7 +268,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " }}}
 
 "Tasklist {{{
-nnoremap <F5> :TaskList<CR>
+nnoremap <F7> :TaskList<CR>
 " }}}
 
 "FZF {{{
@@ -315,7 +317,7 @@ let g:taskwiki_markup_syntax = "markdown"
 " }}}
 
 " Spelling & Grammar {{{
-map <F5> :setlocal spell! spelllang=en_gb<CR>
+"map <F5> :setlocal spell! spelllang=en_gb<CR>
 
 "let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
 "let g:languagetool_lang='en-GB'
@@ -372,7 +374,7 @@ augroup CPT
   au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
   au BufWritePost *.cpt silent! u
   au BufWritePost *.cpt set nobin
-  au BufRead,BufNewFile *.cpt set filetype=pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0 | ALEDisableBuffer
+  au BufRead,BufNewFile *.cpt set filetype=pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0 | ALEDisableBuffer | Goyo
 augroup END
 
 " vim:foldmethod=marker:foldlevel=0
