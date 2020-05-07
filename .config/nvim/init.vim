@@ -34,8 +34,8 @@ Plug 'tbabej/taskwiki'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
 Plug 'mboughaba/i3config.vim'
-Plug 'rhysd/vim-grammarous'
-Plug 'dpelle/vim-LanguageTool'
+"Plug 'dpelle/vim-LanguageTool'
+Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'jalvesaq/Nvim-R'
 Plug 'scrooloose/nerdcommenter'
@@ -285,7 +285,7 @@ let g:nv_ignore_pattern = ['_build', '_static', '_templates']
 " & set pandoc to recognise python code blocks
 " au FileType vimwiki set syntax=vimwiki.markdown
 au FileType vimwiki call pandoc#completion#Init()
-au FileType vimwiki set syntax=markdown.pandoc | set foldexpr=pandoc#folding#FoldExpr()
+au FileType vimwiki set syntax=pandoc | set foldexpr=pandoc#folding#FoldExpr()
 let g:vimwiki_folding='expr'
 au FileType vimwiki set nospell
 au FileType vimwiki set foldlevel=20
@@ -316,16 +316,11 @@ let g:taskwiki_markup_syntax = "markdown"
 
 " Spelling & Grammar {{{
 map <F5> :setlocal spell! spelllang=en_gb<CR>
-map <F6> :LanguageToolCheck<CR>
 
-
-let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
-let g:languagetool_lang='en-GB'
-let g:languagetool_enable_categories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
-let g:languagetool_enable_rules = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
-
-let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION', 'TYPOGRAPHY', 'CASING', 'COLLOCATIONS', 'CONFUSED_WORDS', 'CREATIVE_WRITING', 'GRAMMAR', 'MISC', 'PLAIN_ENGLISH', 'TYPOS', 'REDUNDANCY', 'SEMANTICS', 'TEXT_ANALYSIS', 'STYLE', 'GENDER_NEUTRALITY']}
-let g:grammarous#enabled_rules = {'*' : ['AND_ALSO', 'ARE_ABLE_TO', 'ARTICLE_MISSING', 'AS_FAR_AS_X_IS_CONCERNED', 'BEST_EVER', 'BLEND_TOGETHER', 'BRIEF_MOMENT', 'CAN_NOT', 'CANT_HELP_BUT', 'COMMA_WHICH', 'EG_NO_COMMA', 'ELLIPSIS', 'EXACT_SAME', 'HONEST_TRUTH', 'HOPEFULLY', 'IE_NO_COMMA', 'IN_ORDER_TO', 'I_VE_A', 'NEGATE_MEANING', 'PASSIVE_VOICE', 'PLAN_ENGLISH', 'REASON_WHY', 'SENT_START_NUM', 'SERIAL_COMMA_OFF', 'SERIAL_COMMA_ON', 'SMARTPHONE', 'THREE_NN', 'TIRED_INTENSIFIERS', 'ULESLESS_THAT', 'WIKIPEDIA', 'WORLD_AROUND_IT']}
+"let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
+"let g:languagetool_lang='en-GB'
+"let g:languagetool_enable_categories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
+"let g:languagetool_enable_rules = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
 
 " }}}
 
@@ -339,8 +334,9 @@ let g:airline#extensions#ale#enabled = 1
 
 " ALE {{{
 
-let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
+
+let g:ale_python_auto_pipenv = 1
 let g:ale_python_flake8_executable = 'pipenv'
 let g:ale_python_pylama_executable = 'pipenv'
 let g:ale_python_pydoctstyle_executable = 'pipenv'
@@ -376,7 +372,7 @@ augroup CPT
   au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
   au BufWritePost *.cpt silent! u
   au BufWritePost *.cpt set nobin
-  au BufRead,BufNewFile *.cpt set filetype=markdown.pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0
+  au BufRead,BufNewFile *.cpt set filetype=pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0
 augroup END
 
 " vim:foldmethod=marker:foldlevel=0
