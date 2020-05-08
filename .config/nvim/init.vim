@@ -235,7 +235,7 @@ let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
 let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 
-au BufRead,BufNewFile *.md ALEDisableBuffer | Goyo
+au BufRead,BufNewFile *.md ALEDisableBuffer
 " }}}
 
 "Tagbar {{{
