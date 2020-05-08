@@ -35,6 +35,7 @@ Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
 Plug 'mboughaba/i3config.vim'
 "Plug 'dpelle/vim-LanguageTool'
+"Plug 'Konfekt/vim-langtool'
 Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'jalvesaq/Nvim-R'
@@ -233,6 +234,8 @@ let g:pandoc#syntax#conceal#urls=1
 let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
 let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
+
+au BufRead,BufNewFile *.md ALEDisableBuffer
 " }}}
 
 "Tagbar {{{
@@ -319,10 +322,15 @@ let g:taskwiki_markup_syntax = "markdown"
 " Spelling & Grammar {{{
 "map <F5> :setlocal spell! spelllang=en_gb<CR>
 
-"let g:languagetool_jar='$HOME/Applications/LanguageTool/languagetool-commandline.jar'
-"let g:languagetool_lang='en-GB'
-"let g:languagetool_enable_categories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
-"let g:languagetool_enable_rules = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
+nnoremap <leader>l :ALEEnableBuffer<CR>
+
+"let g:langtool_jar='/home/alasdair/Applications/LanguageTool/languagetool-commandline.jar'
+"let s:enablecategories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
+"let s:enable = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
+
+"let g:langtool_parameters = ' --language en-GB' .
+"    \ ' --enablecategories ' . s:enablecategories .
+""    \ ' --enable' . s:enable
 
 " }}}
 

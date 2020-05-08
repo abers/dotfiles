@@ -60,6 +60,7 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 bindsym $mod+Shift+d exec dmenu_run
 bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window 
+bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
 # }}}}
 
 ###--- FOCUS & PANES ---### {{{{
@@ -186,10 +187,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:Roboto 12' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Shutdown' 'systemctl poweroff -i' -b 'Restart' 'systemctl reboot'"
 
 # screen lock
-bindsym $mod+shift+x exec i3lock --color "$inactive-bg-color"
+bindsym $mod+shift+Pause exec i3lock --color "$inactive-bg-color"
 # }}}}
 
 ###--- RESIZE ---### {{{{
@@ -328,7 +329,6 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
 exec --no-startup-id dunst
-exec --no-startup-id albert
 #exec --no-startup-id kdeconnect-cli
 exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
 exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
