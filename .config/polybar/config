@@ -26,32 +26,11 @@ bg = #2F343F
 fg = #DFDFDF
 fg-alt = #DFDFDF
 accent = #5294E2
+purple = #B48EAD
 
 acolor = #5294E2
 curgent = #e53935
 coccupied = #1e88e5
-
-## Gruvbox colors TO DO
-
-red = #e53935
-pink = #d81b60
-purple = #8e24aa
-deep-purple = #5e35b1
-indigo = #3949ab
-blue = #1e88e5
-light-blue = #039be5
-cyan = #00acc1
-teal = #00897b
-green = #43a047
-light-green = #7cb342
-lime = #c0ca33
-yellow = #fdd835
-amber = #ffb300
-orange = #fb8c00
-deep-orange = #f4511e
-brown = #6d4c41
-grey = #757575
-blue-gray = #546e7a
 
 ;==========================================================
 
@@ -100,7 +79,7 @@ scroll-down = i3wm-wsprev
 
 modules-left = workspaces 
 modules-right = date
-modules-center = 
+modules-center = activetask
  
 [bar/main2]
 monitor = DVI-1
@@ -127,7 +106,7 @@ module-margin-right = 1
 ;==========================================================
 
 ;font-0 = "Fantasque Sans Mono:pixelsize=12;2"
-font-0 = "Noto Sans:pixelsize=10;2"
+font-0 = "Roboto:pixelsize=10;2"
 font-2 = "FontAwesome:size=10;2"
 font-1 = "Material Icons:size=10;4"
 
@@ -147,6 +126,6 @@ scroll-down = i3wm-wsprev
 
 modules-left = workspaces 
 modules-right = tasks
-modules-center = mpd
+modules-center = mpd mpd2
  
 ;== EOF ========================================================
