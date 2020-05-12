@@ -146,7 +146,7 @@ scroll-down = i3wm-wsprev
 ;== Module Location ========================================================
 
 modules-left = workspaces 
-modules-right = 
+modules-right = tasks
 modules-center = mpd
  
 ;== EOF ========================================================
