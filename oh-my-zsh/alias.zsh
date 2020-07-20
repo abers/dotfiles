@@ -51,3 +51,4 @@ alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 alias gpg="gpg2"
+alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /media/personal/Backups"
