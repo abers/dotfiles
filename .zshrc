@@ -11,6 +11,7 @@ export FZF_DEFAULT_OPTS="--preview 'highlight -O ansi -l {} 2> /dev/null | head 
 export XDG_CURRENT_DESKTOP=KDE
 export EDITOR='nvim'
 export PATH="$(yarn global bin):$PATH"
+export DOMAIN=constellations.scot
 #export GPG_TTY='tty'
 unsetopt nomatch
 

@@ -51,4 +51,10 @@ alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 alias gpg="gpg2"
+
+# Backups
 alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /media/personal/Backups"
+
+# Let's encrypt
+alias check-acme='nslookup -q="TXT" _acme-challenge.constellations.scot'
+alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
