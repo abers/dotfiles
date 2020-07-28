@@ -56,5 +56,4 @@ alias gpg="gpg2"
 alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /media/personal/Backups"
 
 # Let's encrypt
-alias check-acme='nslookup -q="TXT" _acme-challenge.constellations.scot'
 alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
