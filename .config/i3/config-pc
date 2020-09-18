@@ -2,8 +2,8 @@
 
 ###--- LOCAL ---### {{{{ 
 
-set $m1 DVI-0
-set $m2 DVI-1
+set $m1 DVI-D-0
+set $m2 DVI-I-1
 
 # }}}}
 
@@ -89,10 +89,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+x split h
+# bindsym $mod+x split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # toggle split
 bindsym $mod+t split toggle
@@ -268,6 +268,7 @@ assign [class="discord"] $ws10
 assign [class="zoom"] $ws10
 
 ## Organisation 9
+assign [title="APP"] $ws9
 
 ## Music 8
 assign [class="cantata"] $ws8
@@ -340,6 +341,7 @@ exec --no-startup-id insync
 exec --no-startup-id sleep 10; joplin sync; task sync
 #exec --no-startup-id konsole --hold --profile gcalcli -e gcalcli agenda
 exec --no-startup-id thunderbird
+exec --no-startup-id ~/Applications/Constellations-Tasks/APP
 #exec --no-startup-id yakuake
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
