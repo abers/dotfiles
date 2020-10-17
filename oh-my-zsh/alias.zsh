@@ -44,8 +44,8 @@ alias prun="pipenv run python"
 alias dot='cd ~/Git/dotfiles/'
 
 # Phobetor MPD
-alias mp='mpc add http://192.168.0.28:8000; mpc play'
-alias mr='ncmpcpp -h 192.168.0.28 -p 6600'
+alias mp='mpc add http://192.168.0.4:8000; mpc play'
+alias mr='ncmpcpp -h 192.168.0.4 -p 6600'
 
 # Other
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
@@ -57,3 +57,7 @@ alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /m
 
 # Let's encrypt
 alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
+
+# SSH
+alias ssh-phobetor='ssh pi@192.168.0.4'
+alias ssh-osmc='ssh osmc@192.168.0.6'
