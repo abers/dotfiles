@@ -327,7 +327,7 @@ exec --no-startup-id compton -f
 exec --no-startup-id sleep 10; dropbox start
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
-exec --no-startup-id syncthing
+exec --no-startup-id syncthing -no-browser
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
 exec --no-startup-id dunst
