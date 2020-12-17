@@ -35,9 +35,9 @@ alias gitup='git add -A; git stage -A; git commit; git push'
 alias gitall='git add -A; git stage -A; git commit'
 
 # Python
-alias python=python3
-alias pip=pip3
-alias bpython=bpython3
+# alias python=python3
+# alias pip=pip3
+# alias bpython=bpython3
 alias prun="pipenv run python"
 
 # Movement aliases
@@ -64,7 +64,7 @@ alias ssh-phobetor='ssh pi@192.168.0.4'
 alias ssh-osmc='ssh osmc@192.168.0.6'
 
 # Camera
-alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=600'
+alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=250; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=150'
 cam-ex() {
     sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute="$1"
 }
