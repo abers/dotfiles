@@ -155,7 +155,7 @@ nnoremap <space> za
 nnoremap <S-Space> zR
 
 " Journal
-nnoremap <leader>j :edit ~/Dropbox/personal/Journal/2020.cpt<CR>
+nnoremap <leader>j :edit ~/Dropbox/personal/Journal/2021.cpt<CR>
 
 " Fix syntax in vimwiki
 nnoremap <leader>v :set syntax=vimwiki.markdown<CR>

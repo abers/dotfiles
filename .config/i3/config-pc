@@ -58,9 +58,13 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 
 ###--- ROFI ---### {{{{
 bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window 
 bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
+# }}}}
+
+###--- APPS ---### {{{{
+bindsym $mod+v exec konsole -e nvim
+bindsym $mod+d exec dolphin
 # }}}}
 
 ###--- FOCUS & PANES ---### {{{{
