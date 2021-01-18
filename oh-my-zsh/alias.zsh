@@ -64,7 +64,7 @@ alias ssh-phobetor='ssh pi@192.168.0.4'
 alias ssh-osmc='ssh osmc@192.168.0.6'
 
 # Camera
-alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=250; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=150'
+alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=250; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=130'
 cam-ex() {
     sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute="$1"
 }
