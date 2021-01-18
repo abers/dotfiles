@@ -264,16 +264,16 @@ bindsym $mod+n exec konsole --profile nethack
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 
-## Comms 10
+## Email, cal, tasks 10
 assign [class="Thunderbird"] $ws10
 assign [class="Korganizer"] $ws10
-assign [class="Skype"] $ws10
-assign [class="Chat | Microsoft Teams"] $ws10
-assign [class="discord"] $ws10
-assign [class="zoom"] $ws10
 assign [title="APP"] $ws10
 
-## Organisation 9
+## Chat 9
+assign [class="Skype"] $ws9
+assign [class="Chat | Microsoft Teams"] $ws9
+assign [class="discord"] $ws9
+assign [class="zoom"] $ws9
 
 ## Music 8
 assign [class="cantata"] $ws8
