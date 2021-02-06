@@ -1,5 +1,5 @@
 # Apt
-alias upgrade='sudo apt update; sudo apt upgrade -y'
+alias upgrade='sudo apt update; sudo apt upgrade -y; sudo apt autoremove'
 
 # Vim
 alias zshrc='nvim ~/.zshrc'
@@ -58,10 +58,11 @@ alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /m
 # Let's encrypt
 alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
 alias check-acme='nslookup -q=TXT _acme-challenge.constellations.scot'
+alias copy-certs='sudo cp -r /etc/letsencrypt/live/constellations.scot/ ~/Dropbox/personal/'
 
 # SSH
-alias ssh-phobetor='ssh pi@192.168.0.4'
-alias ssh-osmc='ssh osmc@192.168.0.6'
+alias ssh-phobetor='ssh pi@192.168.0.6'
+#alias ssh-osmc='ssh osmc@192.168.0.6'
 
 # Camera
 alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=250; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=130'

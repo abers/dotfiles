@@ -7,10 +7,10 @@ set encoding=utf-8
 " }}}
 
 "Vim-Plug {{{
+"Polyglot complains if this is not set first
+let g:polyglot_disabled = ['markdown']
+
 call plug#begin()
-
-" Test:
-
 
 "Plug 'flazz/vim-colorschemes'
 Plug 'mhinz/vim-startify'
@@ -34,8 +34,6 @@ Plug 'tbabej/taskwiki'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
 Plug 'mboughaba/i3config.vim'
-"Plug 'dpelle/vim-LanguageTool'
-"Plug 'Konfekt/vim-langtool'
 Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'jalvesaq/Nvim-R'
@@ -45,8 +43,10 @@ Plug 'fisadev/FixedTaskList.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'alok/notational-fzf-vim'
 Plug 'lervag/vimtex'
-
 Plug 'arcticicestudio/nord-vim'
+"Plug 'vim-pandoc/vim-rmarkdown'
+"Plug 'dpelle/vim-LanguageTool'
+"Plug 'Konfekt/vim-langtool'
 
 call plug#end()
 filetype plugin indent on
@@ -86,6 +86,7 @@ set ruler
 set ignorecase
 set smartcase
 set autoread
+set nofoldenable
 set shortmess+=I
 set showcmd
 set showmatch " highlight matching [{()}]
@@ -102,7 +103,6 @@ set number relativenumber
 set wildmenu
 set lazyredraw
 set clipboard=unnamedplus
-set foldenable
 set nrformats= " All numbers treated as decimal
 
 set scrolloff=3
@@ -115,36 +115,33 @@ set fillchars+=vert:│
 nnoremap <leader>s :mksession<CR>
 " }}}
 
-" Markdown {{{
+"Key mappings {{{
 
-let g:polyglot_disabled = ['markdown']
-"let g:vim_markdown_conceal = 2
-"let g:vim_markdown_conceal_code_blocks = 0
-"let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'c++=cpp', 'ini=dosini']
-"let g:vim_markdown_follow_anchor = 1
-"let g:vim_markdown_anchorexpr = "'<<'.v:anchor.'>>'"
-"let g:vim_markdown_math = 1
-"let g:vim_markdown_frontmatter = 1
-"let g:vim_markdown_toml_frontmatter =1
-"let g:vim_markdown_json_frontmatter = 1
-"let g:vim_markdown_strikethrough = 1
-"let g:vim_markdown_new_list_item_ident = 2
-"let g:vim_markdown_no_extensions_in_markdown = 1
+"Local leader
+let maplocalleader = ','
 
-" }}}
+"Toggle relative numbering
+nnoremap <F2> :set relativenumber!<CR>
 
-"Global key mappings {{{
+"NERDTree
+nnoremap <F3> :NERDTreeToggle<CR>
 
-"Buffer switching
-nnoremap <F8> :bprev<CR>
-nnoremap <F9> :bnext<CR>
+"Tagbar
+nnoremap <F4> :TagbarToggle<CR>
 
 "Tab switching
 nnoremap <F5> :tabprevious<CR>
 nnoremap <F6> :tabnext<CR>
 
-"Toggle relative numbering
-nnoremap <F2> :set relativenumber!<CR>
+"TaskList
+nnoremap <F7> :TaskList<CR>
+
+"Buffer switching
+nnoremap <F8> :bprev<CR>
+nnoremap <F9> :bnext<CR>
+
+" Undo
+nnoremap <F10> :UndotreeToggle<cr>
 
 " Quicker command by removing need for shift
 nnoremap ; :
@@ -159,10 +156,6 @@ nnoremap <leader>j :edit ~/Dropbox/personal/Journal/2021.cpt<CR>
 
 " Fix syntax in vimwiki
 nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
-
-" Undo
-nnoremap <F10> :UndotreeToggle<cr>
-" Below don't work as conflict with fullscreen and yuquake
 
 "}}}
 
@@ -206,7 +199,22 @@ au BufNewFile,BufRead *.py
 
 " }}}
 
-"Pencil & Markdown {{{
+"Writing {{{
+
+" Spelling & Grammar
+"map <F5> :setlocal spell! spelllang=en_gb<CR>
+"au BufRead,BufNewFile *.md ALEDisableBuffer
+"nnoremap <leader>l :ALEEnableBuffer<CR>
+
+"let g:langtool_jar='/home/alasdair/Applications/LanguageTool/languagetool-commandline.jar'
+"let s:enablecategories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
+"let s:enable = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
+
+"let g:langtool_parameters = ' --language en-GB' .
+"    \ ' --enablecategories ' . s:enablecategories .
+""    \ ' --enable' . s:enable
+
+"Pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
 augroup pencil
@@ -215,31 +223,43 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
-" Goyo
+"Goyo
 nnoremap <leader>q :Goyo<CR>
 
-" Limelight
+"Limelight
 let g:limelight_conceal_ctermfg = 239
 let g:limelight_conceal_guifg = '#3c3836'
 let g:limelight_default_coefficient = 0.7
+
+"Markdown
+"let g:vim_markdown_conceal = 2
+"let g:vim_markdown_conceal_code_blocks = 0
+"let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'c++=cpp', 'ini=dosini']
+"let g:vim_markdown_follow_anchor = 1
+"let g:vim_markdown_anchorexpr = "'<<'.v:anchor.'>>'"
+"let g:vim_markdown_math = 1
+"let g:vim_markdown_frontmatter = 1
+"let g:vim_markdown_toml_frontmatter =1
+"let g:vim_markdown_json_frontmatter = 1
+"let g:vim_markdown_strikethrough = 1
+"let g:vim_markdown_new_list_item_ident = 2
+"let g:vim_markdown_no_extensions_in_markdown = 1
 
 " }}}
 
 " Pandoc {{{
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "rst"]
-let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion"]
+let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion", "keyboard"]
 let g:pandoc#folding#fold_yaml=1
 let g:pandoc#syntax#conceal#urls=1
-let g:pandoc#folding#fold_fenced_codeblocks = 1
-let g:pandoc#syntax#codeblocks#embeds#langs = ["python"]
+"let g:pandoc#folding#fold_fenced_codeblocks = 1
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "r"]
 let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
 
-au BufRead,BufNewFile *.md ALEDisableBuffer
 " }}}
 
 "Tagbar {{{
-nnoremap <F4> :TagbarToggle<CR>
 
 "markdown support
 let g:tagbar_type_markdown = {
@@ -262,7 +282,6 @@ let g:tagbar_type_pandoc = {
 " }}}
 
 "NERDTree {{{
-nnoremap <F3> :NERDTreeToggle<CR>
 "open nerdtree with the current file selected
 nnoremap <leader>t :NERDTreeFind<CR>
 " don't show these file types
@@ -270,12 +289,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " }}}
 
-"Tasklist {{{
-nnoremap <F7> :TaskList<CR>
-" }}}
-
 "FZF {{{
-
 let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.9} }
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
 
@@ -311,7 +325,6 @@ au FileType vimwiki call pandoc#completion#Init()
 au FileType vimwiki set syntax=pandoc | set foldexpr=pandoc#folding#FoldExpr()
 let g:vimwiki_folding='expr'
 au FileType vimwiki set nospell
-au FileType vimwiki set foldlevel=20
 let g:vimwiki_global_ext= 0
 let g:vimwiki_list = [
                         \{'path': '~/vimwiki/',
@@ -331,25 +344,6 @@ nmap <leader>d 3<leader>ww
 let g:zettel_options = [
                          \{},
                          \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/template.tpl"}]
-" }}}
-
-" TaskWiki {{{
-let g:taskwiki_markup_syntax = "markdown"
-" }}}
-
-" Spelling & Grammar {{{
-"map <F5> :setlocal spell! spelllang=en_gb<CR>
-
-nnoremap <leader>l :ALEEnableBuffer<CR>
-
-"let g:langtool_jar='/home/alasdair/Applications/LanguageTool/languagetool-commandline.jar'
-"let s:enablecategories = 'PUNCTUATION,TYPOGRAPHY,CASING,COLLOCATIONS,CONFUSED_WORDS,CREATIVE_WRITING,GRAMMAR,MISC,MISUSED_TERMS_EU_PUBLICATIONS,NONSTANDARD_PHRASES,PLAIN_ENGLISH,TYPOS,REDUNDANCY,SEMANTICS,TEXT_ANALYSIS,STYLE,GENDER_NEUTRALITY'
-"let s:enable = 'AND_ALSO,ARE_ABLE_TO,ARTICLE_MISSING,AS_FAR_AS_X_IS_CONCERNED,BEST_EVER,BLEND_TOGETHER,BRIEF_MOMENT,CAN_NOT,CANT_HELP_BUT,COMMA_WHICH,EG_NO_COMMA,ELLIPSIS,EXACT_SAME,HONEST_TRUTH,HOPEFULLY,IE_NO_COMMA,IN_ORDER_TO,I_VE_A,NEGATE_MEANING,PASSIVE_VOICE,PLAN_ENGLISH,REASON_WHY,SENT_START_NUM,SERIAL_COMMA_OFF,SERIAL_COMMA_ON,SMARTPHONE,THREE_NN,TIRED_INTENSIFIERS,ULESLESS_THAT,WIKIPEDIA,WORLD_AROUND_IT'
-
-"let g:langtool_parameters = ' --language en-GB' .
-"    \ ' --enablecategories ' . s:enablecategories .
-""    \ ' --enable' . s:enable
-
 " }}}
 
 " Airline {{{
@@ -377,12 +371,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " }}}
 
-" Supertab {{{
-" disabled as conflicts with vim-pandoc citations
-"let g:SuperTabDefaultCompletionType="<c-x><c-o>"
-
-" }}}
-
 " GnuPG {{{
 
 let g:GPGPreferSymmetric=1
@@ -390,6 +378,7 @@ let g:GPGUseAgent=1
 
 " }}}
 
+" CPT {{{
 augroup CPT
   au!
   au BufReadPre  *.cpt setl bin viminfo= noswapfile
@@ -402,5 +391,7 @@ augroup CPT
   au BufWritePost *.cpt set nobin
   au BufRead,BufNewFile *.cpt set filetype=pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0 | ALEDisableBuffer | Goyo
 augroup END
+
+" }}}
 
 " vim:foldmethod=marker:foldlevel=0
