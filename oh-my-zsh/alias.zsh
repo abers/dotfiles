@@ -1,5 +1,5 @@
 # Apt
-alias upgrade='sudo apt update; sudo apt upgrade -y; sudo apt autoremove'
+alias upgrade='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y'
 
 # Vim
 alias zshrc='nvim ~/.zshrc'
