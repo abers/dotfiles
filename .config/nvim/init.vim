@@ -4,6 +4,42 @@ set nocompatible
 syntax on
 set modelines=1
 set encoding=utf-8
+filetype plugin indent on
+" }}}
+
+"Basic settings {{{
+"set cursorline
+set ruler
+set ignorecase
+set smartcase
+set autoread
+set nofoldenable
+set shortmess+=I
+set showcmd
+set showmatch " highlight matching [{()}]
+set incsearch
+set hlsearch
+" and to turn off search highlighting -
+nnoremap <leader><space> :nohlsearch<CR>
+set nowrap
+set backspace=indent,eol,start
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set number relativenumber
+set wildmenu
+set lazyredraw
+set clipboard=unnamedplus
+set nrformats= " All numbers treated as decimal
+
+set scrolloff=3
+
+set mouse=a
+
+set fillchars+=vert:│
+
+" save session
+nnoremap <leader>s :mksession<CR>
 " }}}
 
 "Vim-Plug {{{
@@ -49,7 +85,6 @@ Plug 'arcticicestudio/nord-vim'
 "Plug 'Konfekt/vim-langtool'
 
 call plug#end()
-filetype plugin indent on
 
 " }}}
 
@@ -78,41 +113,6 @@ augroup nord-theme-overrides
   "Note - highlight is applied globally so for sytnax avoid Visual etc and use
   "pandocTitle etc
 augroup END
-" }}}
-
-"Basic settings {{{
-"set cursorline
-set ruler
-set ignorecase
-set smartcase
-set autoread
-set nofoldenable
-set shortmess+=I
-set showcmd
-set showmatch " highlight matching [{()}]
-set incsearch
-set hlsearch
-" and to turn off search highlighting -
-nnoremap <leader><space> :nohlsearch<CR>
-set nowrap
-set backspace=indent,eol,start
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set number relativenumber
-set wildmenu
-set lazyredraw
-set clipboard=unnamedplus
-set nrformats= " All numbers treated as decimal
-
-set scrolloff=3
-
-set mouse=a
-
-set fillchars+=vert:│
-
-" save session
-nnoremap <leader>s :mksession<CR>
 " }}}
 
 "Key mappings {{{

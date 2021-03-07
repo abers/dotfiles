@@ -2,8 +2,8 @@
 
 ###--- LOCAL ---### {{{{ 
 
-set $m1 DVI-D-0
-set $m2 DVI-I-1
+set $m1 DVI-I-1
+set $m2 DVI-D-0
 
 # }}}}
 
@@ -352,6 +352,7 @@ exec --no-startup-id ~/Applications/Constellations-Tasks/APP
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
+exec --no-startup-id sirikali
 # exec_always --no-startup-id flashfocus
 # }}}}
 
