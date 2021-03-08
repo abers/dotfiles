@@ -63,7 +63,7 @@ bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
 # }}}}
 
 ###--- APPS ---### {{{{
-bindsym $mod+v exec konsole -e nvim
+bindsym $mod+v exec code
 bindsym $mod+d exec dolphin
 # }}}}
 
@@ -96,7 +96,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+x split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # toggle split
 bindsym $mod+t split toggle
