@@ -58,9 +58,13 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 
 ###--- ROFI ---### {{{{
 bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window 
 bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
+# }}}}
+
+###--- APPS ---### {{{{
+bindsym $mod+v exec konsole -e nvim
+bindsym $mod+d exec dolphin
 # }}}}
 
 ###--- FOCUS & PANES ---### {{{{
@@ -260,14 +264,16 @@ bindsym $mod+n exec konsole --profile nethack
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 
-## Comms 10
+## Email, cal, tasks 10
 assign [class="Thunderbird"] $ws10
-assign [class="Skype"] $ws10
-assign [class="Chat | Microsoft Teams"] $ws10
-assign [class="discord"] $ws10
-assign [class="zoom"] $ws10
+assign [class="Korganizer"] $ws10
+assign [title="APP"] $ws10
 
-## Organisation 9
+## Chat 9
+assign [class="Skype"] $ws9
+assign [class="Chat | Microsoft Teams"] $ws9
+assign [class="discord"] $ws9
+assign [class="zoom"] $ws9
 
 ## Music 8
 assign [class="cantata"] $ws8
@@ -344,6 +350,7 @@ exec --no-startup-id sleep 10; joplin sync; task sync
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
+exec --no-startup-id sirikali
 # }}}}
 
 ###--- THEME ---#### {{{{
@@ -367,44 +374,6 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
 client.urgent           $edge-border    $edge-border   $text-color          $edge-border
 
-# }}}}
-
-###--- BAR ---### {{{{
-#bar {
-#       position top
-#       output DVI-0
-#       tray_output DVI-1
-#       status_command i3blocks -c ~/.config/i3/time.conf
-#       mode hide
-#       font pango:Noto Sans 10, FontAwesome 11
-#       colors {
-#               background $bg-color
-#               separator #282827
-#               #                  border             background         text
-#               focused_workspace  $bg-color $bg-color $text-color
-#               active_workspace  $bg-color $bg-color $text-color
-#               inactive_workspace $bg-color $bg-color $inactive-text-color
-#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#       }
-#}
-#
-#bar {
-#       position top
-#       output DVI-1
-#       tray_output DVI-1
-#       status_command i3blocks -c ~/.config/i3/music.conf
-#       mode hide
-#       font pango:Noto Sans 10, FontAwesome 11
-#       colors {
-#               background $bg-color
-#               separator #282828
-#               #                  border             background         text
-#               focused_workspace  $bg-color $bg-color $text-color
-#               active_workspace  $bg-color $bg-color $text-color
-#               inactive_workspace $bg-color $bg-color $inactive-text-color
-#               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#       }       
-#}
 # }}}}
 
 # vim:foldmethod=marker:foldlevel=0 
