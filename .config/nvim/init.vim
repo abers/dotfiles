@@ -31,11 +31,8 @@ set wildmenu
 set lazyredraw
 set clipboard=unnamedplus
 set nrformats= " All numbers treated as decimal
-
 set scrolloff=3
-
 set mouse=a
-
 set fillchars+=vert:│
 
 " save session
@@ -64,9 +61,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'reedes/vim-pencil'
-Plug 'vimwiki/vimwiki'
-Plug 'michal-h21/vim-zettel'
-Plug 'tbabej/taskwiki'
+"Plug 'vimwiki/vimwiki'
+"Plug 'michal-h21/vim-zettel'
+"Plug 'tbabej/taskwiki'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
 Plug 'mboughaba/i3config.vim'
@@ -107,7 +104,7 @@ augroup nord-theme-overrides
   autocmd!
   "autocmd ColorScheme nord highlight Conceal ctermbg=None guibg=None
   "operates on Syntax as nord does not implement Conceal
-  autocmd Syntax pandoc highlight Conceal ctermbg=None guibg=None
+  "autocmd Syntax pandoc highlight Conceal ctermbg=None guibg=None
   "need to add fg colour to above so know what is concealed
   "autocmd Syntax pandoc highlight Visual ctermbg=None guibg=None
   "Note - highlight is applied globally so for sytnax avoid Visual etc and use
@@ -157,6 +154,9 @@ nnoremap <leader>j :edit ~/Dropbox/personal/Journal/2021.cpt<CR>
 " Fix syntax in vimwiki
 nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
 
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+
 "}}}
 
 " YouCompleteMe {{{
@@ -166,7 +166,6 @@ if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.pandoc = ['@']
-let g:ycm_semantic_triggers.vimwiki = ['@']
 let g:ycm_semantic_triggers.tex = ['@']
 
 let g:ycm_filetype_blacklist = {
@@ -177,13 +176,12 @@ let g:ycm_filetype_blacklist = {
         \ 'infolog': 1,
         \ 'mail': 1,
         \ 'gitcommit': 1,
-        \ 'pandoc': 1,
         \ 'markdown': 1,
         \ 'vimwiki': 1
         \}
 
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 99
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 nnoremap <leader>g :tab YcmCompleter GoTo<cr>
 
@@ -231,20 +229,6 @@ let g:limelight_conceal_ctermfg = 239
 let g:limelight_conceal_guifg = '#3c3836'
 let g:limelight_default_coefficient = 0.7
 
-"Markdown
-"let g:vim_markdown_conceal = 2
-"let g:vim_markdown_conceal_code_blocks = 0
-"let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'c++=cpp', 'ini=dosini']
-"let g:vim_markdown_follow_anchor = 1
-"let g:vim_markdown_anchorexpr = "'<<'.v:anchor.'>>'"
-"let g:vim_markdown_math = 1
-"let g:vim_markdown_frontmatter = 1
-"let g:vim_markdown_toml_frontmatter =1
-"let g:vim_markdown_json_frontmatter = 1
-"let g:vim_markdown_strikethrough = 1
-"let g:vim_markdown_new_list_item_ident = 2
-"let g:vim_markdown_no_extensions_in_markdown = 1
-
 " }}}
 
 " Pandoc {{{
@@ -252,10 +236,10 @@ let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "rst"]
 let g:pandoc#modules#enabled = ["formatting", "folding", "toc", "command", "menu", "bibliographies", "completion", "keyboard"]
 let g:pandoc#folding#fold_yaml=1
-let g:pandoc#syntax#conceal#urls=1
 "let g:pandoc#folding#fold_fenced_codeblocks = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "r"]
 let g:pandoc#biblio#bibs = ["/home/alasdair/zettel/zettel.bib"]
+let g:pandoc#syntax#conceal#use = 0
 
 " }}}
 
@@ -315,40 +299,9 @@ let g:nv_search_paths = ['~/Dropbox/notes/zettel', './docs']
 let g:nv_ignore_pattern = ['_build', '_static', '_templates']
 " }}}
 
-" VimWiki {{{
-" default vimwiki is <leader>ww
-
-" Set VimWiki to use pandoc highlighting
-" & set pandoc to recognise python code blocks
-" au FileType vimwiki set syntax=vimwiki.markdown
-au FileType vimwiki call pandoc#completion#Init()
-au FileType vimwiki set syntax=pandoc | set foldexpr=pandoc#folding#FoldExpr()
-let g:vimwiki_folding='expr'
-au FileType vimwiki set nospell
-let g:vimwiki_global_ext= 0
-let g:vimwiki_list = [
-                        \{'path': '~/vimwiki/',
-                        \ 'syntax': 'markdown', 'ext': '.md',
-                        \ 'python': 'python', 'markdown': 'markdown'},
-                        \{'path': '~/zettel/',
-                        \ 'syntax': 'markdown', 'ext': '.md'},
-                        \{'path': '~/.disintegration/',
-                        \ 'syntax': 'markdown', 'ext': '.md'},
-                    \]
-
-
-"Hotkey for zettel
-nmap <leader>z 2<leader>ww
-nmap <leader>d 3<leader>ww
-
-let g:zettel_options = [
-                         \{},
-                         \ {"front_matter" : {"tags" : ""}, "template" : "~/Dropbox/notes/zettel/template.tpl"}]
-" }}}
-
 " Airline {{{
-let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'mail', 'markdown', 'org', 'rst', 'tex', 'text',
-                                           \ 'pandoc', 'vimwiki']
+let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'pandoc', 'help', 'mail', 'org', 'rst', 'tex', 'text',
+                                           \ 'markdown', 'vimwiki']
 
 let g:airline#extensions#ale#enabled = 1
 
@@ -365,32 +318,10 @@ let g:ale_python_pydoctstyle_executable = 'pipenv'
 let g:ale_python_black_options = '-l 80'
 
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
+"let g:ale_linters = {'pandoc': ['vale', 'langtool']}
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" }}}
-
-" GnuPG {{{
-
-let g:GPGPreferSymmetric=1
-let g:GPGUseAgent=1
-
-" }}}
-
-" CPT {{{
-augroup CPT
-  au!
-  au BufReadPre  *.cpt setl bin viminfo= noswapfile
-  au BufReadPost *.cpt let $CPT_PASS = inputsecret("Password: ")
-  au BufReadPost *.cpt silent 1,$!ccrypt -cb -E CPT_PASS
-  au BufReadPost *.cpt set nobin
-  au BufWritePre *.cpt set bin
-  au BufWritePre *.cpt silent! 1,$!ccrypt -e -E CPT_PASS
-  au BufWritePost *.cpt silent! u
-  au BufWritePost *.cpt set nobin
-  au BufRead,BufNewFile *.cpt set filetype=pandoc | nnoremap <buffer> j gjh | nnoremap <buffer> k gkh | let g:ycm_auto_trigger=0 | ALEDisableBuffer | Goyo
-augroup END
 
 " }}}
 

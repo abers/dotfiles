@@ -34,9 +34,6 @@ bindsym $mod+Shift+q kill
 # Gaps
 for_window [class="^.*"] border pixel 2
 
-for_window [class="albert"] border pixel 0
-for_window [class="albert"] floating enable
-
 for_window [title="Microsoft Teams Notification"] border pixel 0
 for_window [title="Microsoft Teams Notification"] floating enable
 
@@ -59,11 +56,10 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 ###--- ROFI ---### {{{{
 bindsym $mod+Shift+d exec dmenu_run
 bindsym $mod+Tab exec rofi -show window 
-bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
+bindsym $mod+z exec ~/.config/rofi/launchers/launcher.sh
 # }}}}
 
 ###--- APPS ---### {{{{
-bindsym $mod+v exec konsole -e nvim
 bindsym $mod+d exec dolphin
 # }}}}
 
@@ -99,7 +95,7 @@ bindsym $mod+Shift+Right move right
 # bindsym $mod+v split v
 
 # toggle split
-bindsym $mod+t split toggle
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -107,7 +103,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Control+space floating toggle
@@ -227,7 +223,6 @@ bindsym $mod+Mod1+j resize grow height 50 px or 5 ppt
 bindsym $mod+Mod1+k resize shrink height 50 px or 5 ppt
 bindsym $mod+Mod1+l resize grow width 50 px or 5 ppt
 
-bindsym $mod+z mode "resize"
 # }}}}
 
 ###--- MPD --### {{{{
@@ -271,7 +266,7 @@ assign [title="APP"] $ws10
 
 ## Chat 9
 assign [class="Skype"] $ws9
-assign [class="Chat | Microsoft Teams"] $ws9
+assign [class="microsoft teams - preview"] $ws9
 assign [class="discord"] $ws9
 assign [class="zoom"] $ws9
 
@@ -301,6 +296,7 @@ assign [class="calibre"] $ws5
 assign [class="Firefox"] $ws3
 
 ## Work 1&2
+assign [class="obsidian"] $ws2
 
 # Layouts
 for_window [class="Thunderbird"] layout tabbed
@@ -321,6 +317,15 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [class="yakuake"] floating enable
+for_window [class="albert"] floating enable
+for_window [class="ulauncher"] floating enable
+for_window [class="Ulauncher"] floating enable
+
+# No border
+for_window [class="albert"] border pixel 0
+for_window [class="ulauncher"] border pixel 0
+for_window [class="Ulauncher"] border pixel 0
 
 # }}}}
 
@@ -328,6 +333,7 @@ for_window [window_type="menu"] floating enable
 exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/nord.jpg
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id xbindkeys
+exec --no-startup-id ulauncher
 exec --no-startup-id compton -f
 exec --no-startup-id sleep 10; dropbox start
 exec --no-startup-id nextcloud
@@ -339,7 +345,7 @@ exec --no-startup-id dunst
 #exec --no-startup-id kdeconnect-cli
 exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
 exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
-#exec --no-startup-id artha 
+exec --no-startup-id artha 
 exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
 exec --no-startup-id insync
