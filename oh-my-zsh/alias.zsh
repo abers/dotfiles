@@ -54,7 +54,7 @@ alias gpg="gpg2"
 
 # Backups
 alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /media/personal/Backups"
-alias SteamSaves="rsync -aP --delete ~/.steam/steam/steamapps/compatdata/286160/pfx/drive_c/users/steamuser/My\ Documents/My\ Games/Tabletop\ Simulator/Saves /media/personal/BackupsWin"
+alias journalBack="rsync -aP --delete ~/Dropbox/notes/journal ~/Nextcloud/"
 
 # Let's encrypt
 alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
