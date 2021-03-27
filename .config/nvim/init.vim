@@ -20,7 +20,6 @@ set showmatch " highlight matching [{()}]
 set incsearch
 set hlsearch
 " and to turn off search highlighting -
-nnoremap <leader><space> :nohlsearch<CR>
 set nowrap
 set backspace=indent,eol,start
 set expandtab
@@ -48,9 +47,6 @@ else
   set signcolumn=yes
 endif
 
-
-" save session
-nnoremap <leader>s :mksession<CR>
 " }}}
 
 "Vim-Plug {{{
@@ -65,6 +61,7 @@ call plug#begin()
 "Plug 'flazz/vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -143,8 +140,15 @@ augroup END
 
 "Key mappings {{{
 
-"Local leader
-let maplocalleader = ','
+let g:mapleader = '\'
+let g:maplocalleader = ','
+nnoremap <silent> <leader> :<c-u>WhichKey '\'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+let g:which_key_use_floating_win = 1
+set timeoutlen=500
+
+"Remove search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
 
 "Toggle relative numbering
 nnoremap <F2> :set relativenumber!<CR>
@@ -173,19 +177,18 @@ nnoremap <F10> :UndotreeToggle<cr>
 nnoremap ; :
 nnoremap : ;
 
+"Goyo
+nnoremap <leader>z :Goyo<CR>
+
 " Enable folding with the spacebar
 nnoremap <space> za
 nnoremap <S-Space> zR
 
-" Journal
-nnoremap <leader>j :edit ~/Dropbox/personal/Journal/2021.cpt<CR>
-
-" Fix syntax in vimwiki
-nnoremap <leader>v :set syntax=vimwiki.markdown<CR>
-
-" Terminal
+"Enable escape in terminal
 tnoremap <Esc> <C-\><C-n>
 
+"NERDTree
+nnoremap <leader>t :NERDTreeFind<CR>
 "}}}
 
 " YouCompleteMe {{{
@@ -212,17 +215,16 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 99
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
-nnoremap <leader>g :tab YcmCompleter GoTo<cr>
 
 " }}}
 
 " Telescope {{{
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"nnoremap <leader>fb <cmd>Telescope buffers<cr>
+"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " }}}
 
@@ -408,8 +410,6 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
-"Goyo
-nnoremap <leader>q :Goyo<CR>
 
 "Limelight
 let g:limelight_conceal_ctermfg = 239
@@ -454,7 +454,6 @@ let g:tagbar_type_pandoc = {
 
 "NERDTree {{{
 "open nerdtree with the current file selected
-nnoremap <leader>t :NERDTreeFind<CR>
 " don't show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 

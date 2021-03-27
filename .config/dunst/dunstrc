@@ -142,10 +142,11 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    # icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
 
 [frame]
     width = 3
@@ -176,7 +177,7 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#404552"
-    foreground = "#E4E4E4"
+    foreground = "#E3E4E4"
     timeout = 10
 
 [urgency_normal]
@@ -185,8 +186,8 @@
     timeout = 10
 
 [urgency_critical]
-    background = "#6BA0DE"
-    foreground = "#E4E4E4"
+    background = "#6f616a"
+    foreground = "#Eceff4"
     timeout = 0
 
 
@@ -242,4 +243,15 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
+[pomotroid]
+    appname = pomotroid
+    urgency = critical
+#
+
+[defaults_critical]
+    msg_urgency = critical
+    background = "#6f616a"
+    foreground = "#Eceff4"
+    timeout = 0
+
 # vim: ft=cfg
