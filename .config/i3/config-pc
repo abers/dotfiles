@@ -261,8 +261,9 @@ bindsym $mod+n exec konsole --profile nethack
 
 ## Email, cal, tasks 10
 assign [class="Thunderbird"] $ws10
-assign [class="Korganizer"] $ws10
+assign [class="korganizer"] $ws10
 assign [title="APP"] $ws10
+assign [title="pomotroid"] $ws10
 
 ## Chat 9
 assign [class="Skype"] $ws9
@@ -321,6 +322,7 @@ for_window [class="yakuake"] floating enable
 for_window [class="albert"] floating enable
 for_window [class="ulauncher"] floating enable
 for_window [class="Ulauncher"] floating enable
+for_window [class="pomotroid"] floating disable
 
 # No border
 for_window [class="albert"] border pixel 0
@@ -359,6 +361,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
 exec --no-startup-id sirikali
+exec --no-startup-id /snap/pomotroid/current/pomotroid
 # exec_always --no-startup-id flashfocus
 # }}}}
 
