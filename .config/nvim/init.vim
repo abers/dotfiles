@@ -98,6 +98,8 @@ Plug 'arcticicestudio/nord-vim'
 "Plug 'vim-pandoc/vim-rmarkdown'
 "Plug 'dpelle/vim-LanguageTool'
 "Plug 'Konfekt/vim-langtool'
+Plug 'jalvesaq/R-Vim-runtime'
+Plug 'chrisbra/csv.vim'
 
 "Both the below currently require nvim nightly (>0.5)
 "Telescope
