@@ -1,9 +1,9 @@
-#  vim: filetype=i3config
+#  vim: filetype=i2config
 
 ###--- LOCAL ---### {{{{ 
 
-set $m1 DVI-I-1
-set $m2 DVI-D-0
+set $m1 DisplayPort-1
+set $m2 DisplayPort-2
 
 # }}}}
 
