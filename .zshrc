@@ -5,7 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/snap/bin:$PATH"
-export FZF_BASE=~/Git/.fzf
+export FZF_BASE=/mnt/files/Git/fzf
 export FZF_DEFAULT_OPTS="--layout reverse"
 #export FZF_DEFAULT_OPTS="--layout reverse --preview 'bat --theme="Nord" --color=always --line-range :500 {}'"
 export XDG_CURRENT_DESKTOP=KDE
@@ -146,9 +146,8 @@ clear
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 #poetry
 source ~/.poetry/env

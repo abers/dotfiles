@@ -9,7 +9,6 @@ alias wiki='nvim ~/vimwiki/index.md'
 alias zettel='nvim ~/zettel/index.md'
 alias i3wm='nvim ~/.config/i3/config'
 alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
-alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 alias vim='nvim'
 alias v='nvim'
 
@@ -51,6 +50,7 @@ alias mr='ncmpcpp -h 192.168.0.4 -p 6600'
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
 alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 alias gpg="gpg2"
+alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 
 # Backups
 alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /media/personal/Backups"

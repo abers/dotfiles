@@ -19,4 +19,4 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ="
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ++"
 
-PROMPT="${user} ${pwd} ${git_branch} ${newline}%{$fg[blue]%}$ "
+PROMPT="${user} ${pwd} ${git_branch} ${newline}%{$fg[blue]%}$ %{$fg[white]%}"
