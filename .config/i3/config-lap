@@ -3,7 +3,7 @@
 ###--- LOCAL ---### {{{{ 
 
 set $m1 eDP-1
-set $m2 DP-1
+set $m2 DP-2-1
 
 # }}}}
 
@@ -342,11 +342,12 @@ exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
 exec --no-startup-id artha 
 exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
-exec --no-startup-id syncthing-gtk
+exec --no-startup-id syncthing
 exec --no-startup-id insync
 exec --no-startup-id thunderbird
 exec --no-startup-id sleep 10; joplin sync; task sync
 #exec --no-startup-id yakuake
+exec --no-startup-id ~/Applications/Constellations-Tasks/APP
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
