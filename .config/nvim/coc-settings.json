@@ -1,0 +1,11 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "graphql", "html", "yaml", "json", "python"],
+
+    // pyright
+    "python.pythonPath": "python",
+    "python.venvPath": "/home/alasdair/.pyenv/versions/",
+    "python.analysis.typeCheckingMode": "off",
+
+    // R
+    "r.lsp.path": "/usr/bin/R"
+}

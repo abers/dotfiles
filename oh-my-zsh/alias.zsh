@@ -13,19 +13,21 @@ alias vim='nvim'
 alias v='nvim'
 
 # TaskWarrior
-alias ts='task sync'
-alias tw='task work'
-alias tp='task personal'
-alias td='task due'
-alias tl='task projects'
-alias ti='task inbox'
-alias ta='task add'
-alias t='task'
-alias tn='task sync;clear;td'
-alias tu='task +Urgent'
-alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
+# alias ts='task sync'
+# alias tw='task work'
+# alias tp='task personal'
+# alias td='task due'
+# alias tl='task projects'
+# alias ti='task inbox'
+# alias ta='task add'
+# alias t='task'
+# alias tn='task sync;clear;td'
+# alias tu='task +Urgent'
+# alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
+# tc () { task "$1" done; }
+
+# Spelling
 sp () { echo "$1" | aspell -a; }
-tc () { task "$1" done; }
 
 # Git
 alias dotup='cd ~/Git/dotfiles/; git add -A; git stage -A; git commit; git push;cd -'
@@ -41,6 +43,7 @@ alias prun="pipenv run python"
 
 # Movement aliases
 alias dot='cd ~/Git/dotfiles/'
+alias ja='cd ~/Dropbox/work/JournalArticles/;ls'
 
 # Phobetor MPD
 alias mp='mpc add http://192.168.0.4:8000; mpc play'
@@ -48,8 +51,8 @@ alias mr='ncmpcpp -h 192.168.0.4 -p 6600'
 
 # Other
 alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf"
-alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
-alias gpg="gpg2"
+#alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
+#alias gpg="gpg2"
 alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
 
 # Backups
@@ -57,7 +60,7 @@ alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /m
 alias journalBack="rsync -aP --delete ~/Dropbox/notes/journal ~/Nextcloud/"
 
 # Let's encrypt
-alias letsencrypt='certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
+alias letsencrypt='sudo certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'
 alias check-acme='nslookup -q=TXT _acme-challenge.constellations.scot'
 alias copy-certs='sudo cp -r /etc/letsencrypt/live/constellations.scot/ ~/Dropbox/personal/'
 
@@ -66,7 +69,7 @@ alias ssh-phobetor='ssh pi@192.168.0.6'
 #alias ssh-osmc='ssh osmc@192.168.0.6'
 
 # Camera
-alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=600; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=180'
+alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=active; sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=600; sudo v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=150'
 cam-ex() {
     sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute="$1"
 }
