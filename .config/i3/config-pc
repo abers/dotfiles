@@ -282,7 +282,7 @@ bindsym $mod+n exec konsole --profile nethack
 assign [class="Thunderbird"] $ws10
 assign [class="korganizer"] $ws10
 assign [title="APP"] $ws10
-assign [title="pomotroid"] $ws10
+assign [title="Todoist"] $ws10
 
 ## Chat 9
 assign [class="Skype"] $ws9
@@ -378,12 +378,14 @@ exec --no-startup-id sleep 10; insync
 exec --no-startup-id thunderbird
 #exec --no-startup-id korganizer
 exec --no-startup-id ~/Applications/Constellations-Tasks/APP
+exec --no-startup-id todoist
+exec --no-startup-id ~/Applications/Obsidian-0.12.4.AppImage
 #exec --no-startup-id yakuake
 #exec --no-startup-id redshift-gtk
 #exec --no-startup-id pkill pulseaudio
 #exec --no-startup-id pulseaudio
 exec --no-startup-id sirikali
-exec --no-startup-id /snap/pomotroid/current/pomotroid
+exec --not-startup-id pnmixer
 # exec_always --no-startup-id flashfocus
 # }}}}
 
