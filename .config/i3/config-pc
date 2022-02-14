@@ -283,6 +283,7 @@ assign [class="Thunderbird"] $ws10
 assign [class="korganizer"] $ws10
 assign [title="APP"] $ws10
 assign [title="Todoist"] $ws10
+assign [title="Toggl Track"] $ws10
 
 ## Chat 9
 assign [class="Skype"] $ws9
@@ -362,8 +363,6 @@ exec --no-startup-id sleep 10; dropbox start
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
 exec --no-startup-id syncthing -no-browser
-#exec --no-startup-id mpd
-#exec --no-startup-id mpdscribble
 exec --no-startup-id mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf
 exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-cli
@@ -372,13 +371,10 @@ exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
 exec --no-startup-id artha 
 exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
-exec --no-startup-id sleep 10; insync
-#exec --no-startup-id sleep 10; joplin sync; task sync
-#exec --no-startup-id konsole --hold --profile gcalcli -e gcalcli agenda
+exec --no-startup-id sleep 30; insync
 exec --no-startup-id thunderbird
-#exec --no-startup-id korganizer
-exec --no-startup-id ~/Applications/Constellations-Tasks/APP
 exec --no-startup-id todoist
+exec --no-startup-id flatpak run com.toggl.TogglDesktop
 exec --no-startup-id ~/Applications/Obsidian-0.12.4.AppImage
 #exec --no-startup-id yakuake
 #exec --no-startup-id redshift-gtk
