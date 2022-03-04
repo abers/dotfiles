@@ -122,14 +122,14 @@ cursor-scroll = ns-resize
 
 tray-position = right
 tray-padding = 5
-tray-maxsize = 16
+tray-maxsize = 28
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 ;== Module Location ========================================================
 
-modules-left = workspaces 
+modules-left = workspaces toggl
 modules-right = 
 modules-center = mpd
  
