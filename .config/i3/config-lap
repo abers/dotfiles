@@ -3,7 +3,7 @@
 ###--- LOCAL ---### {{{{ 
 
 set $m1 eDP-1
-set $m2 DP-2-1
+set $m2 DP-2-3
 
 # }}}}
 
@@ -27,6 +27,7 @@ bindsym $mod+r exec $terminal -e ranger
 bindsym Control+Escape exec $terminal -e htop
 bindsym XF86Calculator exec kcalc
 bindsym XF86Tools exec $terminal -e ncmpcpp 
+bindsym $mod+s exec /home/alasdair/.screenlayout/switch.sh 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -105,7 +106,7 @@ bindsym $mod+t split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -346,9 +347,7 @@ exec --no-startup-id syncthing
 exec --no-startup-id insync
 exec --no-startup-id thunderbird
 exec --no-startup-id sleep 10; joplin sync; task sync
-#exec --no-startup-id yakuake
 exec --no-startup-id ~/Applications/Constellations-Tasks/APP
-exec --no-startup-id redshift-gtk
 exec --no-startup-id pkill pulseaudio
 exec --no-startup-id pulseaudio
 exec --no-startup-id sirikali
