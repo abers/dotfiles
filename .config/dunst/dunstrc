@@ -246,11 +246,15 @@
 [pomotroid]
     appname = pomotroid
     urgency = critical
-#
+
+
+[toggl]
+    appname = Toggl Track
+    urgency = critical
 
 [defaults_critical]
     msg_urgency = critical
-    background = "#6f616a"
+    background = "#B48EAD"
     foreground = "#Eceff4"
     timeout = 0
 
