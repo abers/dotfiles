@@ -73,3 +73,6 @@ alias cam-fix='sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1; sudo v4l
 cam-ex() {
     sudo v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute="$1"
 }
+
+# GCALCLI
+alias agenda="gcalcli agenda --details all --tsv --nodeclined  \"`date '+%Y-%m-%d'`\" \"`date '+%Y-%m-%d 23:59'`\" | awk -vprefix=\"$prefix\" -F \$'\t'  '{print prefix \$2 \"-\" \$4 \" \" \$9 \" \" \$8}'"
