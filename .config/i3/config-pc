@@ -278,19 +278,22 @@ bindsym $mod+n exec konsole --profile nethack
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 
-## Email, cal, tasks 10
+## Comms 10
 assign [class="Thunderbird"] $ws10
-assign [class="korganizer"] $ws10
-assign [title="APP"] $ws10
-assign [title="Todoist"] $ws10
-assign [title="Toggl Track"] $ws10
-assign [class="Ferdi"] $ws10
+assign [class="Skype"] $ws10
+assign [class="microsoft teams - preview"] $ws10
+assign [class="discord"] $ws10
+assign [class="zoom"] $ws10
 
-## Chat 9
-assign [class="Skype"] $ws9
-assign [class="microsoft teams - preview"] $ws9
-assign [class="discord"] $ws9
-assign [class="zoom"] $ws9
+## Org 9
+assign [class="korganizer"] $ws9
+assign [title="APP"] $ws9
+assign [title="Todoist"] $ws9
+assign [title="Toggl Track"] $ws9
+assign [class="Ferdi"] $ws9
+assign [class="Morgen"] $ws9
+assign [class="pomotroid"] $ws9
+assign [class="Habitica"] $ws9
 
 ## Music 8
 assign [class="cantata"] $ws8
@@ -355,6 +358,7 @@ for_window [class="Ulauncher"] border pixel 0
 # }}}}
 
 ###--- STARTUP ---### {{{{
+exec --no-startup-id "i3-msg 'workspace 9; append_layout /home/alasdair/.config/i3/org-space.json'"
 exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/nord.jpg
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id xbindkeys
@@ -374,16 +378,19 @@ exec --no-startup-id flameshot
 exec --no-startup-id rescuetime
 exec --no-startup-id sleep 30; insync
 exec --no-startup-id thunderbird
-# exec --no-startup-id todoist
+exec --no-startup-id todoist
+exec --no-startup-id morgen
+exec --no-startup-id pomotroid
 exec --no-startup-id flatpak run com.toggl.TogglDesktop
 exec --no-startup-id ~/Applications/Obsidian-0.12.4.AppImage
-exec --no-startup-id flatpak run com.getferdi.Ferdi
+#exec --no-startup-id flatpak run com.getferdi.Ferdi
 #exec --no-startup-id yakuake
 #exec --no-startup-id redshift-gtk
 #exec --no-startup-id pkill pulseaudio
 #exec --no-startup-id pulseaudio
-exec --no-startup-id sirikali
+# exec --no-startup-id sirikali
 exec --not-startup-id pnmixer
+exec --no-startup-id desktop-habitica
 # exec_always --no-startup-id flashfocus
 # }}}}
 

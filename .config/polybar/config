@@ -84,7 +84,7 @@ scroll-down = i3wm-wsprev
 
 modules-left = workspaces 
 modules-right = date
-modules-center = toggl polypomo
+modules-center = toggl
  
 [bar/main2]
 monitor = DisplayPort-2
