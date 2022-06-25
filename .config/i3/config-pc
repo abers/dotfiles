@@ -383,14 +383,14 @@ exec --no-startup-id morgen
 exec --no-startup-id pomotroid
 exec --no-startup-id flatpak run com.toggl.TogglDesktop
 exec --no-startup-id ~/Applications/Obsidian-0.12.4.AppImage
-#exec --no-startup-id flatpak run com.getferdi.Ferdi
+exec --no-startup-id flatpak run com.ferdium.Ferdium
 #exec --no-startup-id yakuake
 #exec --no-startup-id redshift-gtk
 #exec --no-startup-id pkill pulseaudio
 #exec --no-startup-id pulseaudio
 # exec --no-startup-id sirikali
 exec --not-startup-id pnmixer
-exec --no-startup-id desktop-habitica
+# exec --no-startup-id desktop-habitica
 # exec_always --no-startup-id flashfocus
 # }}}}
 
