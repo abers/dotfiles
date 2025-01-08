@@ -290,7 +290,7 @@ bindsym $mod+Home exec ksnip -r
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-bindsym $mod+n exec konsole --profile nethack
+bindsym $mod+Control+n exec konsole --profile nethack
 
 # }}}}
 
@@ -337,6 +337,7 @@ assign [title="ChatGPT"] $ws13
 assign [class="obsidian"] $ws14
 assign [class="dolphin"] $ws15
 assign [class="Steam"] $ws16
+assign [title=".*(nethack).*"] $ws16
 
 # Layouts
 for_window [class="Thunderbird"] layout tabbed
