@@ -316,6 +316,7 @@ assign [class="mpv"] $ws7
 
 ## Viewers and Download 6
 assign [class=".*Soulseek.*"] $ws6
+assign [class="org.pwmt.zathura"] $ws6
 
 ## Reference 5
 assign [class="zeal"] $ws5
@@ -338,6 +339,8 @@ assign [class="obsidian"] $ws14
 assign [class="dolphin"] $ws15
 assign [class="Steam"] $ws16
 assign [title=".*(nethack).*"] $ws16
+assign [class="systemsettings"] $ws17
+assign [class="pwvucontrol"] $ws17
 
 # Layouts
 for_window [class="Thunderbird"] layout tabbed
