@@ -2,15 +2,15 @@
 alias upgrade='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; flatpak update -y'
 
 # Vim
-alias zshrc='nvim ~/.zshrc'
-alias bashrc='nvim ~/.bashrc'
-alias vimrc='nvim ~/.config/nvim/init.vim'
-alias wiki='nvim ~/vimwiki/index.md'
-alias zettel='nvim ~/zettel/index.md'
-alias i3wm='nvim ~/.config/i3/config'
-alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
-alias vim='nvim'
-alias v='nvim'
+alias zshrc='lvim ~/.zshrc'
+alias bashrc='lvim ~/.bashrc'
+alias vimrc='lvim ~/.config/nvim/init.vim'
+alias wiki='lvim ~/vimwiki/index.md'
+alias zettel='lvim ~/zettel/index.md'
+alias i3wm='lvim ~/.config/i3/config'
+alias aliasrc='lvim ~/.oh-my-zsh/custom/alias.zsh'
+alias vim='lvim '
+alias v='lvim '
 
 # TaskWarrior
 # alias ts='task sync'
