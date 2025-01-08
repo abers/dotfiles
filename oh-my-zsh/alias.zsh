@@ -30,10 +30,10 @@ alias v='lvim '
 sp () { echo "$1" | aspell -a; }
 
 # Git
-alias dotup='cd ~/Git/dotfiles/; git add -A; git stage -A; git commit; git push;cd -'
+alias dotup='cd ~/Git/dotfiles/; git add -A; git commit; git push;cd -'
 alias dotdown='cd ~/Git/dotfiles/; git pull; cd -'
-alias gitup='git add -A; git stage -A; git commit; git push'
-alias gitall='git add -A; git stage -A; git commit'
+alias gitup='git add -A; git commit; git push'
+alias gitall='git add -A; git commit'
 
 # Python
 # alias python=python3
