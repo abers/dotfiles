@@ -2,8 +2,9 @@
 
 ###--- LOCAL ---### {{{{ 
 
-set $m1 eDP-1
-set $m2 DP-2-3
+set $m1 DP-2-3
+set $m2 DP-2-2
+# set $m1 eDP-1
 
 # }}}}
 
@@ -12,7 +13,7 @@ set $m2 DP-2-3
 set $mod Mod4
 set $terminal konsole
 font pango:Roboto 10
-bindsym $mod+b bar mode toggle
+# bindsym $mod+b bar mode toggle
 hide_edge_borders smart
 new_window pixel 2
 
@@ -21,13 +22,15 @@ new_window pixel 2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Screen layout
+bindsym $mod+Shift+Control+m exec ~/.screenlayout/new_normal.sh; exec polybar-msg cmd restart
+
 # Quick launching
 bindsym $mod+Return exec $terminal
 bindsym $mod+r exec $terminal -e ranger
 bindsym Control+Escape exec $terminal -e htop
 bindsym XF86Calculator exec kcalc
-bindsym XF86Tools exec $terminal -e ncmpcpp 
-bindsym $mod+s exec /home/alasdair/.screenlayout/switch.sh 
+# bindsym $mod+m exec $terminal -e ncmpcpp
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -35,19 +38,16 @@ bindsym $mod+Shift+q kill
 # Gaps
 for_window [class="^.*"] border pixel 2
 
-for_window [class="albert"] border pixel 0
-for_window [class="albert"] floating enable
-
 for_window [title="Microsoft Teams Notification"] border pixel 0
 for_window [title="Microsoft Teams Notification"] floating enable
 
-gaps inner 20
+gaps inner 30
 gaps outer 0
 #gaps top 50
 
 smart_gaps on
 
-bindsym $Mod+G gaps inner current set 20
+bindsym $Mod+G gaps inner current set 30
 bindsym $Mod+shift+G gaps inner current set 0
 
 # Polybar
@@ -58,14 +58,16 @@ bindsym $mod+Shift+p exec polybar-msg cmd restart
 # }}}} 
 
 ###--- ROFI ---### {{{{
-bindsym $mod+Shift+d exec dmenu_run
 bindsym $mod+Tab exec rofi -show window 
-bindsym $mod+backslash exec ~/.config/rofi/launchers/launcher.sh
+bindsym $mod+z exec ~/.config/rofi/launchers/launcher.sh
 # }}}}
 
 ###--- APPS ---### {{{{
-bindsym $mod+v exec code
-bindsym $mod+d exec dolphin
+bindsym $mod+Control+d exec dolphin
+bindsym $mod+Control+t exec todoist
+bindsym $mod+Control+m exec morgen
+bindsym $mod+Control+o exec obsidian
+bindsym $mod+Control+c exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=cadlkienfkclaiaibeoongdcgmdikeeg'
 # }}}}
 
 ###--- FOCUS & PANES ---### {{{{
@@ -94,13 +96,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+x split h
+# bindsym $mod+x split h
 
 # split in vertical orientation
 # bindsym $mod+v split v
 
 # toggle split
-bindsym $mod+t split toggle
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -108,11 +110,11 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+shift+f floating toggle
-bindsym $mod+control+f floating toggle; resize set 800 1100; move position center
+bindsym $mod+Control+space floating toggle
+bindsym $mod+Shift+space floating toggle; resize set 800 1100; move position center
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
@@ -121,7 +123,7 @@ bindsym $mod+control+f floating toggle; resize set 800 1100; move position cente
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+c focus child
+bindsym $mod+b focus child
 # }}}}
 
 ###--- WORKSPACES ---### {{{{
@@ -136,6 +138,13 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1; move workspace to output $m1
@@ -148,6 +157,13 @@ bindsym $mod+7 workspace $ws7; move workspace to output $m1
 bindsym $mod+8 workspace $ws8; move workspace to output $m1
 bindsym $mod+9 workspace $ws9; move workspace to output $m1
 bindsym $mod+0 workspace $ws10; move workspace to output $m1
+bindsym $mod+m workspace $ws11; move workspace to output $m1
+bindsym $mod+t workspace $ws12; move workspace to output $m1
+bindsym $mod+c workspace $ws13; move workspace to output $m1
+bindsym $mod+o workspace $ws14; move workspace to output $m1
+bindsym $mod+d workspace $ws15; move workspace to output $m1
+bindsym $mod+s workspace $ws16; move workspace to output $m1
+bindsym $mod+grave workspace $ws17; move workspace to output $m1
 
 # switch to workspace
 bindsym $mod+Mod1+1 workspace $ws1; move workspace to output $m2
@@ -160,6 +176,13 @@ bindsym $mod+Mod1+7 workspace $ws7; move workspace to output $m2
 bindsym $mod+Mod1+8 workspace $ws8; move workspace to output $m2
 bindsym $mod+Mod1+9 workspace $ws9; move workspace to output $m2
 bindsym $mod+Mod1+0 workspace $ws10; move workspace to output $m2
+bindsym $mod+Mod1+m workspace $ws11; move workspace to output $m2
+bindsym $mod+Mod1+t workspace $ws12; move workspace to output $m2
+bindsym $mod+Mod1+c workspace $ws13; move workspace to output $m2
+bindsym $mod+Mod1+o workspace $ws14; move workspace to output $m2
+bindsym $mod+Mod1+d workspace $ws15; move workspace to output $m2
+bindsym $mod+Mod1+s workspace $ws16; move workspace to output $m2
+bindsym $mod+Mod1+grave workspace $ws17; move workspace to output $m2
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -172,6 +195,13 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+m move container to workspace $ws11
+bindsym $mod+Shift+t move container to workspace $ws12
+bindsym $mod+Shift+c move container to workspace $ws13
+bindsym $mod+Shift+o move container to workspace $ws14
+bindsym $mod+Shift+d move container to workspace $ws15
+bindsym $mod+Shift+s move container to workspace $ws16
+bindsym $mod+Shift+grave move container to workspace $ws17
 
 # move container & focus to workspace
 bindsym $mod+Mod1+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -184,18 +214,25 @@ bindsym $mod+Mod1+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Mod1+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Mod1+Shift+0 move container to workspace $ws10; workspace $ws10
+bindsym $mod+Mod1+Shift+m move container to workspace $ws11; workspace $ws11
+bindsym $mod+Mod1+Shift+t move container to workspace $ws12; workspace $ws12
+bindsym $mod+Mod1+Shift+c move container to workspace $ws13; workspace $ws13
+bindsym $mod+Mod1+Shift+o move container to workspace $ws14; workspace $ws14
+bindsym $mod+Mod1+Shift+d move container to workspace $ws15; workspace $ws15
+bindsym $mod+Mod1+Shift+s move container to workspace $ws16; workspace $ws16
+bindsym $mod+Mod1+Shift+grave move container to workspace $ws17; workspace $ws17
 # }}}} 
 
 ###--- RELOAD & SESSION MANANGEMENT ---### {{{{
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Mod1+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:Roboto 12' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Shutdown' 'systemctl poweroff -i' -b 'Restart' 'systemctl reboot'"
+bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:Roboto 12' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Shutdown' 'systemctl poweroff -i' -b 'Restart' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
 
 # screen lock
-bindsym $mod+shift+x exec i3lock --color "$inactive-bg-color"
+bindsym $mod+shift+Pause exec i3lock --color "$inactive-bg-color"
 # }}}}
 
 ###--- RESIZE ---### {{{{
@@ -228,7 +265,6 @@ bindsym $mod+Mod1+j resize grow height 50 px or 5 ppt
 bindsym $mod+Mod1+k resize shrink height 50 px or 5 ppt
 bindsym $mod+Mod1+l resize grow width 50 px or 5 ppt
 
-bindsym $mod+z mode "resize"
 # }}}}
 
 ###--- MPD --### {{{{
@@ -254,25 +290,23 @@ bindsym XF86AudioPrev exec $prev
 
 ###--- Hotkeys ---### {{{{
 
-bindsym Print exec flameshot gui
+bindsym $mod+Home exec ksnip -r
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-bindsym $mod+n exec konsole --profile nethack
+bindsym $mod+Control+n exec konsole --profile nethack
 
 # }}}}
 
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 
-## Email, cal, tasks 10
-assign [class="Thunderbird"] $ws10
-assign [class="Korganizer"] $ws10
-assign [title="APP"] $ws10
+## Ferdi 10
+assign [class="Ferdi"] $ws10
 
-## Chat 9
+## Comms 9
 assign [class="Skype"] $ws9
-assign [class="Chat | Microsoft Teams"] $ws9
+assign [class="microsoft teams - preview"] $ws9
 assign [class="discord"] $ws9
 assign [class="zoom"] $ws9
 
@@ -284,11 +318,9 @@ assign [title=".*ncmpcpp.*"] $ws8
 assign [class="vlc"] $ws7
 assign [class="mpv"] $ws7
 
-## Download 6
-assign [class="ktorrent"] $ws6
-assign [class="deluge"] $ws6
-assign [class="JDownloader"] $ws6
+## Viewers and Download 6
 assign [class=".*Soulseek.*"] $ws6
+assign [class="org.pwmt.zathura"] $ws6
 
 ## Reference 5
 assign [class="zeal"] $ws5
@@ -299,9 +331,20 @@ assign [class="calibre"] $ws5
 # Web 4
 
 ## Web 3
+assign [class="google-chrome"] $ws3
+assign [title=".*Google-chrome"] $ws3
 assign [class="Firefox"] $ws3
 
-## Work 1&2
+## Special
+assign [class="Morgen"] $ws11
+assign [title="Todoist"] $ws12
+assign [title="ChatGPT"] $ws13
+assign [class="obsidian"] $ws14
+assign [class="dolphin"] $ws15
+assign [class="Steam"] $ws16
+assign [title=".*(nethack).*"] $ws16
+assign [class="systemsettings"] $ws17
+assign [class="pwvucontrol"] $ws17
 
 # Layouts
 for_window [class="Thunderbird"] layout tabbed
@@ -322,35 +365,42 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [class="yakuake"] floating enable
+for_window [class="albert"] floating enable
+for_window [class="ulauncher"] floating enable
+for_window [class="Ulauncher"] floating enable
+for_window [class="pomotroid"] floating disable
+for_window [title="Reclaim - Planner | Reclaim"] floating disable
+for_window [title="ChatGPT"] floating disable
+
+# No border
+for_window [class="albert"] border pixel 0
+for_window [class="ulauncher"] border pixel 0
+for_window [class="Ulauncher"] border pixel 0
 
 # }}}}
 
 ###--- STARTUP ---### {{{{
-exec_always --no-startup-id feh --bg-scale /home/alasdair/Dropbox/personal/it/background/nord.jpg
+exec_always --no-startup-id feh --bg-scale /home/alasdair/Insync/GoogleDrive/personal/it/background/nord.jpg
 exec --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id xbindkeys
 exec --no-startup-id compton -f
-exec --no-startup-id dropbox start
-exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
-#exec --no-startup-id mpd
-#exec --no-startup-id mpdscribble
+exec --no-startup-id syncthing -no-browser
+exec --no-startup-id mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf
 exec --no-startup-id dunst
-#exec --no-startup-id albert
-#exec --no-startup-id kdeconnect-cli
-exec --no-startup-id "setxkbmap -layout gb,pl -option caps:escape"
-exec --no-startup-id "setxkbmap -option 'grp:shifts_toggle' -option caps:escape"
 exec --no-startup-id artha 
-exec --no-startup-id flameshot
-exec --no-startup-id rescuetime
-exec --no-startup-id syncthing
-exec --no-startup-id insync
-exec --no-startup-id thunderbird
-exec --no-startup-id sleep 10; joplin sync; task sync
-exec --no-startup-id ~/Applications/Constellations-Tasks/APP
-exec --no-startup-id pkill pulseaudio
-exec --no-startup-id pulseaudio
-exec --no-startup-id sirikali
+#exec --no-startup-id flameshot
+exec --no-startup-id insync start
+exec --no-startup-id todoist
+exec --no-startup-id morgen
+exec --no-startup-id flatpak run org.ferdium.Ferdium
+exec --no-startup-id flatpak run md.obsidian.Obsidian
+# exec --no-startup-id pkill pulseaudio
+# exec --no-startup-id pulseaudio
+exec --not-startup-id pnmixer
+exec --no-startup-id ulauncher
+exec --no-startup-id xbindkeys
+exec --no-startup-id setxkbmap -layout gb,pl -option 'grp:shifts_toggle' -option caps:escape
 # }}}}
 
 ###--- THEME ---#### {{{{
