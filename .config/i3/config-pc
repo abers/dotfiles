@@ -381,7 +381,7 @@ exec_always --no-startup-id feh --bg-scale /home/alasdair/Insync/GoogleDrive/per
 exec --no-startup-id ~/.config/polybar/launchi3.sh
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
-exec --no-startup-id syncthing -no-browser
+# exec --no-startup-id syncthing -no-browser
 exec --no-startup-id mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.conf
 exec --no-startup-id dunst
 exec --no-startup-id artha 
