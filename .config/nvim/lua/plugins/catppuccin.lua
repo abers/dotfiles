@@ -5,6 +5,7 @@ return {
     "LazyVim/LazyVIm",
     opts = {
       colorscheme = "catppuccin-macchiato",
+      integrations = { blink_cmp = true },
     },
   },
 }
