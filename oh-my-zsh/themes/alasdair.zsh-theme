@@ -1,5 +1,5 @@
 
-local user='%{$fg_bold[blue]%}%n%{$fg_bold[green]%}@%{$fg[magenta]%}%m%{$reset_color%}'
+local user='%{$fg_bold[cyan]%}%n%{$fg_bold[green]%}@%{$fg[magenta]%}%m%{$reset_color%}'
 local pwd='%{$fg[yellow]%}%~%{$reset_color%}'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_branch='$(git_prompt_status)%{$reset_color%}$(git_prompt_info)%{$reset_color%}'
@@ -19,4 +19,4 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ="
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ++"
 
-PROMPT="${user} ${pwd} ${git_branch} ${newline}%{$fg[blue]%}$ %{$fg[white]%}"
+PROMPT="${user} ${pwd} ${git_branch} ${newline}%{$fg[blue]%}> %{$fg[white]%}"
