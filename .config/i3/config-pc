@@ -377,7 +377,7 @@ for_window [class="Ulauncher"] border pixel 0
 # }}}}
 
 ###--- STARTUP ---### {{{{
-exec_always --no-startup-id feh --bg-scale /home/alasdair/Insync/GoogleDrive/personal/it/background/nord.jpg
+exec_always --no-startup-id feh --bg-scale /home/alasdair/Insync/GoogleDrive/personal/it/background/bkg3.png
 exec --no-startup-id ~/.config/polybar/launchi3.sh
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
@@ -400,18 +400,42 @@ exec --no-startup-id setxkbmap -layout gb,pl -option 'grp:shifts_toggle' -option
 # }}}}
 
 ###--- THEME ---#### {{{{
-set $bg-color            #2F343F
-#set $bg-color            #5294E2
-set $inactive-bg-color #353945
-#set $inactive-bg-color   #404552
-#set $inactive-bg-color   #383C4A
-set $text-color          #DFDFDF
-set $inactive-text-color #898D99
-set $urgent-bg-color     #fb4934
-set $active-border       #81A1C1
-set $inactive-border     #076678
-#set $edge-border         #A3BE8C
-set $edge-border         #5294E2
+set $bg-color            #24273a
+set $inactive-bg-color #1e2030
+set $text-color          #cad3f5
+set $inactive-text-color #a5adcb
+set $urgent-bg-color     #ed8796
+set $active-border       #8aadf4
+set $inactive-border     #91d7e3
+#set $edge-border         #a6da95
+set $edge-border         #f5bde6
+
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
 # window colors
 #                       border              background         text                 indicator   child_border

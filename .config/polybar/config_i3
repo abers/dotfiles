@@ -19,23 +19,24 @@ include-file = ~/.config/polybar/modules.conf
 [color]
 
 trans = #00000000
-white = #ebdbb2
-black = #282828
+white = #cad3f5
+black = #181926
 
-bg = #2F343F
-fg = #DFDFDF
-fg-alt = #DFDFDF
-accent = #5294E2
-purple = #B48EAD
-yellow = #EBCB8B
-red = #BF616a
-teal = #8FBCBB
-green = #a3be8c
-orange = #d08770
+bg = #24273a
+fg = #cad3f5
+fg-alt = #cad3f5
+accent = #f5bde6
+purple = #c6a0f6
+yellow = #eed49f
+red = #ed8796
+teal = #8bd5ca
+green = #a6da95
+orange = #f5a97f
 
-acolor = #5294E2
-curgent = #e53935
-coccupied = #1e88e5
+acolor = #7dc4e4
+curgent = #ee99a0
+coccupied = #8aadf4
+
 
 ;==========================================================
 
