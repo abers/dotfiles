@@ -11,6 +11,7 @@ alias i3wm='nvim ~/.config/i3/config'
 alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
 alias vim='nvim '
 alias v='nvim '
+alias gsher='cd ~/Git/Sherlock/'
 
 # TaskWarrior
 # alias ts='task sync'
@@ -33,7 +34,9 @@ sp () { echo "$1" | aspell -a; }
 alias dotup='cd ~/Git/dotfiles/; git add -A; git commit; git push;cd -'
 alias dotdown='cd ~/Git/dotfiles/; git pull; cd -'
 alias gitup='git add -A; git commit; git push'
-alias gitall='git add -A; git commit'
+alias gitall='git add .; git commit'
+alias gacm='git add .; git commit -m'
+
 
 # Python
 # alias python=python3
