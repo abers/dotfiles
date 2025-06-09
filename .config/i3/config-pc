@@ -397,6 +397,7 @@ exec --no-startup-id flatpak run md.obsidian.Obsidian
 exec --no-startup-id ulauncher
 exec --no-startup-id xbindkeys
 exec --no-startup-id setxkbmap -layout gb,pl -option 'grp:shifts_toggle' -option caps:escape
+exec --no-startup-id xmodmap -e "keycode 9 = grave"; xmodmap -e "keycode 66 = Escape"
 # }}}}
 
 ###--- THEME ---#### {{{{
