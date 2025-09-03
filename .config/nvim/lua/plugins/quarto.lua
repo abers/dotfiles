@@ -6,12 +6,25 @@ return {
     "quarto-dev/quarto-nvim",
     ft = { "quarto" },
     dev = false,
-    opts = {},
+    opts = {
+      lspFeatures = {
+        enabled = true,
+        chunks = "curly",
+      },
+      codeRunner = {
+        enabled = true,
+        default_method = "slime",
+      },
+    },
     dependencies = {
       -- for language features in code cells
       -- configured in lua/plugins/lsp.lua and
       -- added as a nvim-cmp source in lua/plugins/completion.lua
       "jmbuhr/otter.nvim",
+      opts = {
+        buffers = { set_filetpye = true, write_to_disk = true },
+        lsp = { diagnostics = { update_in_insert = false } },
+      },
     },
   },
 

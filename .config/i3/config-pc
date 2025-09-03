@@ -341,6 +341,7 @@ assign [class="Steam"] $ws16
 assign [title=".*(nethack).*"] $ws16
 assign [class="systemsettings"] $ws17
 assign [class="pwvucontrol"] $ws17
+assign [class="dsnote"] $ws17
 
 # Layouts
 for_window [class="Thunderbird"] layout tabbed
@@ -354,6 +355,7 @@ for_window [class="ktorrent"] layout tabbed
 for_window [class="deluge"] layout tabbed
 for_window [class="JDownloader"] layout tabbed
 for_window [class=".*Soulseek.*"] layout tabbed
+for_window [class="dsnote"] layout tabbed
 
 # Float
 for_window [class="Artha"] floating enable
@@ -368,6 +370,9 @@ for_window [class="Ulauncher"] floating enable
 for_window [class="pomotroid"] floating disable
 for_window [title="Reclaim - Planner | Reclaim"] floating disable
 for_window [title="ChatGPT"] floating disable
+for_window [title="NotebookLM"] floating disable
+for_window [title="Gemini"] floating disable
+for_window [title="Microsoft Teams"] floating disable
 
 # No border
 for_window [class="albert"] border pixel 0
@@ -391,6 +396,7 @@ exec --no-startup-id todoist
 exec --no-startup-id morgen
 exec --no-startup-id flatpak run org.ferdium.Ferdium
 exec --no-startup-id flatpak run md.obsidian.Obsidian
+exec --no-startup-id flatpak run net.mkiol.SpeechNote
 # exec --no-startup-id pkill pulseaudio
 # exec --no-startup-id pulseaudio
 # exec --not-startup-id pnmixer

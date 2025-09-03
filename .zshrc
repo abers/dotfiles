@@ -5,10 +5,10 @@
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/snap/bin:$PATH"
+export PATH=$PATH:/home/alasdair/Git/llama.cpp/build/bin
 export FZF_BASE=/mnt/files/Git/fzf
 export FZF_DEFAULT_OPTS="--layout reverse"
 #export FZF_DEFAULT_OPTS="--layout reverse --preview 'bat --theme="Nord" --color=always --line-range :500 {}'"
-export XDG_CURRENT_DESKTOP=KDE
 export EDITOR='nvim'
 export PATH="$(yarn global bin):$PATH"
 export DOMAIN=constellations.scot
@@ -144,13 +144,13 @@ clear
 
 #pyenv
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 
 #poetry
-source ~/.poetry/env
+# source ~/.poetry/env
 
 #node
 export NVM_DIR="$HOME/.nvm"
@@ -158,3 +158,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=~/.npm-global/bin:$PATH
 eval "$(uv generate-shell-completion zsh)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"

@@ -12,6 +12,7 @@ alias aliasrc='nvim ~/.oh-my-zsh/custom/alias.zsh'
 alias vim='nvim '
 alias v='nvim '
 alias gsher='cd ~/Git/Sherlock/'
+alias python='python3'
 
 # TaskWarrior
 # alias ts='task sync'
