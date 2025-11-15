@@ -1,0 +1,124 @@
+---
+title: "Dotfiles TODO"
+---
+
+> GenAI slop list of potential tasks with my comments - > or eol () - to clean up and organise dotfiles. Accummulated lot of cruft and inconsistencies, and would benefit from clearing out things no longer needed, making things more maintainable, and updating some tooling.
+
+> Additional to check: Files that should be added to .gitignore, other dotfiles to include, backup script that grabs lists of apt; snap; and flatpak packages installed, etc.
+
+## Shell Aliases & Functions
+
+### Reliability & Ergonomics
+- [ ] Harden the `upgrade` workflow by turning it into a function that chains each apt/flatpak step with `&&`, logs progress, and exits on the first failure.
+- [ ] Replace `dotup`, `gitup`, `gitall`, and `gacm` with functions that verify staged changes, require a commit message, and abort if any git step fails. (Able to create lazygit aliases?)
+- [ ] Rework the `agenda` helper as a function so the date range is evaluated at runtime and `$prefix` is set locally before calling `gcalcli`/`awk`. (no longer use, remove or setup gcalcli alternative)
+- [ ] Fix the `cam-fix` pipeline by supplying numeric exposure values, short-circuiting on errors, and optionally reading the desired exposure from an argument (mirroring `cam-ex`). (no longer needed, safe to remove)
+- [ ] Update the `mp`/`mr` aliases to clear the queue, validate the MPD endpoint, and handle network timeouts gracefully. (not currently used, update but low priority)
+- [ ] Move high-impact automation helpers into functions that enable `set -euo pipefail`, trap `ERR`, and emit consistent logging.
+- [ ] Replace repeated `cd …; <command>; cd -` patterns with pushd/popd helpers so directory context is always restored.
+- [ ] Break the monolithic `alias.zsh` into smaller topic/host files that can be sourced conditionally for clarity and portability.
+
+### Safety & Portability
+- [ ] Add mount/existence checks (and an optional `--dry-run`) before running the destructive `rsync --delete` backup aliases.
+- [ ] Quote the wildcard domains in the `letsencrypt` alias and move the whole manual-DNS flow into a dedicated script that enforces safer defaults.
+- [ ] Only alias `python` to `python3` when no virtualenv/pyenv is active, or rely on a proper version manager instead of a blanket alias.
+- [ ] Move network- or host-specific helpers (`ja`, `mp`, `lastfm`, `ssh-phobetor`, etc.) into host-scoped include files so they don’t error on every machine.
+- [ ] Provide a bootstrap script that verifies required tools (`aspell`, `gcalcli`, `certbot`, `pipenv`, `v4l2-ctl`, etc.) before sourcing the aliases.
+- [ ] Factor shared alias/function definitions into a cross-shell file that both `.bashrc` and `.zshrc` source to avoid drift between shells.
+- [ ] Centralize environment variables (`PATH`, `DOMAIN`, tool paths) in a single config so host overrides only declare deviations.
+- [ ] Audit `.bashrc` vs `.zshrc` behaviour (aliases, functions, PATHs) and reconcile differences before moving them into the shared layer.
+
+## Dotfile Layout & Symlink Management
+- [ ] Choose and document a declarative dotfile manager (e.g., GNU Stow, chezmoi, yadm) to own symlink creation across devices.
+- [ ] Evaluate dotter/chezmoi templating features to decide how to express shared defaults plus host overrides in a single source.
+- [ ] Organize the repo into a consistent `home/` (and optionally `config/`) tree so files mirror their destination paths.
+- [ ] Define host groups (personal/work/server) with per-host manifests that list which modules should be linked.
+- [ ] Write an idempotent deploy script/`make` target that creates symlinks, reports drift, and safely backs up conflicting files.
+- [ ] Add a verification task (or CI job) that walks the manifest and ensures every tracked file has a corresponding symlink instruction.
+- [ ] Document the symlink/deployment workflow in the README so new devices follow the same process.
+
+## Prompt & ZSH Theme
+> Aim is to move to Starship for prompt - making some of these tasks redundant?
+- [ ] Surface `${return_code}` in `PROMPT` so failed commands are obvious.
+- [ ] Fix or remove the unused `endprompt`, and consider `%#`/vi-mode indicators for elevated shells.
+- [ ] Skip `git_prompt_status`/`git_prompt_info` when outside a repo (or switch to `vcs_info`) to avoid unnecessary subshells.
+- [ ] Move git metadata to `RPROMPT` or shorten `%~` so long paths don’t wrap the left prompt.
+- [ ] Centralize color/glyph configuration so multiple prompts (zsh/starship) can reuse the same palette.
+- [ ] Add transient prompts or instant prompt support to keep redraws snappy for lengthy commands.
+- [ ] Introduce async git status (e.g., `zsh-async`, `powerlevel10k`, or Starship modules) so prompt rendering doesn’t block on large repos.
+
+## Spellchecking Configuration
+- [ ] Remove the lowercase `i` entry from `languagetool/ignore.txt` so LanguageTool can still flag stray lowercase pronouns.
+- [ ] Document (or script) how to install `languagetool/spelling.txt` into the LanguageTool data directory on new machines.
+- [ ] Teach `cspell.json` to ignore the LanguageTool word lists (and other non-source assets) so it doesn’t churn through ~14k entries and binary files.
+- [ ] Commit the script/source used to generate the ignore/spelling lists to keep them reproducible and deduplicate entries.
+- [ ] Create a maintenance script that sorts/deduplicates the LanguageTool dictionaries and validates encoding before commit.
+- [ ] Explore compiling the custom dictionary into Hunspell/Nuspell `.dic` format to reduce load times and share across tools.
+
+## SDDM Theme & Assets
+> Replaced sddm-arc with catppuccin - making these tasks redundant, where tasks now are to clean up unneeded files.
+- [ ] Add the `components/nord.jpg` and `artwork/...` assets referenced by `sddm-arc/theme.conf`, or document how to fetch them from the upstream theme.
+- [ ] Include the GPL license text and attribution required by the Arc theme snippet you ship in `sddm-arc/`.
+- [ ] Document the steps (or provide a script) to install the theme and apply the overrides on a new system.
+- [ ] Verify ownership and permissions of the deployed theme directory so SDDM can read the assets securely.
+- [ ] Script the `sddm.conf` update that selects this theme during bootstrap and confirms the service picks up changes.
+
+## Documentation & Bootstrap
+- [ ] Expand `README.md` with setup instructions, dependency lists, and links to the screenshots in `img/`.
+- [ ] Add an automation path (e.g., `stow`, `chezmoi`, or a shell installer) that symlinks the ZSH config, deploys LanguageTool data, and configures SDDM.
+- [ ] Decide whether to keep the screenshot PNGs; if so, reference them in the README, otherwise prune them to keep the repo lean.
+- [ ] Provide a `.env.example` (or similar) that enumerates secrets/variables used by scripts such as Let’s Encrypt or backup helpers.
+- [ ] Stand up CI (GitHub Actions/just task) to run shellcheck, shfmt, cspell, and Quarto rendering so regressions are caught automatically.
+- [ ] Describe the new repository layout (common tree + host overlays) and reference the symlink tooling selected above.
+
+## Modern Shell Stack
+- [ ] Evaluate swapping Oh My Zsh for a lighter plugin manager (e.g., `zinit`, `antidote`) or modular zsh config to reduce startup time.
+- [ ] Prototype a Starship configuration that replicates current prompt cues and works across zsh, bash, and fish.
+- [ ] Adopt modern CLI replacements (`eza`, `bat`, `fd`, `zoxide`, `atuin`) and ensure bootstrap scripts install/configure them everywhere.
+- [ ] Introduce cross-shell history/search tooling (e.g., `atuin`, `zoxide`) to unify navigation beyond zsh.
+
+## Backup & Sync Automation
+- [ ] Wrap all backup commands in a reusable script that performs mount/free-space checks, supports `--dry-run`, and logs outcomes.
+- [ ] Schedule backups via systemd timers/cron and add notifications on failure or skipped runs.
+- [ ] Add verification steps (hash comparisons or `restic`/`borg` checks) so backups are tested regularly.
+- [ ] Document restoration procedures for Steam saves, journals, and other synced data. (journal now in Obsidian vault, so need to replace journal backup with backup for Obsidian vault)
+
+## Tooling & Package Management
+- [ ] Replace `pipenv` with a modern environment manager (e.g., `uv`, `rye`, or `poetry`) and document the migration. (already using uv so more question of adding aliases)
+- [ ] Prototype a `uv`-based workflow (init, sync, scripts) for your core Python projects and update docs/bootstrap accordingly.
+- [ ] Use `mise`/`asdf` (or similar) to manage language runtimes so aliases like `python=python3` are unnecessary. (some of this stemmed from way python environments were managed previously, which uv seems to largely address)
+- [ ] Maintain per-platform package manifests (apt, pacman, brew, flatpak) that bootstrap scripts can process automatically.
+- [ ] Evaluate newer spellchecking backends (Hunspell/Nuspell or LSP-based) to align with contemporary editor support.
+- [ ] Capture package manifests per role/host so bootstrap knows which bundles apply to laptops vs. servers.
+
+## Host-Specific Overrides
+- [ ] Extract shared shell config into a `shell/common.zsh` (or similar) file, and keep host-specific fragments (`host/<name>/shell.local`) limited to the differences.
+- [ ] Replace `workPC/.bashrc` clones with host overlay files that source the shared base and append only the required overrides.
+- [ ] Detect the current host (via `$HOST`, `/etc/hostname`, or env vars) during bootstrap and automatically source the matching overrides.
+- [ ] Move machine-specific aliases (LAN IPs, Dropbox paths, fitbit scripts) into those override files so the main alias set stays portable.
+- [ ] Provide templates for host overrides and document where secrets/paths should live for each machine class.
+
+## Sway Migration
+
+### Core Session & Layout
+- [ ] Derive a single `~/.config/sway/config` from `.config/i3/config-{lap,pc}` so workspace bindings/output routing survive, and translate every `assign`/`for_window` rule to Sway’s `app_id` semantics (.config/i3/config-lap:5, .config/i3/config-pc:301, .config/i3/config-pc:347).
+- [ ] Replace `i3-nagbar`/`i3-msg exit` plus `i3lock` with `swaynag`/`swaymsg` and `swaylock`, then update every powermenu/panel script that still shells out to `i3lock` or `openbox --exit` (.config/i3/config-pc:228, .config/i3/config-pc:231, .config/rofi/scripts/powermenu.sh:29, .config/rofi/scripts/powermenu.sh:38, .config/rofi/scripts/menu_powermenu.sh:32, .config/rofi/scripts/menu_powermenu.sh:41, .config/rofi/power/powermenu.sh:54, .config/polybar/scripts/pmenu_g:5).
+- [ ] Drop Polybar (internal i3 workspace module, `i3wm-wsnext` scrolling, Toggl/polypomo buttons) in favour of a Wayland-native bar such as Waybar, porting the existing modules and launch scripts (.config/polybar/config:42, .config/polybar/modules.conf:16, .config/polybar/dark/config.orange:142, .config/polybar/dark/config.orange:248, .config/polybar/launchi3.sh:10).
+- [ ] Remove the external `compton` compositor and port all wallpaper handling from `feh`/ranger helpers to `swaybg` or `swww` (.config/i3/config-pc:385, .config/i3/config-pc:387, .config/ranger/rifle.conf:173, .config/ranger/rifle.conf:200).
+- [ ] Replace the `$mod+Shift+Control+m` `.screenlayout` binding with native `swaymsg output …` directives or kanshi profiles so monitor presets still reload cleanly (.config/i3/config-lap:26).
+
+### Status & Background Services
+- [ ] Recreate network/audio tray flows with Wayland-friendly replacements for `nm-applet`, `pnmixer`, and `networkmanager_dmenu` (Waybar modules, `nwg-system-tray`, etc.) (.config/i3/config-lap:387, .config/i3/config-lap:400, .config/polybar/dark/config.orange:248).
+- [ ] Swap Dunst plus the `notify-send` styling for `mako`/`swaync`, keeping script-driven notifications consistent (.config/i3/config-pc:391, .config/dunst/dunstrc:1, .config/rofi/scripts/menu_volume.sh:39).
+- [ ] Audit autostarted helpers (`insync`, `ulauncher`, `xbindkeys`, `ksnip`) for their Wayland/XWayland behaviour and document any caveats (.config/i3/config-lap:293, .config/i3/config-lap:393, .config/i3/config-lap:401, .config/i3/config-lap:402).
+
+### Input & Keybindings
+- [ ] Replace `setxkbmap`, `xmodmap`, and the `xbindkeys`/`xte` mouse macros with Sway `input` blocks and `bindsym --whole-window button` gestures (.config/i3/config-pc:404, .config/i3/config-pc:405, .config/i3/config-pc:406, .xbindkeysrc:47).
+- [ ] Update the shared `keyfix` alias once the new keyboard workflow is in place, instead of calling `setxkbmap` directly (oh-my-zsh/alias.zsh:60).
+
+### Launchers & Scripts
+- [ ] Decide whether to keep Rofi via a Wayland build or migrate to `wofi`/`fuzzel`, then update the `$mod+Tab` binding and launcher themes accordingly (.config/i3/config-lap:61, .config/rofi/launchers/style_normal.rasi:21).
+- [ ] Rewrite the Rofi helper scripts so they no longer depend on `termite`, `xbacklight`, `scrot`/`viewnior`, or `openbox --exit`, swapping in Wayland-friendly replacements (`foot`/`kitty`, `brightnessctl`, `grim+slurp`, `swayimg`, `swaymsg exit`) (.config/rofi/scripts/apps.sh:23, .config/rofi/scripts/menu_backlight.sh:10, .config/rofi/scripts/screenshot.sh:20, .config/rofi/scripts/menu_network.sh:55, .config/rofi/scripts/menu_powermenu.sh:32, .config/rofi/scripts/menu_powermenu.sh:41).
+- [ ] Ensure panel and launcher configs stop spawning X11-only terminals/commands such as the Polybar `term` module (`termite`, `urxvt`) and `networkmanager_dmenu` hooks (.config/polybar/dark/config.orange:146, .config/polybar/dark/config.orange:248).
+- [ ] Rework any i3blocks/polybar helpers that rely on `xdotool` so they query `swaymsg -t get_tree` (or `swaymsg exec`) instead (.config/i3/Blocks/focus.sh:3).
+- [ ] Replace the ranger clipboard helpers that rely on `xsel` with `wl-copy`/`wl-paste` based equivalents (.config/ranger/rc.conf:362).
