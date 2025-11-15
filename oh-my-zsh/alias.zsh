@@ -13,6 +13,7 @@ alias vim='nvim '
 alias v='nvim '
 alias gsher='cd ~/Git/Sherlock/'
 alias python='python3'
+alias vgodot='nvim --listen /tmp/godothost'
 
 # TaskWarrior
 # alias ts='task sync'
