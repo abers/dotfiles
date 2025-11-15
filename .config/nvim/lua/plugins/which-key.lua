@@ -14,6 +14,11 @@ return {
       group = "Quarto",
     })
 
+    table.insert(opts.spec, {
+      "<leader>z",
+      group = "Snippets",
+    })
+
     vim.list_extend(opts.spec, {
       { "<leader>rt", desc = "Iron: toggle REPL" },
       { "<leader>rr", desc = "Iron: restart REPL" },
