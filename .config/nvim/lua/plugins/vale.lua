@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    ft = { "markdown", "quarto", "rmarkdown", "markdown.pandoc" },
+    ft = { "markdown", "quarto", "rmd", "rmarkdown", "markdown.pandoc" },
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {

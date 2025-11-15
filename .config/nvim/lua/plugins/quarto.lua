@@ -1,35 +1,217 @@
--- plugins/quarto.lua
 return {
-
-  { -- requires plugins in lua/plugins/treesitter.lua and lua/plugins/lsp.lua
-    -- for complete functionality (language features)
+  {
     "quarto-dev/quarto-nvim",
     ft = { "quarto" },
-    dev = false,
+    dependencies = {
+      {
+        "jmbuhr/otter.nvim",
+        opts = {
+          buffers = { set_filetype = true, write_to_disk = true },
+          lsp = { diagnostics = { update_in_insert = false } },
+        },
+      },
+    },
     opts = {
       lspFeatures = {
         enabled = true,
         chunks = "curly",
       },
       codeRunner = {
-        enabled = true,
-        default_method = "slime",
+        enabled = false, -- Quarto will NOT manage REPLs
+        -- default_method = "iron",
       },
     },
-    dependencies = {
-      -- for language features in code cells
-      -- configured in lua/plugins/lsp.lua and
-      -- added as a nvim-cmp source in lua/plugins/completion.lua
-      "jmbuhr/otter.nvim",
-      opts = {
-        buffers = { set_filetpye = true, write_to_disk = true },
-        lsp = { diagnostics = { update_in_insert = false } },
+    -- 👇 This is new: we wire Quarto + otter + Iron *here*
+    config = function(_, opts)
+      -- normal quarto-nvim setup
+      require("quarto").setup(opts)
+
+      -- try to load otter + iron
+      local ok_keeper, keeper = pcall(require, "otter.keeper")
+      local ok_iron, iron = pcall(require, "iron.core")
+      if not (ok_keeper and ok_iron) then
+        return
+      end
+
+      -- helper to set buffer-local <leader>rc in a given Quarto buffer
+      local function set_quarto_mapping(bufnr)
+        vim.keymap.set("n", "<leader>rc", function()
+          local lines = keeper.get_language_lines_around_cursor()
+          if not lines or #lines == 0 then
+            vim.notify("otter: no language chunk around cursor", vim.log.levels.WARN)
+            return
+          end
+          -- ft = nil so Iron uses its repl_filetype() hook to decide R vs Python
+          iron.send(nil, lines)
+        end, { buffer = bufnr, desc = "Quarto: run chunk via Iron" })
+      end
+
+      -- future Quarto buffers
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "quarto",
+        callback = function(ev)
+          set_quarto_mapping(ev.buf)
+        end,
+      })
+
+      -- current buffer might already be Quarto when this runs
+      if vim.bo.filetype == "quarto" then
+        set_quarto_mapping(vim.api.nvim_get_current_buf())
+      end
+    end,
+
+    keys = {
+      {
+        "<leader>cqp",
+        "<cmd>QuartoPreview<cr>",
+        desc = "Quarto Preview",
+      },
+      {
+        "<leader>cqc",
+        "<cmd>QuartoPreviewClose<cr>",
+        desc = "Quarto Preview Close",
+      },
+      -- leave these commented so Quarto doesn't spawn its own REPL
+      -- {
+      --   "<leader>rl",
+      --   function()
+      --     require("quarto.runner").run_line()
+      --   end,
+      --   desc = "Quarto: run line",
+      -- },
+      -- {
+      --   "<leader>rs",
+      --   function()
+      --     require("quarto.runner").run_selection()
+      --   end,
+      --   desc = "Quarto: run selection",
+      --   mode = { "n", "v" },
+      -- },
+      -- {
+      --   "<leader>rc",
+      --   function()
+      --     require("quarto.runner").run_cell()
+      --   end,
+      --   desc = "Quarto: run cell/chunk",
+      -- },
+      -- {
+      --   "<leader>ra",
+      --   function()
+      --     require("quarto.runner").run_all()
+      --   end,
+      --   desc = "Quarto: run all",
+      -- },
+    },
+  },
+
+  {
+    "Vigemus/iron.nvim",
+    main = "iron.core",
+    event = "VeryLazy",
+    opts = function()
+      local common = require("iron.fts.common")
+
+      -- Buffer-local Quarto engine: "r" by default, "python" when toggled
+      local function get_quarto_engine(bufnr)
+        local ok, val = pcall(vim.api.nvim_buf_get_var, bufnr, "quarto_iron_chunks")
+        if ok and (val == "r" or val == "python") then
+          return val
+        end
+        return "r"
+      end
+
+      -- :QuartoIronToggle – flip between R and Python for this buffer
+      vim.api.nvim_create_user_command("QuartoIronToggle", function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local current = get_quarto_engine(bufnr)
+        local new = (current == "r") and "python" or "r"
+        vim.api.nvim_buf_set_var(bufnr, "quarto_iron_chunks", new)
+        vim.notify("Quarto Iron engine: " .. new)
+      end, {})
+
+      local python_def = {
+        command = { "ipython" },
+        format = common.bracketed_paste_python,
+        block_dividers = { "# %%", "#%%" },
+        env = { PYTHON_BASIC_REPL = "1" },
+      }
+
+      local r_def = {
+        command = { "R" },
+      }
+
+      return {
+        config = {
+          repl_definition = {
+            python = python_def,
+            r = r_def,
+            quarto = {
+              command = function(meta)
+                local engine = get_quarto_engine(meta.current_bufnr)
+                if engine == "python" then
+                  return python_def.command
+                else
+                  return r_def.command
+                end
+              end,
+            },
+          },
+
+          scratch_repl = true,
+          dap_integration = true,
+          repl_open_cmd = "botright 12split",
+        },
+
+        keymaps = {
+          toggle_repl = "<leader>rt",
+          restart_repl = "<leader>rr",
+          send_line = "<leader>rl",
+          send_motion = "<leader>rm",
+          visual_send = "<leader>rv",
+          send_file = "<leader>ra",
+          send_until_cursor = "<leader>ru",
+          send_code_block = "<leader>rc", -- overridden only in Quarto buffers
+          send_code_block_and_move = "<leader>rn",
+          interrupt = "<leader>r<space>",
+          exit = "<leader>rq",
+          clear = "<leader>rC",
+        },
+
+        highlight = { italic = true },
+        ignore_blank_lines = true,
+      }
+    end,
+
+    keys = {
+      {
+        "<leader>rT",
+        function()
+          if vim.bo.filetype == "quarto" then
+            vim.cmd("QuartoIronToggle")
+            vim.cmd("IronRestart")
+          else
+            vim.notify("QuartoIronToggle: current buffer is not a Quarto file", vim.log.levels.WARN)
+          end
+        end,
+        desc = "Quarto: toggle R/P Iron and restart",
+        mode = "n",
+      },
+      {
+        "<leader>rf",
+        "<cmd>IronFocus<cr>",
+        desc = "Iron: focus REPL window",
+        mode = "n",
+      },
+      {
+        "<leader>rh",
+        "<cmd>IronHide<cr>",
+        desc = "Iron: hide REPL window",
+        mode = "n",
       },
     },
   },
 
-  { -- directly open ipynb files as quarto docuements
-    -- and convert back behind the scenes
+  { -- directly open ipynb files as quarto documents
     "GCBallesteros/jupytext.nvim",
     opts = {
       custom_language_formatting = {
@@ -47,111 +229,10 @@ return {
     },
   },
 
-  { -- send code from python/r/qmd documets to a terminal or REPL
-    -- like ipython, R, bash
-    "jpalardy/vim-slime",
-    dev = false,
-    init = function()
-      vim.b["quarto_is_python_chunk"] = false
-      Quarto_is_in_python_chunk = function()
-        require("otter.tools.functions").is_otter_language_context("python")
-      end
-
-      vim.cmd([[
-      let g:slime_dispatch_ipython_pause = 100
-      function SlimeOverride_EscapeText_quarto(text)
-      call v:lua.Quarto_is_in_python_chunk()
-      if exists('g:slime_python_ipython') && len(split(a:text,"\n")) > 1 && b:quarto_is_python_chunk && !(exists('b:quarto_is_r_mode') && b:quarto_is_r_mode)
-      return ["%cpaste -q\n", g:slime_dispatch_ipython_pause, a:text, "--", "\n"]
-      else
-      if exists('b:quarto_is_r_mode') && b:quarto_is_r_mode && b:quarto_is_python_chunk
-      return [a:text, "\n"]
-      else
-      return [a:text]
-      end
-      end
-      endfunction
-      ]])
-
-      vim.g.slime_target = "neovim"
-      vim.g.slime_no_mappings = true
-      vim.g.slime_python_ipython = 1
-    end,
-    config = function()
-      vim.g.slime_input_pid = false
-      vim.g.slime_suggest_default = true
-      vim.g.slime_menu_config = false
-      vim.g.slime_neovim_ignore_unlisted = true
-
-      local function mark_terminal()
-        local job_id = vim.b.terminal_job_id
-        vim.print("job_id: " .. job_id)
-      end
-
-      local function set_terminal()
-        vim.fn.call("slime#config", {})
-      end
-      vim.keymap.set("n", "<leader>cm", mark_terminal, { desc = "[m]ark terminal" })
-      vim.keymap.set("n", "<leader>cs", set_terminal, { desc = "[s]et terminal" })
-    end,
-  },
-
-  { -- paste an image from the clipboard or drag-and-drop
-    "HakonHarnes/img-clip.nvim",
-    event = "BufEnter",
-    ft = { "markdown", "quarto", "latex" },
-    opts = {
-      default = {
-        dir_path = "img",
-      },
-      filetypes = {
-        markdown = {
-          url_encode_path = true,
-          template = "![$CURSOR]($FILE_PATH)",
-          drag_and_drop = {
-            download_images = false,
-          },
-        },
-        quarto = {
-          url_encode_path = true,
-          template = "![$CURSOR]($FILE_PATH)",
-          drag_and_drop = {
-            download_images = false,
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      require("img-clip").setup(opts)
-      vim.keymap.set("n", "<leader>ii", ":PasteImage<cr>", { desc = "insert [i]mage from clipboard" })
-    end,
-  },
-
   { -- preview equations
     "jbyuki/nabla.nvim",
     keys = {
-      { "<leader>qm", ':lua require"nabla".toggle_virt()<cr>', desc = "toggle [m]ath equations" },
-    },
-  },
-
-  {
-    "benlubas/molten-nvim",
-    enabled = false,
-    build = ":UpdateRemotePlugins",
-    init = function()
-      vim.g.molten_image_provider = "image.nvim"
-      vim.g.molten_output_win_max_height = 20
-      vim.g.molten_auto_open_output = false
-    end,
-    keys = {
-      { "<leader>mi", ":MoltenInit<cr>", desc = "[m]olten [i]nit" },
-      {
-        "<leader>mv",
-        ":<C-u>MoltenEvaluateVisual<cr>",
-        mode = "v",
-        desc = "molten eval visual",
-      },
-      { "<leader>mr", ":MoltenReevaluateCell<cr>", desc = "molten re-eval cell" },
+      { "<leader>um", ':lua require"nabla".toggle_virt()<cr>', desc = "toggle math equations" },
     },
   },
 
@@ -166,16 +247,6 @@ return {
       return vim.fn.has("win32") ~= 1
     end,
     config = function()
-      -- Requirements
-      -- https://github.com/3rd/image.nvim?tab=readme-ov-file#requirements
-      -- check for dependencies with `:checkhealth kickstart`
-      -- needs:
-      -- sudo apt install imagemagick
-      -- sudo apt install libmagickwand-dev
-      -- sudo apt install liblua5.1-0-dev
-      -- sudo apt install lua5.1
-      -- sudo apt install luajit
-
       local image = require("image")
       image.setup({
         backend = "kitty",
@@ -184,7 +255,6 @@ return {
           markdown = {
             enabled = true,
             only_render_image_at_cursor = true,
-            -- only_render_image_at_cursor_mode = "popup",
             filetypes = { "markdown", "vimwiki", "quarto" },
           },
         },
@@ -220,7 +290,7 @@ return {
         return nil
       end
 
-      local create_preview_window = function(img, og_max_height)
+      local function create_preview_window(img, og_max_height)
         local buf = vim.api.nvim_create_buf(false, true)
         local win_width = vim.api.nvim_get_option_value("columns", {})
         local win_height = vim.api.nvim_get_option_value("lines", {})
@@ -240,7 +310,7 @@ return {
         return { buf = buf, win = win }
       end
 
-      local handle_zoom = function(bufnr)
+      local function handle_zoom(bufnr)
         local img, og_max_height = get_image_at_cursor(bufnr)
         if img == nil then
           return
@@ -253,9 +323,9 @@ return {
       vim.keymap.set("n", "<leader>io", function()
         local bufnr = vim.api.nvim_get_current_buf()
         handle_zoom(bufnr)
-      end, { buffer = true, desc = "image [o]pen" })
+      end, { buffer = true, desc = "image open" })
 
-      vim.keymap.set("n", "<leader>ic", clear_all_images, { desc = "image [c]lear" })
+      vim.keymap.set("n", "<leader>ic", clear_all_images, { desc = "image clear" })
     end,
   },
 }
