@@ -1,4 +1,9 @@
 *.swp
 .config/polybar/scripts/togglapi.env
 *.otter.*
+*.directory
+sddm-arc/theme.conf.user
+.config/nvim/.neoconf.json
+
+
 
