@@ -60,8 +60,8 @@ bindsym $mod+z exec ~/.config/rofi/launchers/colorful/launcher.sh
 
 ###--- APPS ---### {{{{
 bindsym $mod+Control+d exec dolphin
-bindsym $mod+Control+t exec todoist
-bindsym $mod+Control+m exec morgen
+# bindsym $mod+Control+t exec todoist
+# bindsym $mod+Control+m exec morgen
 bindsym $mod+Control+o exec obsidian
 bindsym $mod+Control+c exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=cadlkienfkclaiaibeoongdcgmdikeeg'
 # }}}}
@@ -297,12 +297,13 @@ bindsym $mod+Control+n exec konsole --profile nethack
 ###--- DEFAULT ASSIGNMENTS ---### {{{{
 # Applications to workspaces
 
-## Ferdi 10
+## Work 10
 assign [class="Ferdi"] $ws10
+assign [title="Outlook"] $ws10
+assign [title="Microsoft Teams"] $ws10
+assign [title="Gmail"] $ws10
 
 ## Comms 9
-assign [class="Skype"] $ws9
-assign [class="microsoft teams - preview"] $ws9
 assign [class="discord"] $ws9
 assign [class="zoom"] $ws9
 
@@ -356,6 +357,9 @@ for_window [class="deluge"] layout tabbed
 for_window [class="JDownloader"] layout tabbed
 for_window [class=".*Soulseek.*"] layout tabbed
 for_window [class="dsnote"] layout tabbed
+for_window [title="Outlook"] layout tabbed
+for_window [title="Microsoft Teams"] layout tabbed
+for_window [title="Gmail"] layout tabbed
 
 # Float
 for_window [class="Artha"] floating enable
@@ -373,6 +377,8 @@ for_window [title="ChatGPT"] floating disable
 for_window [title="NotebookLM"] floating disable
 for_window [title="Gemini"] floating disable
 for_window [title="Microsoft Teams"] floating disable
+for_window [title="Outlook"] floating disable
+for_window [title="Gmail"] floating disable
 
 # No border
 for_window [class="albert"] border pixel 0
@@ -392,9 +398,9 @@ exec --no-startup-id dunst
 exec --no-startup-id artha 
 #exec --no-startup-id flameshot
 exec --no-startup-id insync start
-exec --no-startup-id todoist
-exec --no-startup-id morgen
-exec --no-startup-id flatpak run org.ferdium.Ferdium
+# exec --no-startup-id todoist
+# exec --no-startup-id morgen
+# exec --no-startup-id flatpak run org.ferdium.Ferdium
 exec --no-startup-id flatpak run md.obsidian.Obsidian
 exec --no-startup-id flatpak run net.mkiol.SpeechNote
 # exec --no-startup-id pkill pulseaudio
@@ -404,6 +410,9 @@ exec --no-startup-id ulauncher
 exec --no-startup-id xbindkeys
 exec --no-startup-id setxkbmap -layout gb,pl -option 'grp:shifts_toggle' -option caps:escape
 exec --no-startup-id xmodmap -e "keycode 9 = grave"; xmodmap -e "keycode 66 = Escape"
+exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=faolnafnngnfdaknnbpnkhgohbobgegn' '%U'
+exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=cifhbcnohmdccbgoicgdjpfamggdegmo' '%U'
+exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm'
 # }}}}
 
 ###--- THEME ---#### {{{{

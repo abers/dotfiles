@@ -56,6 +56,11 @@ return {
     end
 
     opts.completion = opts.completion or {}
+
+    -- kill ghost text globally until find way to prevent it in Quarto
+    opts.completion.ghost_text = opts.completion.ghost_text or {}
+    opts.completion.ghost_text.enabled = false
+
     opts.completion.menu = opts.completion.menu or {}
 
     local orig_auto_show = opts.completion.menu.auto_show

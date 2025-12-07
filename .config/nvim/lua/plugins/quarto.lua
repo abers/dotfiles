@@ -17,13 +17,11 @@ return {
         chunks = "curly",
       },
       codeRunner = {
-        enabled = false, -- Quarto will NOT manage REPLs
+        enabled = false,
         -- default_method = "iron",
       },
     },
-    -- 👇 This is new: we wire Quarto + otter + Iron *here*
     config = function(_, opts)
-      -- normal quarto-nvim setup
       require("quarto").setup(opts)
 
       -- try to load otter + iron
