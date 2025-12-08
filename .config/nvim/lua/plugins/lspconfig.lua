@@ -3,7 +3,7 @@ return {
   event = "LazyFile",
   dependencies = {
     "mason.nvim",
-    { "williamboman/mason-lspconfig.nvim", config = function() end },
+    { "mason-org/mason-lspconfig.nvim", config = function() end },
   },
   require("lspconfig").marksman.setup({
     filetypes = { "markdown", "quarto", "qmd" },

@@ -1,0 +1,104 @@
+include ~/.tasksyncrc
+# [Created by task 2.6.2 11/24/2025 17:05:54]
+# Taskwarrior program configuration file.
+# For more documentation, see https://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# You can also refence environment variables:
+#   variable=$HOME/task
+#   variable=$VALUE
+
+# Use the command 'task show' to see all defaults and overrides
+uda.weight.type=numeric
+uda.weight.label=Weight
+urgency.uda.weight.coefficient=4
+
+# Files
+data.location=/home/alasdair/.task
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+report.byproject.description=Grouped by project
+report.byproject.filter=status:pending
+report.byproject.columns=id,project,description,priority,due,tags,urgency
+report.byproject.labels=ID,Project,Description,Pri,Due,Tags,Urgency
+report.byproject.sort=project+/,urgency-
+
+
+report.due.description=Tasks by due date
+report.due.filter=status:pending and due.any:
+report.due.columns=id,weight,project,description,priority,due,tags,urgency
+report.due.labels=ID,Weight,Project,Description,Pri,Due,Tags,Urgency
+report.due.sort=due+
+
+report.plan.description=Planned tasks
+report.plan.columns=id,project,description,priority,due,urgency,tags,weight
+report.plan.labels=ID,Project,Description,Pri,Due,Urgency,Tags,weight
+report.plan.sort=weight-,urgency-
+report.plan.filter=status:pending and +plan
+
+report.deadlines.description=Deadlines sorted by due
+report.deadlines.columns=id,project,description,priority,due,tags,urgency,weight
+report.deadlines.labels=ID,Project,Description,Pri,Due,Tags,Urgency,weight
+report.deadlines.sort=due+
+report.deadlines.filter=status:pending and +deadline and due.any:
+
+report.progress.description=Sub-tasks can progress
+report.progress.columns=id,weight,project,description,tags,priority,due,urgency
+report.progress.labels=ID,Weight,Project,Description,Tags,Pri,Due,Urgency
+report.progress.sort=project+/
+report.progress.filter=status:pending and (+BLOCKED or +BLOCKING or +deadline or +milestone)
+
+news.version=3.4.2
+
+context.work.read=project:w or project:article
+context.work.write=project:w
+
+context.work-all.read=project:w or project:article or project:schol
+context.work-all.write=project:w
+
+context.writing.read=project:article or project:blog or project:schol
+context.writing.write=project:
+
+context.outputs.read=project:article
+context.outputs.write=project:
+
+context.dev.read=project:dev or project:data
+context.dev.write=project:dev
+
+context.personal.read=project:dump or project:home or project:p
+context.personal.write=project:p
+
+context.personal-all.read=project:blog or project:dump or project:hard or project:home or project:p or project:soft
+context.personal-all.write=project:
+
+color.tag.plan=black bold on magenta
+color.tag.deadline=black bold on red
+color.tag.milestone=black bold on yellow
+
+context=work

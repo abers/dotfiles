@@ -1,18 +1,13 @@
 return {
   "hedyhli/outline.nvim",
-  cmd = { "Outline", "OutlineOpen" },
-  keys = { -- Example mapping to toggle outline
-    { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+  keys = {
+    { "<M-o>", "<cmd>Outline<CR>", desc = "Toggle Outline" },
   },
   config = function()
-    -- Example mapping to toggle outline
-    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
-
     require("outline").setup({
-      -- Your setup opts here (leave empty to use defaults)
       symbols = {
-        icon_fetcher = function(k, buf)
-          local ft = vim.api.nvim_buf_get_option(buf, "ft")
+        icon_fetcher = function(_, bufnr)
+          local ft = vim.api.nvim_get_option_value("ft", { buf = bufnr })
           if ft == "quarto" then
             return ""
           end
@@ -20,19 +15,17 @@ return {
         end,
       },
       providers = {
-        priority = { "lsp", "coc", "markdown", "norg", "man" },
+        priority = { "markdown", "lsp", "coc", "norg", "man" },
         lsp = {
-          -- Lsp client names to ignore
           blacklist_clients = {},
         },
         markdown = {
-          -- List of supported ft's to use the markdown provider
-          filetypes = { "markdown", "quarto", "qmd" },
+          filetypes = { "markdown", "quarto", "qmd", "rmd", "rmarkdown" },
         },
       },
     })
   end,
-  depedencies = {
+  dependencies = {
     "epheien/outline-treesitter-provider.nvim",
   },
 }
