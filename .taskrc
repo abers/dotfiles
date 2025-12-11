@@ -101,4 +101,3 @@ color.tag.plan=black bold on magenta
 color.tag.deadline=black bold on red
 color.tag.milestone=black bold on yellow
 
-context=work

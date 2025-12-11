@@ -7,6 +7,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/snap/bin:$PATH"
 export PATH=$PATH:/home/alasdair/Git/llama.cpp/build/bin
+export PATH="$PATH:/opt/nvim/"
 export FZF_BASE=/mnt/files/Git/fzf
 export FZF_DEFAULT_OPTS="--layout reverse"
 #export FZF_DEFAULT_OPTS="--layout reverse --preview 'bat --theme="Nord" --color=always --line-range :500 {}'"
