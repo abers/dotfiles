@@ -1,9 +1,8 @@
 *.swp
 .config/polybar/scripts/togglapi.env
+.config/nvim/lazyvim.json
+.config/nvim/lazy-lock.json
 *.otter.*
 *.directory
 sddm-arc/theme.conf.user
 .config/nvim/.neoconf.json
-
-
-
