@@ -13,6 +13,8 @@ include ~/.tasksyncrc
 #   variable=$HOME/task
 #   variable=$VALUE
 
+nag=
+
 # Use the command 'task show' to see all defaults and overrides
 uda.weight.type=numeric
 uda.weight.label=Weight
@@ -30,7 +32,7 @@ data.location=/home/alasdair/.task
 # Color theme (uncomment one to use)
 #include light-16.theme
 #include light-256.theme
-#include dark-16.theme
+include dark-16.theme
 #include dark-256.theme
 #include dark-red-256.theme
 #include dark-green-256.theme
@@ -97,8 +99,37 @@ context.personal.write=project:p
 context.personal-all.read=project:blog or project:dump or project:hard or project:home or project:p or project:soft
 context.personal-all.write=project:
 
+# General decoration
+color.label=
+color.label.sort=color15
+color.alternate=on color8
+color.header=
+color.footnote=cyan
+color.warning=bright yellow
+color.error=red
+color.debug=
+
+# Task state
+color.completed=
+color.deleted=
+color.active=underline
+color.recurring=
+color.scheduled=
+color.until=
+color.blocking=on color14
+color.blocked=color8 on color11
+
+# Priority
+color.uda.priority.H=color15
+color.uda.priority.M=color9
+color.uda.priority.L=color10
+
+# Due
+color.due.today=
+color.due=
+color.overdue=red
+
 color.tag.plan=black bold on magenta
-color.tag.deadline=black bold on red
+color.tag.deadline=black bold on color11
 color.tag.milestone=black bold on yellow
 
-context=work

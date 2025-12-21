@@ -1,3 +1,6 @@
+# Terminal
+alias c='clear'
+
 # Apt
 alias upgrade='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; flatpak update -y'
 
@@ -16,18 +19,22 @@ alias python='python3'
 alias vgodot='nvim --listen /tmp/godothost'
 
 # TaskWarrior
-# alias ts='task sync'
-# alias tw='task work'
-# alias tp='task personal'
-# alias td='task due'
+alias t='task'
+alias tp='task plan'
+alias ts='task sync'
+alias tw='task project:w'
+alias td='task due'
 # alias tl='task projects'
-# alias ti='task inbox'
-# alias ta='task add'
-# alias t='task'
+alias ta='task add'
 # alias tn='task sync;clear;td'
-# alias tu='task +Urgent'
-# alias tt='ts;clear;ti;tu;t +DUE; t +OVERDUE'
-# tc () { task "$1" done; }
+tc () { task "$1" done; }
+
+alias tcw="task context work"
+alias tcp="task context personal"
+alias tcr="task context writing"
+alias tcwa="task context work-all"
+alias tcpa="task context personal-all"
+alias tcn="task context none"
 
 # Spelling
 sp () { echo "$1" | aspell -a; }
