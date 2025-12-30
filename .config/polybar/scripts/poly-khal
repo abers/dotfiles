@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+"""Polybar status line from khal.
+
+WARNING: Overconvoluted ChatGPT slop that can simplify
+
+Behaviour:
+- If an event is ongoing (excluding all-day): "<title> → <end time>"
+  If multiple overlap, choose the one that started most recently.
+- Else: "(next) <title> <start time>" for the next timed event today.
+- Else: "No more today"
+
+Assumptions (hard-coded to match khal JSON shown by you):
+- start/end are either "DD/MM/YYYY" (all-day) or "DD/MM/YYYY HH:MM" (timed)
+- all-day field is "True"/"False" (strings)
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import subprocess
+import sys
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Any, Iterable, Literal
+
+
+DATE_FMT = "%d/%m/%Y"
+DT_FMT = "%d/%m/%Y %H:%M"
+TIME_FMT = "%H:%M"
+
+
+@dataclass(frozen=True)
+class Item:
+    title: str
+    start: datetime
+    end: datetime
+
+
+def _run_khal_json(args: list[str]) -> list[dict[str, Any]]:
+    proc = subprocess.run(
+        ["khal", *args],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    out = (proc.stdout or "").strip()
+    if proc.returncode != 0:
+        return []
+    if not out:
+        return []
+    try:
+        data = json.loads(out)
+    except json.JSONDecodeError:
+        return []
+    return data if isinstance(data, list) else []
+
+
+def _parse_bool(val: Any) -> bool:
+    if isinstance(val, bool):
+        return val
+    if val is None:
+        return False
+    if isinstance(val, (int, float)):
+        return bool(val)
+    s = str(val).strip().lower()
+    return s in {"true", "1", "yes", "y", "on"}
+
+
+def _parse_dt(s: str) -> datetime | None:
+    s = s.strip()
+    if not s:
+        return None
+    for fmt in (DT_FMT, DATE_FMT):
+        try:
+            return datetime.strptime(s, fmt)
+        except ValueError:
+            continue
+    return None
+
+
+def _sanitise_for_polybar(text: str, max_len: int = 60) -> str:
+    text = text.replace("%{", "").replace("\n", " ").strip()
+    if len(text) > max_len:
+        return text[: max_len - 1].rstrip() + "…"
+    return text
+
+
+def _items_from_rows(rows: Iterable[dict[str, Any]]) -> list[Item]:
+    items: list[Item] = []
+    for r in rows:
+        if _parse_bool(r.get("all-day")):
+            continue
+
+        title = str(r.get("title", "")).strip() or "Untitled"
+        start_s = str(r.get("start", "")).strip()
+        end_s = str(r.get("end", "")).strip()
+
+        start = _parse_dt(start_s)
+        end = _parse_dt(end_s)
+        if start is None or end is None:
+            continue
+
+        if start.strftime(DT_FMT) == start_s and end.strftime(DT_FMT) == end_s:
+            items.append(Item(title=title, start=start, end=end))
+
+    return items
+
+
+def _first_ongoing() -> Item | None:
+    rows = _run_khal_json(["at", "--json", "title", "--json", "start", "--json", "end", "--json", "all-day", "now"])
+    items = _items_from_rows(rows)
+    if not items:
+        return None
+    return max(items, key=lambda it: it.start)
+
+
+def _first_next_today() -> Item | None:
+    rows = _run_khal_json(
+        ["list", "--notstarted", "--json", "title", "--json", "start", "--json", "end", "--json", "all-day", "now", "eod"]
+    )
+    items = _items_from_rows(rows)
+    if not items:
+        return None
+    return min(items, key=lambda it: it.start)
+
+
+def _format_status(mode: Literal["status", "ongoing", "next", "raw"]) -> str:
+    if mode == "raw":
+        return json.dumps(
+            {
+                "at_now": _run_khal_json(["at", "--json", "title", "--json", "start", "--json", "end", "--json", "all-day", "now"]),
+                "next_today": _run_khal_json(
+                    ["list", "--notstarted", "--json", "title", "--json", "start", "--json", "end", "--json", "all-day", "now", "eod"]
+                ),
+            },
+            ensure_ascii=False,
+        )
+
+    if mode in {"status", "ongoing"}:
+        ongoing = _first_ongoing()
+        if ongoing:
+            title = _sanitise_for_polybar(ongoing.title)
+            return f"{title} → {ongoing.end.strftime(TIME_FMT)}"
+        if mode == "ongoing":
+            return ""
+
+    nxt = _first_next_today()
+    if nxt:
+        title = _sanitise_for_polybar(nxt.title)
+        if mode == "next":
+            return f"(next) {title} → {nxt.start.strftime(TIME_FMT)}"
+        return f"(next) {title} → {nxt.start.strftime(TIME_FMT)}"
+
+    return "No more today"
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(add_help=False)
+    ap.add_argument("mode", nargs="?", default="status", choices=["status", "ongoing", "next", "raw"])
+    args = ap.parse_args()
+
+    out = _format_status(args.mode)
+    if out:
+        print(out)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

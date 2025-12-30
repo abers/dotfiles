@@ -112,7 +112,7 @@ color.debug=
 # Task state
 color.completed=
 color.deleted=
-color.active=underline
+color.active=color15 underline on blue
 color.recurring=
 color.scheduled=
 color.until=
@@ -133,3 +133,4 @@ color.tag.plan=black bold on magenta
 color.tag.deadline=black bold on color11
 color.tag.milestone=black bold on yellow
 
+context=personal-all

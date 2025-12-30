@@ -83,7 +83,8 @@ scroll-down = i3wm-wsprev
 
 ;== Module Location ========================================================
 
-modules-left = workspaces 
+modules-left = workspaces
+modules-center = calendar
 modules-right = date
  
 [bar/main2]
