@@ -84,7 +84,7 @@ scroll-down = i3wm-wsprev
 ;== Module Location ========================================================
 
 modules-left = workspaces
-modules-center = calendar
+modules-center = calendar polypomo
 modules-right = date
  
 [bar/main2]

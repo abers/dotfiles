@@ -300,10 +300,10 @@ bindsym $mod+Control+n exec konsole --profile nethack
 ## Work 10
 assign [class="Ferdi"] $ws10
 assign [title="Outlook"] $ws10
-assign [title="Microsoft Teams"] $ws10
 assign [title="Gmail"] $ws10
 
 ## Comms 9
+assign [title="Microsoft Teams"] $ws9
 assign [class="discord"] $ws9
 assign [class="zoom"] $ws9
 
@@ -410,9 +410,9 @@ exec --no-startup-id ulauncher
 exec --no-startup-id xbindkeys
 exec --no-startup-id setxkbmap -layout gb,pl -option 'grp:shifts_toggle' -option caps:escape
 exec --no-startup-id xmodmap -e "keycode 9 = grave"; xmodmap -e "keycode 66 = Escape"
-exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=faolnafnngnfdaknnbpnkhgohbobgegn' '%U'
-exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=cifhbcnohmdccbgoicgdjpfamggdegmo' '%U'
-exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm'
+# exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=faolnafnngnfdaknnbpnkhgohbobgegn' '%U'
+# exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=cifhbcnohmdccbgoicgdjpfamggdegmo' '%U'
+# exec flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm'
 # }}}}
 
 ###--- THEME ---#### {{{{
