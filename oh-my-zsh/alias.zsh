@@ -20,7 +20,10 @@ alias vgodot='nvim --listen /tmp/godothost'
 
 # TaskWarrior
 alias t='task'
+alias tnd='task due.none:'
 alias tp='task plan'
+alias tpp='task plan; task horizon'
+alias tr="task plan; task due -plan; task due.none: -plan -milestone -pdr blocking; task due.none: '(tags.has:plan or tags.has:milestone or +pdr or project:w.pgcap)' list"
 alias ts='task sync'
 alias tw='task project:w'
 alias td='task due'

@@ -58,6 +58,12 @@ report.due.columns=id,weight,project,description,priority,due,due.relative,tags,
 report.due.labels=ID,Weight,Project,Description,Pri,Due,Til,Tags,Urgency
 report.due.sort=due+
 
+report.horizon.description=Tasks on the horizon
+report.horizon.filter=status:pending and due.any: and -OVERDUE and -DUETODAY and -plan
+report.horizon.columns=id,weight,project,description,priority,due,due.relative,tags,urgency
+report.horizon.labels=ID,Weight,Project,Description,Pri,Due,Til,Tags,Urgency
+report.horizon.sort=due+
+
 report.due7.description=Tasks overdue / due next 7 days
 report.due7.filter=status:pending and due.any: due.before:today+8days
 report.due7.columns=id,description,project,due,due.relative
@@ -71,10 +77,10 @@ report.week.labels=ID,Description,Project,Due,Til
 report.week.sort=due+
 
 report.plan.description=Planned tasks
-report.plan.columns=id,project,description,priority,due,urgency,tags,weight
-report.plan.labels=ID,Project,Description,Pri,Due,Urgency,Tags,weight
+report.plan.columns=id,project,description,priority,due,due.relative,urgency,tags,weight
+report.plan.labels=ID,Project,Description,Pri,Due,Til,Urgency,Tags,Weight
 report.plan.sort=weight-,urgency-
-report.plan.filter=status:pending and +plan
+report.plan.filter=status:pending and (+plan or +OVERDUE or +DUETODAY)
 
 report.plan-rofi.description=Planned tasks (rofi)
 report.plan-rofi.columns=id,description,project
