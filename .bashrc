@@ -201,3 +201,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
 export PATH=$PATH:/home/alasdair/Git/llama.cpp/build/bin
+
+# fnm
+FNM_PATH="/home/alasdair/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell bash)"
+fi
+
+# >>> Codex installer >>>
+export PATH="/home/alasdair/.local/bin:$PATH"
+# <<< Codex installer <<<

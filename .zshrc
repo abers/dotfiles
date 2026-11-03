@@ -17,6 +17,8 @@ export DOMAIN=constellations.scot
 #export GPG_TTY='tty'
 unsetopt nomatch
 
+export HF_HOME=/media/alasdair/etc/Models/HuggingFace/
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

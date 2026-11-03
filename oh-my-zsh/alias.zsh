@@ -18,9 +18,13 @@ alias gsher='cd ~/Git/Sherlock/'
 alias python='python3'
 alias vgodot='nvim --listen /tmp/godothost'
 
+# Phalanx
+alias px="nocorrect px"
+
 # TaskWarrior
 alias t='task'
 alias tnd='task due.none:'
+alias tt='task today'
 alias tp='task plan'
 alias tpp='task plan; task horizon'
 alias tr="task plan; task due -plan; task due.none: -plan -milestone -pdr blocking; task due.none: '(tags.has:plan or tags.has:milestone or +pdr or project:w.pgcap)' list"
@@ -49,6 +53,8 @@ alias gitup='git add -A; git commit; git push'
 alias gitall='git add .; git commit'
 alias gacm='git add .; git commit -m'
 
+# Nethack
+alias nh='ssh nethack@eu.hardfought.org'
 
 # Python
 # alias python=python3
@@ -69,10 +75,6 @@ alias lastfm="mpdscribble --conf /home/alasdair/.config/mpdscribble/mpdscribble.
 #alias fitbit="sudo /home/alasdair/.tmp/galileo/run --debug --bluetooth PyDBUS --database RemoteRESTDatabase --force"
 #alias gpg="gpg2"
 alias keyfix="setxkbmap -layout gb,pl -option caps:escape"
-
-# Backups
-alias SteamSaves="rsync -aP --delete ~/.local/share/Tabletop\ Simulator/Saves /mnt/files/Backups"
-alias journalBack="rsync -aP --delete ~/Dropbox/notes/journal ~/Nextcloud/"
 
 # Let's encrypt
 alias letsencrypt='sudo certbot certonly --manual -d *.$DOMAIN -d $DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory --register-unsafely-without-email --rsa-key-size 4096'

@@ -76,6 +76,12 @@ report.week.columns=id,description,project,due,due.relative
 report.week.labels=ID,Description,Project,Due,Til
 report.week.sort=due+
 
+report.today.description=Today's tasks only
+report.today.columns=id,project,description,priority,due,due.relative,urgency,tags,weight
+report.today.labels=ID,Project,Description,Pri,Due,Til,Urgency,Tags,Weight
+report.today.sort=weight-,urgency-
+report.today.filter=status:pending and (+OVERDUE or +DUETODAY)
+
 report.plan.description=Planned tasks
 report.plan.columns=id,project,description,priority,due,due.relative,urgency,tags,weight
 report.plan.labels=ID,Project,Description,Pri,Due,Til,Urgency,Tags,Weight
